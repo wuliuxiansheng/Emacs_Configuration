@@ -1,0 +1,21 @@
+
+;; ----- smex-history -----
+(
+ list-packages
+ kill-buffer
+ uncomment-region
+ term
+ recover-file
+ python-mode
+ cd
+)
+
+;; ----- smex-data -----
+(
+ (list-packages . 13)
+ (term . 5)
+ (uncomment-region . 9)
+ (python-mode . 1)
+ (recover-file . 1)
+ (kill-buffer . 2)
+)
