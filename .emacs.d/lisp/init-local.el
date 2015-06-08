@@ -6,6 +6,8 @@
 (add-to-list 'package-archives
              '("marmalade" .
                "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
 (package-initialize)
 
 (global-linum-mode t);show line number
