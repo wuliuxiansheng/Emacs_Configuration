@@ -105,6 +105,7 @@
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 ;end emacs + auctex
 
+
 ;;; pymacs configuration
 (eval-after-load 'python
   '(progn
@@ -116,5 +117,10 @@
      (message "loading ropemacs")
      (pymacs-load "ropemacs" "rope-")
      (setq ropemacs-enable-autoimport t)))
+;;; integrate ropemacs with auto-complete
+(ac-ropemacs-initialize)
+(add-hook 'python-mode-hook
+    (lambda ()
+        (add-to-list 'ac-sources 'ac-source-ropemacs)))
 
 (provide 'init-local)
