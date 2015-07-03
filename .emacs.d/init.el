@@ -103,6 +103,7 @@
 (require 'init-ledger)
 
 (require 'init-yasnippet)
+(require 'init-auctex)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
