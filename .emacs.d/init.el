@@ -104,6 +104,7 @@
 
 (require 'init-yasnippet)
 (require 'init-auctex)
+(require 'init-pymacs)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
