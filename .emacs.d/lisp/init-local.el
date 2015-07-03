@@ -48,17 +48,9 @@
 ;;	default-tab-width 4))
 ;;(add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
-;;;yasnippet
-(require-package 'yasnippet)
-(require 'yasnippet)
-(define-key yas-minor-mode-map (kbd "<tab>") nil)
-(define-key yas-minor-mode-map (kbd "TAB") nil)
-(define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
-(yas-global-mode t)
-
 ;;; emacs + auctex on Mac
 
-;;(load "auctex.el" nil t t)
+;;(load "auctex.el" nil t t) 
 
 (setenv "PATH" (concat "/usr/texbin:/usr/local/bin:" (getenv "PATH"))) 
 (setq exec-path (append '("/usr/texbin" "/usr/local/bin") exec-path)) 
