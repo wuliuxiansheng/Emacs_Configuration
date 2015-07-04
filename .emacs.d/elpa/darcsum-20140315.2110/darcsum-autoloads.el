@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "darcsum" "darcsum.el" (21701 18431 0 0))
+;;;### (autoloads nil "darcsum" "darcsum.el" (21911 30549 0 0))
 ;;; Generated autoloads from darcsum.el
 
 (autoload 'darcsum-changes "darcsum" "\
@@ -35,8 +35,8 @@ working directory is assumed.
 
 ;;;***
 
-;;;### (autoloads nil nil ("50darcsum.el" "darcsum-pkg.el") (21701
-;;;;;;  18431 716132 0))
+;;;### (autoloads nil nil ("50darcsum.el" "darcsum-pkg.el") (21911
+;;;;;;  30549 26839 0))
 
 ;;;***
 

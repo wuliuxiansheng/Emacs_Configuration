@@ -4,8 +4,8 @@
 
 ;; Author: Marko Bencun <mbencun@gmail.com>
 ;; URL: https://github.com/benma/hayoo.el/
-;; Version: 20140831.521
-;; X-Original-Version: 0.1
+;; Package-Version: 20140831.521
+;; Version: 0.1
 ;; Package-requires: ((emacs "24") (json "1.3"))
 ;; Keywords: hayoo, haskell
 

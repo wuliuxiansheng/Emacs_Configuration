@@ -5,8 +5,8 @@
 ;; Author: R.W. van 't Veer
 ;; Created: 2 Aug 2010
 ;; Keywords: tools processes
-;; Version: 20120120.316
-;; X-Original-Version: 0.2.2
+;; Package-Version: 20120120.316
+;; Version: 0.2.2
 ;; URL: https://github.com/remvee/elein
 
 ;; This program is free software; you can redistribute it and/or

@@ -7,8 +7,8 @@
 ;;         Juliusz Chroboczek <jch@pps.univ-paris-diderot.fr>
 ;; Maintainer: Juliusz Chroboczek <jch@pps.univ-paris-diderot.fr>
 ;; Keywords: vc
-;; Version: 20141122.1326
-;; X-Original-Version: 1.19
+;; Package-Version: 20141122.1326
+;; Version: 1.19
 
 ;;; This program is free software; you can redistribute it and/or
 ;;; modify it under the terms of the GNU General Public License

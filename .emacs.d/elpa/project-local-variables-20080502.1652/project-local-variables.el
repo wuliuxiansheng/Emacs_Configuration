@@ -4,8 +4,8 @@
 
 ;; Author: Ryan Davis and Phil Hagelberg
 ;; URL: http://www.emacswiki.org/cgi-bin/wiki/ProjectLocalVariables
-;; Version: 20080502.1652
-;; X-Original-Version: 0.2
+;; Package-Version: 20080502.1652
+;; Version: 0.2
 ;; Created: 2008-03-18
 ;; Keywords: project, convenience
 ;; EmacsWiki: ProjectLocalVariables

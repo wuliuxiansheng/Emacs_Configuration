@@ -1,5 +1,5 @@
 ;;; csv-nav.el --- navigate and edit CSV files
-;; Version: 20130407.1820
+;; Package-Version: 20130407.1820
 
 ;; Copyright (C) 2006  Alex Schroeder <alex@gnu.org>
 

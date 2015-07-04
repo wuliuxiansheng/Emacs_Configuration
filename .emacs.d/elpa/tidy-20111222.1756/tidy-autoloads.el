@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "tidy" "tidy.el" (21701 18513 0 0))
+;;;### (autoloads nil "tidy" "tidy.el" (21911 30638 0 0))
 ;;; Generated autoloads from tidy.el
 
 (autoload 'tidy-build-menu "tidy" "\

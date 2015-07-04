@@ -4,8 +4,8 @@
 
 ;; Author: Steve Purcell <steve@sanityinc.com>
 ;; Keywords: languages, tools
-;; Version: 20131015.622
-;; X-Original-Version: DEV
+;; Package-Version: 20131015.622
+;; Version: DEV
 ;; Package-Requires: ((skewer-mode "1.5.3"))
 
 ;; This program is free software; you can redistribute it and/or modify

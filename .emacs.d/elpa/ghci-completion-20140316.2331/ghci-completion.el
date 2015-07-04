@@ -3,8 +3,8 @@
 ;; Copyright (C) 2012 Oleksandr Manzyuk <manzyuk@gmail.com>
 
 ;; Author: Oleksandr Manzyuk <manzyuk@gmail.com>
-;; Version: 20140316.2331
-;; X-Original-Version: 0.1.3
+;; Version: 0.1.3
+;; Package-Version: 20140316.2331
 ;; Keywords: convenience
 ;; Package-Requires: ((emacs "24.1"))
 

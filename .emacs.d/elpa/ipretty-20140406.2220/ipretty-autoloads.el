@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "ipretty" "ipretty.el" (21701 18558 0 0))
+;;;### (autoloads nil "ipretty" "ipretty.el" (21911 30675 0 0))
 ;;; Generated autoloads from ipretty.el
 
 (autoload 'ipretty-last-sexp "ipretty" "\

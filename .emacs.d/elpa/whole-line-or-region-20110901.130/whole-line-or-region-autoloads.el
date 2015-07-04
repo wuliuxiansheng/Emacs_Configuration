@@ -4,7 +4,7 @@
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
 ;;;### (autoloads nil "whole-line-or-region" "whole-line-or-region.el"
-;;;;;;  (21701 18425 0 0))
+;;;;;;  (21911 30545 0 0))
 ;;; Generated autoloads from whole-line-or-region.el
 
 (autoload 'whole-line-or-region-mode "whole-line-or-region" "\

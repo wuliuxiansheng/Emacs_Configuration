@@ -2,6 +2,14 @@
 (setq user-full-name "Chao Liu")
 (setq user-mail-address "chao.liu0307@gmail.com")
 
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" .
+               "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
+(package-initialize)
+
 (global-linum-mode t);show line number
 
 ;;;cursor stop blinking 

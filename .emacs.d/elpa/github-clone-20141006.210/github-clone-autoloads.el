@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "github-clone" "github-clone.el" (21701 18458
+;;;### (autoloads nil "github-clone" "github-clone.el" (21911 30582
 ;;;;;;  0 0))
 ;;; Generated autoloads from github-clone.el
 

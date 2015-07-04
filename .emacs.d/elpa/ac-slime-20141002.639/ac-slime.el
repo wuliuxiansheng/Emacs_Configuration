@@ -4,8 +4,8 @@
 
 ;; Author: Steve Purcell <steve@sanityinc.com>
 ;; URL: https://github.com/purcell/ac-slime
-;; Version: 20141002.639
-;; X-Original-Version: DEV
+;; Package-Version: 20141002.639
+;; Version: DEV
 ;; Package-Requires: ((auto-complete "1.4") (slime "2.9") (cl-lib "0.5"))
 
 ;; This file is not part of GNU Emacs.

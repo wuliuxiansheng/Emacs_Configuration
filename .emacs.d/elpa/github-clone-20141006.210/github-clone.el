@@ -4,8 +4,8 @@
 
 ;; Author: Charles L.G. Comstock <dgtized@gmail.com>
 ;; Created: 2 Aug 2014
-;; Version: 20141006.210
-;; X-Original-Version: 0.2
+;; Version: 0.2
+;; Package-Version: 20141006.210
 ;; URL: https://github.com/dgtized/github-clone.el
 ;; Keywords: vc, tools
 ;; Package-Requires: ((gh "0.7.2") (magit "1.2.0") (emacs "24"))

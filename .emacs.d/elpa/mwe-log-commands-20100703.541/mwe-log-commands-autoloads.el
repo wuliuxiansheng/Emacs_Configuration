@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "mwe-log-commands" "mwe-log-commands.el" (21701
-;;;;;;  18373 0 0))
+;;;### (autoloads nil "mwe-log-commands" "mwe-log-commands.el" (21911
+;;;;;;  30486 0 0))
 ;;; Generated autoloads from mwe-log-commands.el
 
 (autoload 'mwe:log-keyboard-commands "mwe-log-commands" "\

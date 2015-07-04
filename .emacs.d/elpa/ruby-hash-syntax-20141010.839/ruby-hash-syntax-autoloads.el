@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "ruby-hash-syntax" "ruby-hash-syntax.el" (21701
-;;;;;;  18545 0 0))
+;;;### (autoloads nil "ruby-hash-syntax" "ruby-hash-syntax.el" (21911
+;;;;;;  30664 0 0))
 ;;; Generated autoloads from ruby-hash-syntax.el
 
 (autoload 'ruby-toggle-hash-syntax "ruby-hash-syntax" "\

@@ -1,5 +1,4 @@
 ;;; git-blame.el --- Minor mode for incremental blame for Git  -*- coding: utf-8 -*-
-;; Version: 20110509.926
 ;;
 ;; Copyright (C) 2007  David Kågedal
 ;;
@@ -8,6 +7,7 @@
 ;; Message-ID: <87iren2vqx.fsf@morpheus.local>
 ;; License:    GPL
 ;; Keywords:   git, version control, release management
+;; Package-Version: 20110509.926
 ;;
 ;; Compatibility: Emacs21, Emacs22 and EmacsCVS
 ;;                Git 1.5 and up

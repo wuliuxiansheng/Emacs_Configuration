@@ -4,8 +4,8 @@
 
 ;; Author: Yann Hodique <yann.hodique@gmail.com>
 ;; Keywords: lisp, tool
-;; Version: 20120225.1255
-;; X-Original-Version: 0.1
+;; Package-Version: 20120225.1255
+;; Version: 0.1
 ;; Package-Requires: ((eieio "1.3"))
 
 ;; This file is free software; you can redistribute it and/or modify

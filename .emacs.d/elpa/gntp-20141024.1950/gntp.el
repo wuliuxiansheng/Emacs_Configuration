@@ -1,8 +1,8 @@
 ;;; gntp.el --- Growl Notification Protocol for Emacs -*- lexical-binding: t -*-
 
 ;; Author: Engelke Eschner <tekai@gmx.li>
-;; Version: 20141024.1950
-;; X-Original-Version: 0.1
+;; Version: 0.1
+;; Package-Version: 20141024.1950
 ;; Created: 2013-03-21
 
 ;; LICENSE

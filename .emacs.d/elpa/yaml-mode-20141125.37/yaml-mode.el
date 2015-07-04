@@ -5,8 +5,8 @@
 ;; Author: Yoshiki Kurihara <clouder@gmail.com>
 ;;         Marshall T. Vandegrift <llasram@gmail.com>
 ;; Keywords: data yaml
-;; Version: 20141125.37
-;; X-Original-Version: 0.0.11
+;; Package-Version: 20141125.37
+;; Version: 0.0.11
 
 ;; This file is not part of Emacs
 

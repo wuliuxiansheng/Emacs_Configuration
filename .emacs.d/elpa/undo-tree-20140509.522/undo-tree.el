@@ -3,8 +3,8 @@
 ;; Copyright (C) 2009-2014  Free Software Foundation, Inc
 
 ;; Author: Toby Cubitt <toby-undo-tree@dr-qubit.org>
-;; Version: 20140509.522
-;; X-Original-Version: 0.6.6
+;; Version: 0.6.6
+;; Package-Version: 20140509.522
 ;; Keywords: convenience, files, undo, redo, history, tree
 ;; URL: http://www.dr-qubit.org/emacs.php
 ;; Repository: http://www.dr-qubit.org/git/undo-tree.git

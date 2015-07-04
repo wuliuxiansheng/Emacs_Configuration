@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "pymacs" "pymacs.el" (21877 59613 0 0))
+;;;### (autoloads nil "pymacs" "pymacs.el" (21911 30826 0 0))
 ;;; Generated autoloads from pymacs.el
 
 (autoload 'pymacs-load "pymacs" "\

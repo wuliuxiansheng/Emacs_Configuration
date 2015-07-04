@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2009, Andy Stewart, all rights reserved.
 ;; Created: 2009-02-09 12:36:52
-;; Version: 20090209.438
-;; X-Original-Version: 0.1
+;; Version: 0.1
+;; Package-Version: 20090209.438
 ;; Last-Updated: 2009-02-09 12:36:52
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/dired-sort.el

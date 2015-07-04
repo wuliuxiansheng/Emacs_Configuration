@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "jump" "jump.el" (21701 18552 0 0))
+;;;### (autoloads nil "jump" "jump.el" (21911 30669 0 0))
 ;;; Generated autoloads from jump.el
 
 (autoload 'defjump "jump" "\

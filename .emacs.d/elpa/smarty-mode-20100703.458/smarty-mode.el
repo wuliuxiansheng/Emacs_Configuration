@@ -1,10 +1,10 @@
 ;;; smarty-mode.el --- major mode for editing smarty templates
-;; Version: 20100703.458
 
 ;; Copyright (C) 2003 Benj Carson
 
 ;; Maintainer: Benj Carson
 ;; Keywords: smarty php languages templates
+;; Package-Version: 20100703.458
 ;; Created: 2003-08-23
 ;; Modified: 2003-09-06
 ;; X-URL:   none yet

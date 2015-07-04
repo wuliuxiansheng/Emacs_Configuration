@@ -5,8 +5,8 @@
 ;; Author: Aleksei Gusev <aleksei.gusev@gmail.com>
 ;; Maintainer: Aleksei Gusev <aleksei.gusev@gmail.com>
 ;; Created: 24 Apr 2010
-;; Version: 20140206.611
-;; X-Original-Version: 0.7
+;; Version: 0.7
+;; Package-Version: 20140206.611
 ;; Keywords: tools
 
 ;; This program is free software; you can redistribute it and/or modify

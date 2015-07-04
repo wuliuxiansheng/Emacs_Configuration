@@ -3,8 +3,8 @@
 ;;; Copyright 2009 Luke Gorrie <luke@bup.co.nz>
 
 ;; Author: Luke Gorrie <luke@bup.co.nz>
-;; Version: 20120728.1413
-;; X-Original-Version: 0.1
+;; Version: 0.1
+;; Package-Version: 20120728.1413
 
 ;;; Go to the end of any of the following lines and run `M-x lively'
 ;;;   Current time:      (current-time-string)

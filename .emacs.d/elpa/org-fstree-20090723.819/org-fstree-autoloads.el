@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil nil ("org-fstree.el") (21701 18510 256361 0))
+;;;### (autoloads nil nil ("org-fstree.el") (21911 30632 705912 0))
 
 ;;;***
 

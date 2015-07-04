@@ -3,8 +3,8 @@
 ;; Copyright (C) 2013-2014  Steve Purcell
 
 ;; Author: Steve Purcell <steve@sanityinc.com>
-;; Version: 20141010.839
-;; X-Original-Version: DEV
+;; Version: DEV
+;; Package-Version: 20141010.839
 ;; URL: https://github.com/purcell/ruby-hash-syntax
 ;; Keywords: languages
 

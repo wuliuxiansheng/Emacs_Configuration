@@ -4,7 +4,7 @@
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
 ;;;### (autoloads nil "bug-reference-github" "bug-reference-github.el"
-;;;;;;  (21701 18452 0 0))
+;;;;;;  (21911 30575 0 0))
 ;;; Generated autoloads from bug-reference-github.el
 
 (autoload 'bug-reference-github-set-url-format "bug-reference-github" "\
@@ -28,8 +28,8 @@ What it does is:
 
 ;;;***
 
-;;;### (autoloads nil nil ("bug-reference-github-pkg.el") (21701
-;;;;;;  18452 304218 0))
+;;;### (autoloads nil nil ("bug-reference-github-pkg.el") (21911
+;;;;;;  30575 580102 0))
 
 ;;;***
 

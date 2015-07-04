@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "smarty-mode" "smarty-mode.el" (21701 18509
+;;;### (autoloads nil "smarty-mode" "smarty-mode.el" (21911 30632
 ;;;;;;  0 0))
 ;;; Generated autoloads from smarty-mode.el
 

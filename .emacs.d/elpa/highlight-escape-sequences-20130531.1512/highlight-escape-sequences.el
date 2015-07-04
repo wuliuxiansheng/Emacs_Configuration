@@ -2,9 +2,9 @@
 
 ;; Author:   Dmitry Gutov <dgutov@yandex.ru>
 ;; URL:      https://github.com/dgutov/highlight-escape-sequences
+;; Package-Version: 20130531.1512
 ;; Keywords: convenience
-;; Version: 20130531.1512
-;; X-Original-Version:  0.1
+;; Version:  0.1
 
 ;; This file is not part of GNU Emacs.
 

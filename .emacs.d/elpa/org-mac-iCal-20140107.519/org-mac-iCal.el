@@ -3,8 +3,8 @@
 ;; Copyright (C) 2009-2014 Christopher Suckling
 
 ;; Author: Christopher Suckling <suckling at gmail dot com>
-;; Version: 20140107.519
-;; X-Original-Version: 0.1057.104
+;; Version: 0.1057.104
+;; Package-Version: 20140107.519
 ;; Keywords: outlines, calendar
 
 ;; This file is not part of GNU Emacs.

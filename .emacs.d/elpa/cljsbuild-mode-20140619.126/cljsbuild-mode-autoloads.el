@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "cljsbuild-mode" "cljsbuild-mode.el" (21701
-;;;;;;  18741 0 0))
+;;;### (autoloads nil "cljsbuild-mode" "cljsbuild-mode.el" (21911
+;;;;;;  30718 0 0))
 ;;; Generated autoloads from cljsbuild-mode.el
 
 (autoload 'cljsbuild-mode "cljsbuild-mode" "\

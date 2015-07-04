@@ -7,8 +7,8 @@
 ;; Author: Kahlil (Kal) HODGSON <dorge@tpg.com.au>
 ;; X-URL: http://www.emacswiki.org/elisp/tidy.el
 ;; Time-stamp: <2002-09-30 13:16:23 kahlil>
-;; Version: 20111222.1756
-;; X-Original-Version: 2.12
+;; Version: 2.12
+;; Package-Version: 20111222.1756
 ;; Keywords: languages
 
 ;; This file is NOT part of GNU Emacs.

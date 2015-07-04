@@ -4,8 +4,8 @@
 
 ;; Author: Steve Purcell <steve@sanityinc.com>
 ;; Keywords: languages, convenience
-;; Version: 20140906.210
-;; X-Original-Version: DEV
+;; Package-Version: 20140906.210
+;; Version: DEV
 ;; Package-Requires: ((paredit "22"))
 
 ;; This program is free software; you can redistribute it and/or modify

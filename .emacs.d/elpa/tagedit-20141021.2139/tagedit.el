@@ -3,8 +3,8 @@
 ;; Copyright (C) 2012 Magnar Sveen <magnars@gmail.com>
 
 ;; Author: Magnar Sveen <magnars@gmail.com>
-;; Version: 20141021.2139
-;; X-Original-Version: 1.4.0
+;; Version: 1.4.0
+;; Package-Version: 20141021.2139
 ;; Keywords: convenience
 ;; Package-Requires: ((s "1.3.1") (dash "1.0.3"))
 

@@ -3,8 +3,8 @@
 ;; Copyright (C) 2013-2014  Steve Purcell
 
 ;; Author: Steve Purcell <steve@sanityinc.com>
-;; Version: 20140605.1146
-;; X-Original-Version: DEV
+;; Version: DEV
+;; Package-Version: 20140605.1146
 ;; Keywords: convenience languages tools
 ;; Package-Requires: ((flycheck "0.15"))
 

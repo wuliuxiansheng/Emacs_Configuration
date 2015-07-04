@@ -1,10 +1,10 @@
 ;;; ipretty.el --- Interactive Emacs Lisp pretty-printing
-;; Version: 20140406.2220
 
 ;; Copyright (C) 2014, Steckerhalter
 
 ;; Author: steckerhalter
 ;; URL: https://github.com/steckerhalter/ipretty
+;; Package-Version: 20140406.2220
 ;; Keywords: pretty-print elisp buffer
 ;; License: GPLv3, see https://github.com/ipretty/LICENSE
 

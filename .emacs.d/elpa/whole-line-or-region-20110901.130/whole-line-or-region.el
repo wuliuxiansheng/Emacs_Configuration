@@ -7,8 +7,8 @@
 ;; Maintainer:      Steve Purcell <steve@sanityinc.com>
 ;; Created:         July 1, 2001
 ;; Keywords:        kill yank cut copy paste whole lines
-;; Version: 20110901.130
-;; X-Original-Version:         1.3.1
+;; Package-Version: 20110901.130
+;; Version:         1.3.1
 ;; Latest Version:  https://github.com/purcell/whole-line-or-region
 
 ;; COPYRIGHT NOTICE

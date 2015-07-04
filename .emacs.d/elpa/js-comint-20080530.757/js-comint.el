@@ -5,8 +5,8 @@
 ;;; Author: Paul Huff <paul.huff@gmail.com>
 ;;; Maintainer: Paul Huff <paul.huff@gmail.com>
 ;;; Created: 26 May 2008
-;; Version: 20080530.757
-;;; X-Original-Version: 0.0.1
+;;; Version: 0.0.1
+;; Package-Version: 20080530.757
 ;;; Package-Requires: ()
 ;;; Keywords: javascript, inferior-mode, convenience
 

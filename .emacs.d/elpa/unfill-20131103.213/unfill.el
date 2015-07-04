@@ -3,8 +3,8 @@
 ;; Copyright (C) 2012 Steve Purcell.
 
 ;; Author: Steve Purcell <steve@sanityinc.com>
-;; Version: 20131103.213
-;; X-Original-Version: DEV
+;; Version: DEV
+;; Package-Version: 20131103.213
 ;; Keywords: utilities
 
 ;; Based on Xah Lee's examples: http://xahlee.org/emacs/emacs_unfill-paragraph.html

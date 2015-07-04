@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "queue" "queue.el" (21701 18742 0 0))
+;;;### (autoloads nil "queue" "queue.el" (21911 30719 0 0))
 ;;; Generated autoloads from queue.el
 
 (defalias 'make-queue 'queue-create "\

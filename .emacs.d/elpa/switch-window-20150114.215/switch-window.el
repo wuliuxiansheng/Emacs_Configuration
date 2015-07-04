@@ -4,8 +4,8 @@
 ;;
 ;; Author: Dimitri Fontaine <dim@tapoueh.org>
 ;; URL: http://tapoueh.org/emacs/switch-window.html
-;; Version: 20150114.215
-;; X-Original-Version: 0.11
+;; Package-Version: 20150114.215
+;; Version: 0.11
 ;; Created: 2010-04-30
 ;; Keywords: window navigation
 ;; Licence: WTFPL, grab your copy here: http://sam.zoy.org/wtfpl/
