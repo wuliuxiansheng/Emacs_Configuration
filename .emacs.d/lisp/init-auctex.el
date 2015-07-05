@@ -47,7 +47,8 @@
    (setq-default ispell-program-name "aspell")
    (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
-   (add-hook 'doc-view-mode-hook 'auto-revert-mode))
+   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+)
 
 (when *is-a-linux*
   (load "auctex.el" nil t t)
@@ -90,7 +91,8 @@
   (setq-default ispell-program-name "aspell")
   (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
-  (add-hook 'doc-view-mode-hook 'auto-revert-mode))
+  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+)
 
 ;end emacs + auctex
 
