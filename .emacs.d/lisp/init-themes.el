@@ -45,8 +45,8 @@ ignored: use `custom-enabled-themes' instead."
 ;;------------------------------------------------------------------------------
 
 ;; If you don't customize it, this is the theme you get.
-(when *is-a-mac*
-  (setq-default custom-enabled-themes '(sanityinc-solarized-light)))
+(when *is-a-mac* *is-a-windows*
+      (setq-default custom-enabled-themes '(sanityinc-solarized-light)))
 (when *is-a-linux*
   (setq-default custom-enabled-themes '(sanityinc-solarized-dark)))
 
