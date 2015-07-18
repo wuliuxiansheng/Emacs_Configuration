@@ -9,6 +9,8 @@
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
 
+(setq org-startup-indented t)
+
 ;; Various preferences
 (setq org-log-done t
       org-completion-use-ido t
