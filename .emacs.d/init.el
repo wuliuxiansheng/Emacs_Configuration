@@ -16,6 +16,11 @@
 (defconst *is-a-linux* (eq system-type 'gnu/linux))
 (defconst *is-a-windows* (eq system-type 'windows-nt))
 
+(when *is-a-mac*
+  (setq ad-redefinition-action 'accept) ;; ignore the redefinition warning)
+  )
+
+
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
