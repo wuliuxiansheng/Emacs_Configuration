@@ -32,12 +32,23 @@
 ;; C-c @ C-c     toggle hide/show
 
 ;;; c and c++ style
-(add-hook 'c-mode-common-hook ( lambda()
-                                ( c-set-style "k&r" ) 
-                                (setq c-basic-offset 4) ) ) 
-(add-hook 'c++-mode-common-hook ( lambda() 
-                                  ( c-set-style "k&r" ) 
-                                  (setq c-basic-offset 4) ) )
+;; declare c-default-style and c-basic-offset
+(defvar c-default-style)
+(defvar c-basic-offset)
+;; set the style and offset
+(setq c-default-style "k&r"
+      c-basic-offset 4)
+;; tables instead of spaces
+(setq-default c-basic-offset 4
+              tab-width 4
+              indent-tabs-mode t)
+
+;;(add-hook 'c-mode-common-hook ( lambda()
+;;                                ( c-set-style "k&r" ) 
+;;                                (setq c-basic-offset 4) ) ) 
+;;(add-hook 'c++-mode-common-hook ( lambda() 
+;;                                  ( c-set-style "k&r" ) 
+;;                                  (setq c-basic-offset 4) ) )
 ;;(setq c-mode-hook '(lambda () (auto-fill-mode 1))) 
 ;;(setq c-indent-level 5) 
 ;;(setq c-continued-statement-offset 5) 
