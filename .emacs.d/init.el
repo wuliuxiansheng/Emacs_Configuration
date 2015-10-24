@@ -71,8 +71,10 @@
 
 (require 'init-vc)
 (require 'init-darcs)
-(require 'init-git)
-(require 'init-github)
+(when (not *is-a-windows*)
+	(require 'init-git)
+	(require 'init-github)
+	)
 
 (require 'init-compile)
 (require 'init-crontab)
@@ -125,9 +127,11 @@
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
-(require 'server)
-(unless (server-running-p)
-  (server-start))
+(when (not *is-a-windows*)
+	(require 'server)
+	(unless (server-running-p)
+		(server-start))
+		)
 
 
 ;;----------------------------------------------------------------------------
