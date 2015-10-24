@@ -3,10 +3,11 @@
 (setq user-mail-address "chao.liu0307@gmail.com")
 
 ;;;set the default font and size
+
 (when *is-a-mac*
-  (set-default-font "-*-Menlo-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
+  (set-frame-font "-*-Menlo-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
 (when *is-a-linux*
-  (set-default-font "-unkonwn-Ubuntu Mono-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1"))
+  (set-frame-font "-unkonwn-Ubuntu Mono-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1"))
 
 (global-linum-mode t);show line number
 
@@ -17,6 +18,18 @@
 ;;;highlight the current row
 (require 'hl-line)
 (global-hl-line-mode t)
+
+;;;code hide
+(load-library "hideshow")
+(add-hook 'c-mode-hook 'hs-minor-mode)
+(add-hook 'c++-mode-hook 'hs-minor-mode)
+(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+;; M-x hs-minor-mode
+;; C-c @ ESC C-s show all
+;; C-c @ ESC C-h hide all
+;; C-c @ C-s     show block
+;; C-c @ C-h     hide block
+;; C-c @ C-c     toggle hide/show
 
 ;;; c and c++ style
 (add-hook 'c-mode-common-hook ( lambda()
