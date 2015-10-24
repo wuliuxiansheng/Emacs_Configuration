@@ -45,10 +45,12 @@ ignored: use `custom-enabled-themes' instead."
 ;;------------------------------------------------------------------------------
 
 ;; If you don't customize it, this is the theme you get.
-(when *is-a-mac* *is-a-windows*
+(when *is-a-mac*
       (setq-default custom-enabled-themes '(sanityinc-solarized-light)))
 (when *is-a-linux*
   (setq-default custom-enabled-themes '(sanityinc-solarized-dark)))
+(when *is-a-windows*
+      (setq-default custom-enabled-themes '(sanityinc-solarized-light)))
 
 ;; Ensure that themes will be applied even if they have not been customized
 (defun reapply-themes ()
