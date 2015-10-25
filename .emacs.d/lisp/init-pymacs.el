@@ -19,6 +19,7 @@
 )
 
 (when *is-a-linux*
+  (require-package 'pymacs)  ;; For the Emacs 24.5, it seems that it require pymacs here
   ;;; pymacs configuration
   (eval-after-load 'python
   '(progn
