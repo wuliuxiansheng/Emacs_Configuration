@@ -7,6 +7,7 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
   - C/C++
   - Python
   - Auctex
+  - MATLAB
   - HTML
 
 ## Requirements:
