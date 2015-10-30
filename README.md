@@ -6,13 +6,14 @@ Emacs Configuration based on Purcell's Emacs Configuration. It's working for Lin
 This Emacs configuration contains useful tools, such as auto-complete, yasnippet, pymacs and so on, and supports the following programming language:
   - C/C++
   - Python
-  - Auctex
+  - Tex with Auctex
   - MATLAB
   - HTML
 
 ## Requirements:
   - Emacs 23.3 or greater(Emacs 24 is prefered);
   - rope, ropemacs, pymacs is required for python;
+  - aspell is required for spell check;
   - For Windows, follow [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html) to get TLS first. Just download gnutls and copy all DLL files in bin to Emacs bin.
   
 ## Installation:
