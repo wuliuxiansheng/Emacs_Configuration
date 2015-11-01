@@ -113,6 +113,7 @@
 (require 'init-auctex)
 (require 'init-pymacs)
 (require 'init-matlab-mode)
+(require 'init-multi-term)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
