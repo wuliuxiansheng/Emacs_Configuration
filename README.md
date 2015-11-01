@@ -24,6 +24,7 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
   - The default theme for Mac OS X and Windows is light style but dark style for Linux. Modify this in init-themes.el in lisp folder if you want;
   - Change the default font setting in init-preload-local.el;
   - Pymacs is not supported for Windows;
-  - git, github and server configurations are not supported for Windows.
+  - git, github and server configurations are not supported for Windows;
+  - Run `tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti` to solve the weird characters problem or color problem in terminal mode.
 
 
