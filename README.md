@@ -25,7 +25,7 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
   - Change the default font setting in init-preload-local.el;
   - Pymacs is not supported for Windows;
   - git, github and server configurations are not supported for Windows;
-  - Run `tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti` to solve the weird characters problem or color problem in terminal mode.
-  - For Mac OS X, put `.zshenv in utility` to `~/`to solve Chinese display problem in terminal mode.
+  - Run `tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti` to solve the weird characters problem or color problem in terminal mode;
+  - For Mac OS X, put [.zshenv in utility](https://github.com/wuliuxiansheng/Emacs_Configuration/blob/master/utility/.zshenv) to `~/.`to solve Chinese display problem in terminal mode.
 
 
