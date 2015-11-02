@@ -110,16 +110,24 @@
 (require 'init-ledger)
 
 (require 'init-yasnippet)
-(require 'init-auctex)
-(require 'init-pymacs)
+(when (not *is-a-windows*)
+  (require 'init-auctex)
+  )
+(when (not *is-a-windows*)
+  (require 'init-pymacs)
+  )
 (require 'init-matlab-mode)
-(require 'init-multi-term)
+(when (not *is-a-windows*)
+  (require 'init-multi-term)
+  )
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
 (require-package 'lua-mode)
 (require-package 'htmlize)
-(require-package 'dsvn)
+(when (not *is-a-windows*)
+  (require-package 'dsvn)
+  )
 (when *is-a-mac*
   (require-package 'osx-location))
 (require-package 'regex-tool)
