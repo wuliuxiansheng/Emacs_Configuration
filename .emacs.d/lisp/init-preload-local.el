@@ -6,7 +6,7 @@
 (when *is-a-windows*
   (set-frame-font "-outline-Courier New-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1"))
 
-
+(setq ring-bell-function 'ignore);turn the alarm totally off
 (global-linum-mode t);show line number
 
 ;;;cursor stop blinking
