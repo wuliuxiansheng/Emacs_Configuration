@@ -113,9 +113,8 @@
 (when (not *is-a-windows*)
   (require 'init-auctex)
   )
-(when (not *is-a-windows*)
-  (require 'init-pymacs)
-  )
+
+(require 'init-pymacs)
 (require 'init-matlab-mode)
 (when (not *is-a-windows*)
   (require 'init-multi-term)
