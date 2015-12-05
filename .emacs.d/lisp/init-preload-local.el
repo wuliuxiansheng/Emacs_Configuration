@@ -6,7 +6,8 @@
 (when *is-a-linux*
   (set-frame-font "-unkonwn-Ubuntu Mono-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1"))
 (when *is-a-windows*
-  (set-frame-font "-outline-Courier New-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1"))
+  (set-frame-font "-outline-Courier New-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1")
+  (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")) ; add aspell directory to emacs configuration
 
 (global-linum-mode t);show line number
 
