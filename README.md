@@ -24,11 +24,11 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
 ## Note:
   - The default theme for Mac OS X and Windows is light style but dark style for Linux. Modify This in init-themes.el in lisp folder if you want;
   - Change the default font setting in init-preload-local.el;
-  - `Auctex`, `SVN`, `multi-term` and `emacsclient` are not supported for Windows (they may come later);
+  - `Auctex`, `multi-term` and `emacsclient` are not supported for Windows (they may come later);
   - Run `tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti` to solve the weird characters problem or color problem in terminal mode;
   - For Mac OS X, put [.zshenv](https://github.com/wuliuxiansheng/Emacs_Configuration/blob/master/utility/.zshenv) in `utility` to `~/.`to solve Chinese display problem in terminal mode;
   - Turned off alarms totally to fix the the bug of Emacs 24.5 for Capitan EI that a square pops up in the middle of the buffer obscuring the text when the visable bell is working. Get rid of this in init-preload-local.el if you really need these alarms;
   - The size of the screen does affect the popwin. If the screen is too small for the current font, the popwin won't work and user needs to change the font size in init-preload-local.el;
   - Pymacs is supported for Windows now. When opening a Python file is not successful, kill the buffer and reopen the file to load Pymacs properly;
-  - For Windows, bind M-SPC to set mark or unset mark rather than using C-SPC because C-SPC is used to change the input method in Windows.
-  - If it's not installed successfully for the first time for Windows, restart Emacs and it should be working.
+  - For Windows, bind M-SPC to set mark or unset mark rather than using C-SPC because C-SPC is used to change the input method in Windows;
+  - For Windows, if it's not installed successfully for the first time, restart Emacs and it should be working.
