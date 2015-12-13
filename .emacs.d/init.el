@@ -65,8 +65,6 @@
 (require 'init-fonts)
 ;; (require 'init-mmm)
 
-(require 'init-pymacs)
-
 (require 'init-editing-utils)
 
 (require 'init-vc)
@@ -89,6 +87,7 @@
 ;; (require 'init-css)
 ;; (require 'init-haml)
 (require 'init-python-mode)
+(require 'init-pymacs)
 ;; (require 'init-haskell)
 ;; (require 'init-ruby-mode)
 ;; (require 'init-rails)
