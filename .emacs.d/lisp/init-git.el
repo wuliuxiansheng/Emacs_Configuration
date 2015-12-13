@@ -6,6 +6,8 @@
 (require-package 'git-messenger) ;; Though see also vc-annotate's "n" & "p" bindings
 (require-package 'git-timemachine)
 
+(when *is-a-windows*
+  (setenv "GIT_ASKPASS" "git-gui--askpass"))  ;; Configure GIT_ASKPASS environment variable to tell git to use a gui prompt for the user name and the password
 
 (when (maybe-require-package 'magit)
   (setq-default

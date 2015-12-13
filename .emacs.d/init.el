@@ -69,10 +69,9 @@
 
 (require 'init-vc)
 (require 'init-darcs)
-(when (not *is-a-windows*)
-	(require 'init-git)
-	(require 'init-github)
-	)
+
+(require 'init-git)
+(require 'init-github)
 
 (require 'init-compile)
 (require 'init-crontab)
