@@ -65,6 +65,8 @@
 (require 'init-fonts)
 ;; (require 'init-mmm)
 
+(require 'init-pymacs)
+
 (require 'init-editing-utils)
 
 (require 'init-vc)
@@ -113,7 +115,6 @@
   (require 'init-auctex)
   )
 
-(require 'init-pymacs)
 (require 'init-matlab-mode)
 (when (not *is-a-windows*)
   (require 'init-multi-term)
