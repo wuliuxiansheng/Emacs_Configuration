@@ -25,7 +25,7 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
 ## Note:
   - The default theme for Mac OS X and Windows is light style but dark style for Linux. Modify This in init-themes.el in lisp folder if you want;
   - Change the default font setting in init-preload-local.el;
-  - `Auctex`, `multi-term` and `emacsclient` are not supported for Windows (they may come later);
+  - `multi-term` and `emacsclient` are not supported for Windows (they may come later);
   - Run `tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti` to solve the weird characters problem or color problem in terminal mode;
   - For Mac OS X, put [.zshenv](https://github.com/wuliuxiansheng/Emacs_Configuration/blob/master/utility/.zshenv) in `utility` to `~/.`to solve Chinese display problem in terminal mode;
   - Turned off alarms totally to fix the the bug of Emacs 24.5 for Capitan EI that a square pops up in the middle of the buffer obscuring the text when the visable bell is working. Get rid of this in init-preload-local.el if you really need these alarms;
