@@ -15,6 +15,7 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
   - iPython, rope, ropemacs, pymacs is required for python;
   - zsh is required for multi-term (Modify shell preference in init-multi-term.el);
   - aspell is required for spell check (Modify the path for Windows in init-preload-local.el);
+  - Tex Live is required for Auctex, and Skim is required for Mac OS X and Sumatra PDF is required for Windows;
   - For Windows, follow [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html) to get TLS first. Just download gnutls and copy all DLL files in bin to Emacs bin.
 
 ## Installation:

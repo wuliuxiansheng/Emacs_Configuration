@@ -110,9 +110,8 @@
 (require 'init-ledger)
 
 (require 'init-yasnippet)
-(when (not *is-a-windows*)
-  (require 'init-auctex)
-  )
+
+(require 'init-auctex)
 
 (require 'init-matlab-mode)
 (when (not *is-a-windows*)
