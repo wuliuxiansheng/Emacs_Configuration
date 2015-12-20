@@ -19,13 +19,13 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
   - For Windows, follow [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html) to get TLS first. Just download gnutls and copy all DLL files in bin to Emacs bin.
 
 ## Installation:
-  - To install, clone this repo and move .emacs.d to ~/.emacs.d;
+  - To install, clone this repo and move `.emacs.d` to `~/.emacs.d`;
   - When starting Emacs for the first time, required packages will be installed automatically.
 
 ## Note:
   - The default theme for Mac OS X and Windows is light style but dark style for Linux. Modify This in init-themes.el in lisp folder if you want;
   - Change the default font setting in init-preload-local.el;
-  - `multi-term` is not supported for Windows (they may come later);
+  - `multi-term` is not supported for Windows. Use `C-u M-x shell` to open a new shell;
   - Run `tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti` to solve the weird characters problem or color problem in terminal mode;
   - For Mac OS X, put [.zshenv](https://github.com/wuliuxiansheng/Emacs_Configuration/blob/master/utility/.zshenv) in `utility` to `~/.`to solve Chinese display problem in terminal mode;
   - Turned off alarms totally to fix the the bug of Emacs 24.5 for Capitan EI that a square pops up in the middle of the buffer obscuring the text when the visable bell is working. Get rid of this in init-preload-local.el if you really need these alarms;
