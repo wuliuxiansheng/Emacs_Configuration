@@ -23,7 +23,7 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
   - When starting Emacs for the first time, required packages will be installed automatically.
 
 ## Note:
-  - The default theme for Mac OS X and Windows is light style but dark style for Linux. Modify This in init-themes.el in lisp folder if you want;
+  - The default theme for Mac OS X and Windows is light style but dark style for Linux. Modify this in init-themes.el in lisp folder if you want;
   - Change the default font setting in init-preload-local.el;
   - `multi-term` is not supported for Windows. Use `C-u M-x shell` to open a new shell;
   - Run `tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti` to solve the weird characters problem or color problem in terminal mode;
