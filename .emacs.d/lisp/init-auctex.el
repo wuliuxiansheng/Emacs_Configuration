@@ -29,13 +29,13 @@
 			  'linum-mode))
   (add-hook 'LaTeX-mode-hook
 			(lambda ()
-			  (setq TeX-auto-untabify t ; remove all tabs before saving
-					TeX-engine 'xetex ; ('xetex) | ('default)
-					TeX-show-compilation t) ; display compilation windows
-			  (TeX-global-PDF-mode t) ; PDF mode enable, not plain
+			  (setq TeX-auto-untabify t ;; remove all tabs before saving
+					TeX-engine 'xetex ;; ('xetex) | ('default)
+					TeX-show-compilation t) ;; display compilation windows
+			  (TeX-global-PDF-mode t) ;; PDF mode enable, not plain
 			  (setq TeX-save-query nil)
 			  (imenu-add-menubar-index)
-										;(define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
+			  ;; (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
 			  ))
   (setq TeX-view-program-list
 		'(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %o %b")("Preview" "open -a Preview.app %o")))
@@ -73,13 +73,13 @@
 			  'linum-mode))
   (add-hook 'LaTeX-mode-hook
 			(lambda ()
-			  (setq TeX-auto-untabify t ; remove all tabs before saving
-					TeX-engine 'xetex ; ('xetex) | ('default)
-					TeX-show-compilation t) ; display compilation windows
-			  (TeX-global-PDF-mode t) ; PDF mode enable, not plain
+			  (setq TeX-auto-untabify t ;; remove all tabs before saving
+					TeX-engine 'xetex ;; ('xetex) | ('default)
+					TeX-show-compilation t) ;; display compilation windows
+			  (TeX-global-PDF-mode t) ;; PDF mode enable, not plain
 			  (setq TeX-save-query nil)
 			  (imenu-add-menubar-index)
-										;(define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
+			  ;; (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
 			  ))
   (setq TeX-view-program-list
 		'(("Evince" "evince %o")))
@@ -117,13 +117,13 @@
 			  'linum-mode))
   (add-hook 'LaTeX-mode-hook
 			(lambda ()
-			  (setq TeX-auto-untabify t ; remove all tabs before saving
-					TeX-engine 'xetex ; ('xetex) | ('default)
-					TeX-show-compilation t) ; display compilation windows
-			  (TeX-global-PDF-mode t) ; PDF mode enable, not plain
+			  (setq TeX-auto-untabify t ;; remove all tabs before saving
+					TeX-engine 'xetex ;; ('xetex) | ('default)
+					TeX-show-compilation t) ;; display compilation windows
+			  (TeX-global-PDF-mode t) ;; PDF mode enable, not plain
 			  (setq TeX-save-query nil)
 			  (imenu-add-menubar-index)
-			  ;;(define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
+			  ;; (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
 			  ))
   (setq TeX-source-correlate-mode t)
   (setq TeX-source-correlate-method 'synctex)

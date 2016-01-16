@@ -32,4 +32,5 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
   - The size of the screen does affect the popwin. If the screen is too small for the current font, the popwin won't work and user needs to change the font size in init-preload-local.el;
   - Pymacs is supported for Windows now. When opening a Python file is not successful, kill the buffer and reopen the file to load Pymacs properly;
   - For Windows, bind M-SPC to set mark or unset mark rather than using C-SPC because C-SPC is used to change the input method in Windows;
+  - For Windows, user needs to set the path for Tex Live, GitHub, SVN and Python;
   - For Windows, if it's not installed successfully for the first time, restart Emacs and it should be working.
