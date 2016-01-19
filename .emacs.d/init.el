@@ -124,6 +124,8 @@
 (require-package 'htmlize)
 (when (not *is-a-windows*)
   (require-package 'dsvn)
+  (autoload 'svn-status "dsvn" "Run `svn status'." t)
+  (autoload 'svn-update "dsvn" "Run `svn update'." t)
   )
 (when *is-a-mac*
   (require-package 'osx-location))
