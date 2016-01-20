@@ -6,6 +6,12 @@
   (autoload 'org-mac-grab-link "org-mac-link" nil t)
   (require-package 'org-mac-iCal))
 
+;; mobileorg settings
+(setq org-directory "~/Dropbox/OrgNotes")
+(setq org-mobile-inbox-for-pull "~/Dropbox/OrgNotes/inbox.org")
+(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+(setq org-mobile-files '("~/Dropbox/OrgNotes"))
+
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
 
