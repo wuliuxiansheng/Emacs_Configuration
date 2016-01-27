@@ -8,7 +8,8 @@
 (when *is-a-windows*
   (set-frame-font "-outline-Courier New-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1")
   (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")  ; add aspell directory to emacs configuration
-  (setq grep-find-command '("findstr /sn  *" . 13)))
+  (setq grep-find-command '("findstr /sn  *" . 13))
+  (setq default-directory "~/"))
 
 (global-linum-mode t);show line number
 
