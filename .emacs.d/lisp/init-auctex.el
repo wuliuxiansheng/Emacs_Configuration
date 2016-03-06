@@ -37,6 +37,8 @@
 			  (imenu-add-menubar-index)
 			  ;; (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
 			  ))
+  (setq TeX-source-correlate-mode t)
+  (setq TeX-source-correlate-method 'synctex)
   (setq TeX-view-program-list
 		'(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %o %b")("Preview" "open -a Preview.app %o")))
   (setq TeX-view-program-selection
@@ -81,6 +83,8 @@
 			  (imenu-add-menubar-index)
 			  ;; (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
 			  ))
+  (setq TeX-source-correlate-mode t)
+  (setq TeX-source-correlate-method 'synctex)
   (setq TeX-view-program-list
 		'(("Evince" "evince %o")))
   (setq TeX-view-program-selection
