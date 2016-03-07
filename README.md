@@ -15,7 +15,7 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
   - iPython, rope, ropemacs, pymacs is required for python;
   - zsh is required for multi-term (Modify shell preference in init-multi-term.el);
   - aspell is required for spell check (Modify the path for Windows in init-preload-local.el);
-  - Tex Live is required for Auctex, and Skim is required for Mac OS X and Sumatra PDF is required for Windows;
+  - Tex Live is required for Auctex, and Skim is required for Mac OS X, Okular is required for Linux and Sumatra PDF is required for Windows;
   - For Windows, follow [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html) to get TLS first. Just download gnutls and copy all DLL files in bin to Emacs bin.
 
 ## Installation:
@@ -33,4 +33,5 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
   - Pymacs is supported for Windows now. When opening a Python file is not successful, kill the buffer and reopen the file to load Pymacs properly;
   - For Windows, bind M-SPC to set mark or unset mark rather than using C-SPC because C-SPC is used to change the input method in Windows;
   - For Windows, user needs to set the path for Tex Live, GitHub, SVN and Python;
-  - For Windows, if it's not installed successfully for the first time, restart Emacs and it should be working.
+  - For Windows, if it's not installed successfully for the first time, restart Emacs and it should be working;
+  - For TeX Live on Mac and Windows, using pdfsync package is also working for forward and inverse search but less accurate. Thus, I recommend generating .synctex.gz rather than using pdfsync package to generate .pdfsync for forward and inverse search.
