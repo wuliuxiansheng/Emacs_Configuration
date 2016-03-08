@@ -3,7 +3,12 @@
 (require-package 'auctex)
 
 (when *is-a-mac*
-  ;;(load "auctex.el" nil t t)
+  ;; load auctex only when editing tex files
+  (eval-after-load "tex-mode"
+	'(progn
+	   (load "auctex.el" nil t t)
+	   )
+	)
 
   (setenv "PATH" (concat "/usr/texbin:/usr/local/bin:" (getenv "PATH")))
   (setq exec-path (append '("/usr/texbin" "/usr/local/bin") exec-path))
@@ -53,8 +58,12 @@
   )
 
 (when *is-a-linux*
-  (load "auctex.el" nil t t)
-  ;;(load "preview-latex.el" nil t t)
+  (eval-after-load "tex-mode"
+	'(progn
+	   (load "auctex.el" nil t t)
+	   ;; (load "preview-latex.el" nil t t)
+	   )
+	)
 
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
@@ -127,8 +136,12 @@
   )
 
 (when *is-a-windows*
-  (load "auctex.el" nil t t)
-  ;;(load "preview-latex.el" nil t t)
+  (eval-after-load "tex-mode"
+	'(progn
+	   (load "auctex.el" nil t t)
+	   ;; (load "preview-latex.el" nil t t)
+	   )
+	)
 
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
