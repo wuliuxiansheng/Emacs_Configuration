@@ -9,4 +9,6 @@
   (setq system-uses-terminfo nil)  ;; fix the display problem in Mac
   )
 
+(global-set-key (kbd "C-x m") 'multi-term)
+
 (provide 'init-multi-term)
