@@ -112,6 +112,7 @@
 (require 'init-yasnippet)
 
 (require 'init-auctex)
+(require 'init-ac-math)
 
 (require 'init-matlab-mode)
 (when (not *is-a-windows*)
