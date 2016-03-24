@@ -12,7 +12,7 @@ This Emacs configuration contains useful tools, such as auto-complete, yasnippet
 
 ## Requirements:
   - Emacs 23.3 or greater (Emacs 24 is prefered);
-  - iPython, rope, ropemacs, pymacs is required for python;
+  - iPython, rope, ropemacs, pymacs, pep8 and pylint are required for python;
   - zsh is required for multi-term (Modify shell preference in init-multi-term.el);
   - aspell is required for spell check (Modify the path for Windows in init-preload-local.el);
   - Tex Live is required for Auctex, and Skim is required for Mac OS X, Okular is required for Linux and Sumatra PDF is required for Windows, and also, for Windows, download libpng binary files [here](https://sourceforge.net/projects/ezwinports/files/) and copy all DLL files in bin to Emacs bin in order to support png images for Preview;
