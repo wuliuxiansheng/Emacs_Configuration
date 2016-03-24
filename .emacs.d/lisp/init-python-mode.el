@@ -17,5 +17,8 @@
  python-shell-completion-string-code
  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
+;;; python style checking
+(require-package 'pep8)
+(require-package 'pylint)
 
 (provide 'init-python-mode)
