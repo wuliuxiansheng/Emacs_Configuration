@@ -48,7 +48,7 @@
 (require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
-(require 'init-proxies)
+;; (require 'init-proxies)
 (require 'init-dired)
 (require 'init-isearch)
 (require 'init-grep)
@@ -66,6 +66,8 @@
 ;; (require 'init-mmm)
 
 (require 'init-editing-utils)
+(require 'init-whitespace)
+(require 'init-fci)
 
 (require 'init-vc)
 (require 'init-darcs)
