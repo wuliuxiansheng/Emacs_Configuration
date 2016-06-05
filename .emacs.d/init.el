@@ -59,7 +59,7 @@
 (require 'init-recentf)
 (require 'init-ido)
 (require 'init-hippie-expand)
-(require 'init-auto-complete)
+(require 'init-company)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-fonts)
@@ -112,7 +112,8 @@
 (require 'init-yasnippet)
 
 (require 'init-auctex)
-(require 'init-ac-math)
+;; (require 'init-ac-math)
+(require 'init-company-math)
 
 (require 'init-matlab-mode)
 (when (not *is-a-windows*)

@@ -12,10 +12,10 @@
   (pymacs-load "ropemacs" "rope-")
   (setq ropemacs-enable-autoimport t)))
 ;;; integrate ropemacs with auto-complete
-(ac-ropemacs-initialize)
-(add-hook 'python-mode-hook
-(lambda ()
-  (add-to-list 'ac-sources 'ac-source-ropemacs)))
+;;(ac-ropemacs-initialize)
+;; (add-hook 'python-mode-hook
+;; (lambda ()
+;;   (add-to-list 'ac-sources 'ac-source-ropemacs)))
 
 
 (provide 'init-pymacs)
