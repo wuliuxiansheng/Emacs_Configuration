@@ -19,7 +19,7 @@ This Emacs configuration contains useful tools, such as company, yasnippet, pyma
   - For Windows, follow [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html) to get TLS first. Just download gnutls and copy all DLL files in bin to Emacs bin.
 
 ## Installation:
-  - To install, clone this repo and move `.emacs.d` to `~/.emacs.d`;
+  - To install, clone this repo and move `emacs.d` to `~/.emacs.d`;
   - When starting Emacs for the first time, required packages will be installed automatically.
 
 ## Note:
