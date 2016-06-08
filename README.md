@@ -31,7 +31,7 @@ This Emacs configuration contains useful tools, such as company, yasnippet, pyma
   - Turned off alarms totally to fix the the bug of Emacs 24.5 for Capitan EI that a square pops up in the middle of the buffer obscuring the text when the visable bell is working. Get rid of this in init-preload-local.el if you really need these alarms;
   - The size of the screen does affect the popwin. If the screen is too small for the current font, the popwin won't work and user needs to change the font size in init-preload-local.el;
   - Pymacs is supported for Windows now. When opening a Python file is not successful, kill the buffer and reopen the file to load Pymacs properly;
-  - For Windows, bind `M-SPC` to set mark or unset mark rather than using `C-SPC` because `C-SPC` is used to change the input method in Windows;
+  <!-- - For Windows, bind `M-SPC` to set mark or unset mark rather than using `C-SPC` because `C-SPC` is used to change the input method in Windows; -->
   - For Windows, user needs to set the path for Tex Live, GitHub, SVN and Python;
   - For Windows, if it's not installed successfully for the first time, restart Emacs and it should be working;
   - For TeX Live on Mac and Windows, using pdfsync package is also working for forward and inverse search but less accurate. Thus, I recommend generating .synctex.gz rather than using pdfsync package to generate .pdfsync for forward and inverse search;
