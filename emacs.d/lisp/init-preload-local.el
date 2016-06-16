@@ -15,9 +15,10 @@
 ;; line number configuration
 (global-linum-mode t);show line number
 ;; disable line number display for some modes
-(setq linum-disabled-modes-list '(eshell-mode term-mode))
+(setq linum-disabled-modes-list '(eshell-mode term-mode org-mode text-mode))
 (defun linum-on ()
-  (unless (or (minibufferp) (member major-mode linum-disabled-modes-list))
+  (unless (or (minibufferp)
+			  (member major-mode linum-disabled-modes-list))
 	(linum-mode 1)))
 
 ;;;cursor stop blinking
