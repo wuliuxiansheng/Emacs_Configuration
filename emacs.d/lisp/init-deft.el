@@ -8,6 +8,9 @@
 ;; Enable subdirectories search
 (setq deft-recursive t)
 
+;; global key binding to launch deft
+(global-set-key (kbd "C-x N") 'deft)
+
 (setq deft-use-filename-as-title t)
 (setq deft-use-filter-string-for-filename t)
 
@@ -16,7 +19,7 @@
 
 (setq deft-current-sort-method 'title)
 
-;; find files in deft directory
-(global-set-key (kbd "C-x C-g") 'deft-find-file)
+;; global key binding to find files in deft directory
+(global-set-key (kbd "C-x C-s") 'deft-find-file)
 
 (provide 'init-deft)
