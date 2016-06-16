@@ -84,6 +84,7 @@
 ;; (require 'init-javascript)
 ;; (require 'init-php)
 (require 'init-org)
+(require 'init-deft)
 ;; (require 'init-nxml)
 (require 'init-html)
 ;; (require 'init-css)
@@ -94,6 +95,7 @@
 ;; (require 'init-ruby-mode)
 ;; (require 'init-rails)
 ;; (require 'init-sql)
+;; (require 'init-c-cpp)
 
 (require 'init-paredit)
 (require 'init-lisp)
