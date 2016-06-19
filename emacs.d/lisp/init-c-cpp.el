@@ -68,14 +68,22 @@
 		(semantic-add-system-include dir 'c-mode))
 	  user-include-dirs)
 
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-semantic))
+;; add company-semantic to company mode
+(defun company-semantic-setup ()
+  (add-to-list 'company-backends 'company-semantic))
+(add-hook 'c++-mode-hook 'company-semantic-setup)
+(add-hook 'c-mode-hook 'company-semantic-setup)
 
 ;;; c/c++ header complete
 (require-package 'company-c-headers)
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-c-headers))
-;; add user path for searching
+
+;; add company-c-headers to company mode
+(defun company-c-headers-setup ()
+  (add-to-list 'company-backends 'company-c-headers))
+(add-hook 'c++-mode-hook 'company-c-headers-setup)
+(add-hook 'c-mode-hook 'company-c-headers-setup)
+
+;; add user path for searching c/c++ header files
 (eval-after-load 'company-c-headers
   '(mapcar (lambda (item) (add-to-list 'company-c-headers-path-user item))
 		   user-include-dirs))

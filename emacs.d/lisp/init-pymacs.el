@@ -11,13 +11,10 @@
 	 (message "loading ropemacs")
 	 (pymacs-load "ropemacs" "rope-")
 	 (setq ropemacs-enable-autoimport t)))
-;;; integrate ropemacs with auto-complete
-;;(ac-ropemacs-initialize)
-;; (add-hook 'python-mode-hook
-;; (lambda ()
-;;   (add-to-list 'ac-sources 'ac-source-ropemacs)))
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-ropemacs))
+;;; integrate ropemacs with company-mode
+(defun company-ropemacs-setup ()
+  (add-to-list 'company-backend 'company-ropemacs))
+(add-hook 'python-mode-hook 'company-ropemacs-setup)
 
 
 (provide 'init-pymacs)
