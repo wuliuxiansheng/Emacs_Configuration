@@ -51,6 +51,8 @@
 ;;	default-tab-width 4))
 ;;(add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
+
+;;; CEDET Configuration
 (semantic-mode 1)
 (global-ede-mode 1)
 
@@ -68,6 +70,15 @@
 
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-semantic))
+
+;;; c/c++ header complete
+(require-package 'company-c-headers)
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-c-headers))
+;; add user path for searching
+(eval-after-load 'company-c-headers
+  '(mapcar (lambda (item) (add-to-list 'company-c-headers-path-user item))
+		   user-include-dirs))
 
 
 (provide 'init-c-cpp)
