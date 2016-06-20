@@ -2,7 +2,7 @@
 
 (require-package 'deft)
 
-(setq deft-extensions '("org" "txt"))
+(setq deft-extensions '("org"))
 (setq deft-directory "~/Dropbox/OrgNotes")
 (setq deft-text-mode 'org-mode)
 
