@@ -20,7 +20,8 @@ This Emacs configuration contains useful tools, such as company, yasnippet, pyma
 
 ## Installation:
   - To install, clone this repo and move `emacs.d` to `~/.emacs.d`;
-  - When starting Emacs for the first time, required packages will be installed automatically.
+  - When starting Emacs for the first time, required packages will be installed automatically;
+  - After the installation is finished, when closing Emacs, `.emacs.d/semanticdb/` is created for SemanticDB.
 
 ## Note:
   - The default theme for Mac OS X and Windows is light style but dark style for Linux. Modify this in init-themes.el in lisp folder if you want;
