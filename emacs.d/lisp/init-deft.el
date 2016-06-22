@@ -26,6 +26,6 @@
 (setq deft-current-sort-method 'title)
 
 ;; global key binding to find files in deft directory
-(global-set-key (kbd "C-c d") 'deft-find-file)
+(global-set-key (kbd "C-c F") 'deft-find-file)
 
 (provide 'init-deft)
