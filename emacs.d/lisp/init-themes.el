@@ -76,5 +76,15 @@ ignored: use `custom-enabled-themes' instead."
   (interactive)
   (color-theme-sanityinc-solarized-dark))
 
+;;------------------------------------------------------------------------------
+;; Theme Configuration for Org-mode
+;;------------------------------------------------------------------------------
+(require-package 'leuven-theme)
+(setq org-fontify-whole-heading-line t)
+(require-package 'load-theme-buffer-local)
+
+(add-hook 'org-mode-hook
+		  (lambda nil (load-theme-buffer-local 'leuven (current-buffer))))
+
 
 (provide 'init-themes)
