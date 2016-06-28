@@ -28,7 +28,8 @@
       org-html-validation-link nil
       org-export-kill-product-buffer-when-displayed t
       org-tags-column 80
-	  org-export-backends (quote (ascii html icalendar latex md)))
+	  org-export-backends (quote (ascii html icalendar latex md))
+	  org-startup-align-all-tables t)
 
 
 ;; Lots of stuff from http://doc.norang.ca/org-mode.html
