@@ -80,11 +80,15 @@ ignored: use `custom-enabled-themes' instead."
 ;; Theme Configuration for Org-mode
 ;;------------------------------------------------------------------------------
 (require-package 'leuven-theme)
-(setq org-fontify-whole-heading-line t)
-(require-package 'load-theme-buffer-local)
+;; (setq org-fontify-whole-heading-line t)
+;; (require-package 'load-theme-buffer-local)
+
+;; (add-hook 'org-mode-hook
+;; 		  (lambda nil (load-theme-buffer-local 'leuven (current-buffer))))
 
 (add-hook 'org-mode-hook
-		  (lambda nil (load-theme-buffer-local 'leuven (current-buffer))))
-
+		  (lambda ()
+			(load-theme 'leuven t)
+			(setq org-fontify-whole-heading-line t)))
 
 (provide 'init-themes)
