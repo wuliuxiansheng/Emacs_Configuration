@@ -19,7 +19,7 @@
   ;; configure Chinese characters to align tables
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
 	(set-fontset-font (frame-parameter nil 'font)
-					  charset (font-spec :family "NSimsun" "MS Gothic" :size 16.5)))
+					  charset (font-spec :family "NSimsun" :size 15)))
   ;; (setq face-font-rescale-alist '(("NSimsun" . 1.2) ("MS Gothic" . 1.2)))
   (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")  ; add aspell directory to emacs configuration
   (setq grep-find-command '("findstr /sn  *" . 13))
