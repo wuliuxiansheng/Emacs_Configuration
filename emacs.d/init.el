@@ -123,6 +123,8 @@
 (when (not *is-a-windows*)
   (require 'init-multi-term)
   )
+
+(require 'init-mail)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
