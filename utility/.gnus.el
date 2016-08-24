@@ -38,6 +38,8 @@
 (setq bbdb/mail-auto-create-p t
 	  bbdb/news-auto-create-p t)
 
+(setq bbdb-file "~/Dropbox/Personal/.bbdb")
+
 ;; BBDB company mode
 (defun company-bbdb-setup ()
   (add-to-list 'company-backends 'company-bbdb))
