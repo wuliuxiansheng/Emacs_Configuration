@@ -38,7 +38,7 @@
 
 ;; configure pop-up window size
 (setq bbdb-pop-up-window-size 0.15)
-(setq bbdb-mua-pop-up-window-size 0.15)
+(setq bbdb-mua-pop-up-window-size 0.3)
 
 ;; configure bbdb to ask whether storing the contact or not
 (setq bbdb-mua-update-interactive-p '(query . create))
