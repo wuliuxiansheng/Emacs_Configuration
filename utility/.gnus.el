@@ -34,6 +34,17 @@
 (require 'bbdb)
 (bbdb-initialize 'message 'gnus 'sendmail)
 (bbdb-insinuate-message)
+(bbdb-mua-auto-update-init 'gnus 'message)
+
+;; configure pop-up window size
+(setq bbdb-pop-up-window-size 0.15)
+(setq bbdb-mua-pop-up-window-size 0.15)
+
+;; configure bbdb to ask whether storing the contact or not
+(setq bbdb-mua-update-interactive-p '(query . create))
+;; ensure searching all email addresses in a message
+(setq bbdb-message-all-addresses t)
+
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
 (setq bbdb/mail-auto-create-p t
 	  bbdb/news-auto-create-p t)
