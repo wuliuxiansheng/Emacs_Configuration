@@ -79,7 +79,7 @@
 	  user-mail-address "useremail@gmail.com")
 
 ;; Use w3m to read HTML email
-(setq mm-text-html-renderer 'w3m)
+;; (setq mm-text-html-renderer 'w3m)
 
 ;; Setup to send email through SMTP
 ;; (setq message-send-mail-function 'smtpmail-send-it
