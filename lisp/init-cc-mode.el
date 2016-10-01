@@ -111,6 +111,10 @@
 (add-hook 'c-mode-hook 'company-c-headers-setup)
 
 ;; add user path for searching c/c++ header files
+
+;; combine two user include directories
+(setq user-include-dirs (append user-include-dirs-cpp user-include-dirs-c))
+
 (eval-after-load 'company-c-headers
   '(mapcar (lambda (item) (add-to-list 'company-c-headers-path-user item))
 		   user-include-dirs))
