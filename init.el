@@ -95,7 +95,7 @@
 ;; (require 'init-ruby-mode)
 ;; (require 'init-rails)
 ;; (require 'init-sql)
-(require 'init-c-cpp)
+(require 'init-cc-mode)
 
 (require 'init-paredit)
 (require 'init-lisp)

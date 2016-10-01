@@ -51,10 +51,14 @@
 ;;	default-tab-width 4))
 ;;(add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
-
 ;;; CEDET Configuration
+(require 'semantic)
+
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+
 (semantic-mode 1)
-(global-ede-mode 1)
+;; (global-ede-mode 1)
 
 ;; remove semantic for python mode and html mode
 (setq semantic-new-buffer-setup-functions
@@ -65,17 +69,31 @@
 
 (remove-hook 'python-mode-hook 'wisent-python-default-setup)
 
-(defvar user-include-dirs
-  '("." "./inc" "../inc" "../../../../common/c/user/inc" "../../../../common/cpp/user/inc"
+(defvar user-include-dirs-cpp
+  '("." "./inc" "../inc" "../../../../common/c/user/inc"
+	"../../../../common/cpp/user/inc"
 	"../../../../smores_common/c/inc" "../../../../smores_common/cpp/inc"
 	"../../../../stm32/c/user/inc" "../../../../stm32/cpp/user/inc"
 	"../../../../stm32f30x/c/user/inc" "../../../../stm32f30x/c/st/inc"
-	"../../../../stm32f37x/c/user/inc" "../../../../stm32f37x/c/st/inc"))
+	"../../../../stm32f37x/c/user/inc" "../../../../stm32f37x/c/st/inc"
+	))
 
-(mapc (lambda (dir)
-		(semantic-add-system-include dir 'c++-mode)
-		(semantic-add-system-include dir 'c-mode))
-	  user-include-dirs)
+(defvar user-include-dirs-c
+  '("." "./inc" "../inc"
+	"/usr/local/CrossPack-AVR-20131216/avr/include/avr"
+	"/usr/local/CrossPack-AVR-20131216/avr/include"
+	"/usr/local/CrossPack-AVR-20131216/avr/include/util"))
+
+(defun semantic-setup ()
+  (mapc (lambda (dir)
+		  (semantic-add-system-include dir 'c++-mode))
+		user-include-dirs-cpp)
+  (mapc (lambda (dir)
+		  (semantic-add-system-include dir 'c-mode))
+		user-include-dirs-c)
+  )
+
+(add-hook 'semantic-init-hooks 'semantic-setup)
 
 ;; add company-semantic to company mode
 (defun company-semantic-setup ()
@@ -98,4 +116,4 @@
 		   user-include-dirs))
 
 
-(provide 'init-c-cpp)
+(provide 'init-cc-mode)
