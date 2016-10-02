@@ -24,9 +24,13 @@
 (require-package 'pep8)
 (require-package 'pylint)
 
-(require-package 'pymacs)
+;; integrate autopep8
+(require-package 'py-autopep8)
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
 ;;; pymacs configuration
+(require-package 'pymacs)
+
 (eval-after-load 'python
   '(progn
 	 (autoload 'pymacs-apply "pymacs")
