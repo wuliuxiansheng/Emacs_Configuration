@@ -48,7 +48,6 @@
 (require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
-;; (require 'init-proxies)
 (require 'init-dired)
 (require 'init-isearch)
 (require 'init-grep)
@@ -63,7 +62,6 @@
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-fonts)
-;; (require 'init-mmm)
 
 (require 'init-editing-utils)
 (require 'init-whitespace)
@@ -77,32 +75,21 @@
 
 (require 'init-compile)
 (require 'init-crontab)
-;; (require 'init-textile)
 (require 'init-markdown)
 (require 'init-csv)
-;; (require 'init-erlang)
-;; (require 'init-javascript)
-;; (require 'init-php)
 (require 'init-org)
 (require 'init-deft)
-;; (require 'init-nxml)
+
 (require 'init-html)
-;; (require 'init-css)
-;; (require 'init-haml)
+
 (require 'init-python-mode)
-;; (require 'init-pymacs)
-;; (require 'init-haskell)
-;; (require 'init-ruby-mode)
-;; (require 'init-rails)
-;; (require 'init-sql)
+
 (require 'init-cc-mode)
 
 (require 'init-paredit)
 (require 'init-lisp)
 (require 'init-slime)
-;; (require 'init-clojure)
-;; (when (>= emacs-major-version 24)
-;;   (require 'init-clojure-cider))
+
 (require 'init-common-lisp)
 
 (when *spell-check-support-enabled*
@@ -145,7 +132,7 @@
 ;;----------------------------------------------------------------------------
 (require 'server)
 (unless (server-running-p)
-	(server-start))
+  (server-start))
 
 
 ;;----------------------------------------------------------------------------
