@@ -70,7 +70,7 @@
       (funcall sanityinc/repl-switch-function sanityinc/repl-original-buffer)
     (error "No original buffer.")))
 
-(after-load 'lisp-mode
+(after-load 'elisp-mode
   (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'sanityinc/switch-to-ielm))
 (after-load 'ielm
   (define-key ielm-map (kbd "C-c C-z") 'sanityinc/repl-switch-back))
@@ -112,6 +112,9 @@
       (remove-hook 'pre-command-hook #'hl-sexp-unhighlight))))
 
 
+(require-package 'immortal-scratch)
+(add-hook 'after-init-hook 'immortal-scratch-mode)
+
 
 ;;; Support byte-compilation in a sub-process, as
 ;;; required by highlight-cl
@@ -132,7 +135,6 @@
 ;; ----------------------------------------------------------------------------
 ;; Enable desired features for all lisp modes
 ;; ----------------------------------------------------------------------------
-(require-package 'rainbow-delimiters)
 (require-package 'redshank)
 (after-load 'redshank
   (diminish 'redshank-mode))
@@ -146,8 +148,7 @@
     (indent-guide-mode -1)))
 
 (defvar sanityinc/lispy-modes-hook
-  '(rainbow-delimiters-mode
-    enable-paredit-mode
+  '(enable-paredit-mode
     turn-on-eldoc-mode
     redshank-mode
     sanityinc/disable-indent-guide
@@ -254,10 +255,14 @@
   (when (string-match "\\(color-theme-\\|-theme\\.el\\)" (buffer-name))
     (run-hooks 'sanityinc/theme-mode-hook)))
 
-(add-hook 'emacs-lisp-mode-hook 'sanityinc/run-theme-mode-hooks-if-theme)
+(add-hook 'emacs-lisp-mode-hook 'sanityinc/run-theme-mode-hooks-if-theme t)
 
 (when (maybe-require-package 'rainbow-mode)
   (add-hook 'sanityinc/theme-mode-hook 'rainbow-mode))
+
+(when (maybe-require-package 'aggressive-indent)
+  ;; Can be prohibitively slow with very long forms
+  (add-to-list 'sanityinc/theme-mode-hook (lambda () (aggressive-indent-mode -1)) t))
 
 
 

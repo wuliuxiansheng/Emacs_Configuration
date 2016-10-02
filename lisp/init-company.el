@@ -12,11 +12,10 @@
     (diminish 'company-mode "CMP")
     (define-key company-mode-map (kbd "M-/") 'company-complete)
     (define-key company-active-map (kbd "M-/") 'company-select-next)
-    (setq-default company-backends '((company-capf company-dabbrev-code) company-dabbrev)))
+    (setq-default company-backends '((company-capf company-dabbrev-code) company-dabbrev)
+				  company-dabbrev-other-buffers 'all))
   (global-set-key (kbd "M-C-/") 'company-complete)
   (when (maybe-require-package 'company-quickhelp)
-    ;; (after-load 'company-quickhelp
-    ;;   (define-key company-quickhelp-mode-map (kbd "M-h") nil))
     (add-hook 'after-init-hook 'company-quickhelp-mode))
 
   (defun sanityinc/local-push-company-backend (backend)

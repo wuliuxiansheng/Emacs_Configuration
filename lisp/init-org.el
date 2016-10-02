@@ -2,9 +2,10 @@
   (require-package 'org))
 (require-package 'org-fstree)
 (when *is-a-mac*
-  (require-package 'org-mac-link)
-  (autoload 'org-mac-grab-link "org-mac-link" nil t)
+  (maybe-require-package 'grab-mac-link)
   (require-package 'org-mac-iCal))
+
+(maybe-require-package 'org-cliplink)
 
 ;; mobileorg settings
 (setq org-directory "~/Dropbox/OrgNotes")
@@ -19,9 +20,9 @@
 
 ;; Various preferences
 (setq org-log-done t
-      org-completion-use-ido t
       org-edit-timestamp-down-means-later t
       org-archive-mark-done nil
+	  org-hide-emphasis-markers t
       org-catch-invisible-edits 'show
       org-export-coding-system 'utf-8
       org-fast-tag-selection-single-key 'expert
