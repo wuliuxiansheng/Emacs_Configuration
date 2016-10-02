@@ -120,4 +120,14 @@
 		   user-include-dirs))
 
 
+;; switch between header file and source file
+(defun ff-find-other-file-setup ()
+  (local-set-key (kbd "C-x o") 'ff-find-other-file)
+  (setq ff-search-directories user-include-dirs))
+
+(add-hook 'c-mode-hook 'ff-find-other-file-setup)
+(add-hook 'c++-mode-hook 'ff-find-other-file-setup)
+
+
 (provide 'init-cc-mode)
+;;; init-cc-mode ends here
