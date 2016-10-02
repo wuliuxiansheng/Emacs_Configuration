@@ -122,7 +122,7 @@
 
 ;; switch between header file and source file
 (defun ff-find-other-file-setup ()
-  (local-set-key (kbd "C-x o") 'ff-find-other-file)
+  (local-set-key (kbd "C-c o") 'ff-find-other-file)
   (setq ff-search-directories user-include-dirs))
 
 (add-hook 'c-mode-hook 'ff-find-other-file-setup)
