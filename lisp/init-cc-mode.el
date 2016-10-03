@@ -1,10 +1,9 @@
 ;;; C/C++ Configuration
 
 ;;; code hide
-(load-library "hideshow")
-(add-hook 'c-mode-hook 'hs-minor-mode)
-(add-hook 'c++-mode-hook 'hs-minor-mode)
-(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+;; (load-library "hideshow")
+;; (add-hook 'c-mode-hook 'hs-minor-mode)
+;; (add-hook 'c++-mode-hook 'hs-minor-mode)
 ;; M-x hs-minor-mode
 ;; C-c @ ESC C-s show all
 ;; C-c @ ESC C-h hide all
@@ -50,6 +49,12 @@
 ;;	indent-tabs-mode t
 ;;	default-tab-width 4))
 ;;(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+
+;;; key binding for compile
+(defun cc-mode-compile ()
+  (local-set-key (kbd "C-x C") 'compile))
+(add-hook 'c-mode-hook 'cc-mode-compile)
+(add-hook 'c++-mode-hook 'cc-mode-compile)
 
 ;;; CEDET Configuration
 (require 'semantic)
