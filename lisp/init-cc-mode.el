@@ -50,9 +50,28 @@
 ;;	default-tab-width 4))
 ;;(add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
+
+;;; run compile command without hitting Enter
+(setq compilation-read-command nil)
+
 ;;; key binding for compile
+(defun cc-mode-compile-make ()
+  (interactive)
+  (setq compile-command "cd ../ && make")
+  (call-interactively 'compile))
+(defun cc-mode-compile-flash ()
+  (interactive)
+  (setq compile-command "cd ../ && make flash")
+  (call-interactively 'compile))
+(defun cc-mode-compile-clean ()
+  (interactive)
+  (setq compile-command "cd ../ && make clean")
+  (call-interactively 'compile))
 (defun cc-mode-compile ()
-  (local-set-key (kbd "C-x C") 'compile))
+  (local-set-key (kbd "C-x C m") 'cc-mode-compile-make)
+  (local-set-key (kbd "C-x C f") 'cc-mode-compile-flash)
+  (local-set-key (kbd "C-x C c") 'cc-mode-compile-clean))
+
 (add-hook 'c-mode-hook 'cc-mode-compile)
 (add-hook 'c++-mode-hook 'cc-mode-compile)
 
