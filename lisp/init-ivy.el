@@ -36,9 +36,9 @@
   (add-hook 'after-init-hook 'counsel-mode))
 
 
-;;(when (maybe-require-package 'swiper)
-;;  (after-load 'ivy
-;;    (define-key ivy-mode-map (kbd "C-s") 'swiper)))
+(when (maybe-require-package 'swiper)
+  (after-load 'ivy
+	(define-key ivy-mode-map (kbd "C-s") 'swiper)))
 
 
 
