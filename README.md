@@ -1,7 +1,7 @@
 Emacs_Configuration
 ========================================
 
-Emacs Configuration based on Purcell's Emacs Configuration. It's working for Linux, Mac OS X and Windows.
+Emacs Configuration based on Purcell's Emacs Configuration. It's working for Linux, Mac and Windows.
 
 This Emacs configuration contains useful tools, such as company, yasnippet, pymacs and so on, and supports the following programming language:
   - C/C++
