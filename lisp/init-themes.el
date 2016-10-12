@@ -36,6 +36,8 @@
 ;;------------------------------------------------------------------------------
 ;; Theme Configuration for Org-mode
 ;;------------------------------------------------------------------------------
+
+;; leuven is a good theme for org-mode and you can switch to it if you want
 (require-package 'leuven-theme)
 ;; (setq org-fontify-whole-heading-line t)
 ;; (require-package 'load-theme-buffer-local)
@@ -43,9 +45,9 @@
 ;; (add-hook 'org-mode-hook
 ;; 		  (lambda nil (load-theme-buffer-local 'leuven (current-buffer))))
 
-(add-hook 'org-mode-hook
-		  (lambda ()
-			(load-theme 'leuven t)
-			(setq org-fontify-whole-heading-line t)))
+;; (add-hook 'org-mode-hook
+;; 		  (lambda ()
+;; 			(load-theme 'leuven t)
+;; 			(setq org-fontify-whole-heading-line t)))
 
 (provide 'init-themes)
