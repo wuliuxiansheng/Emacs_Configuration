@@ -32,7 +32,7 @@ This is helpful for writeroom-mode, in particular."
   ;; configure Chinese characters to align tables
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
 	(set-fontset-font (frame-parameter nil 'font)
-					  charset (font-spec :family "Droid Sans" :size 16.5))))
+					  charset (font-spec :family "Noto Sans CJK JP" :size 18))))
 (when *is-a-windows*
   (set-frame-font "-outline-Courier New-normal-normal-normal-mono-14-*-*-*-c-*-iso8859-1")
   ;; configure Chinese characters to align tables
