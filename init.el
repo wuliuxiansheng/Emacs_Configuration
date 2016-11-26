@@ -123,6 +123,8 @@
 
 (require 'init-mail)
 (require 'init-blog)
+
+(require 'init-ssh)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
