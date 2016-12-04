@@ -22,7 +22,7 @@ This Emacs configuration contains useful tools, such as company, yasnippet, pyma
 
 ## Installation:
   - To install, clone this repo and move it to `~/.emacs.d`;
-  - Put utility/.gnus.el in home directory and modify user information in .gnus.el and .emacs.d/.signature, and use gmail2bbdb to import contacts from Gmail;
+  - Put `utility/.gnus.el` in home directory and modify user information in .gnus.el and .emacs.d/.signature, and use gmail2bbdb to import contacts from Gmail;
   - When starting Emacs for the first time, required packages will be installed automatically;
   - After the installation is finished, when closing Emacs after opening a `.c` or `.cpp` file, `.emacs.d/semanticdb/` is created for SemanticDB.
 
