@@ -23,6 +23,7 @@ This Emacs configuration contains useful tools, such as company, yasnippet, pyma
 ## Installation:
   - To install, clone this repo and move it to `~/.emacs.d`;
   - Put `utility/.gnus.el` in home directory and modify user information in .gnus.el and .emacs.d/.signature, and use gmail2bbdb to import contacts from Gmail;
+  - Put `utility/config` in `~/.ssh/` and modify it for ssh host information;
   - When starting Emacs for the first time, required packages will be installed automatically;
   - After the installation is finished, when closing Emacs after opening a `.c` or `.cpp` file, `.emacs.d/semanticdb/` is created for SemanticDB.
 
@@ -39,4 +40,5 @@ This Emacs configuration contains useful tools, such as company, yasnippet, pyma
   - For Windows, user needs to set the path for Tex Live, GitHub, SVN and Python;
   - For Windows, if it's not installed successfully for the first time, restart Emacs and it should be working;
   - For TeX Live on Mac and Windows, using pdfsync package is also working for forward and inverse search but less accurate. Thus, I recommend generating .synctex.gz rather than using pdfsync package to generate .pdfsync for forward and inverse search;
-  - TeX mode for Windows sometimes gets stuck. Try `C-g` to cancel running.
+  - TeX mode for Windows sometimes gets stuck. Try `C-g` to cancel running;
+  - gnupg 2.1 is required for EasyPG in Emacs 25.
