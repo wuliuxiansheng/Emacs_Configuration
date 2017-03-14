@@ -1,11 +1,11 @@
 ;;; ssh configuration
 
-(require-package 'ssh)
+(require 'tramp)
 
-(add-hook 'ssh-mode-hook
-		  (lambda ()
-			(setq ssh-directory-tracking-mode t)
-			(shell-dirtrack-mode t)
-			(setq dirtrackp nil)))
+(tramp-set-completion-function "ssh"
+							   '((tramp-parse-sconfig "/etc/ssh_config")
+								 (tramp-parse-sconfig "~/.ssh/config")))
+
+(setq tramp-default-method "ssh")
 
 (provide 'init-ssh)
