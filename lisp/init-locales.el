@@ -17,4 +17,7 @@
   (set-selection-coding-system (if (eq system-type 'windows-nt) 'utf-16-le 'utf-8))
   (prefer-coding-system 'utf-8))
 
+;;; EasyPG configuration for Emacs 25
+(setf epa-pinentry-mode 'loopback)
+
 (provide 'init-locales)
