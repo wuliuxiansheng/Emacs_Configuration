@@ -88,6 +88,7 @@
 (require 'init-csv)
 (require 'init-org)
 (require 'init-deft)
+(require 'init-code)
 
 (require 'init-html)
 
