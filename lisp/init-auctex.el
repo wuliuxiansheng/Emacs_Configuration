@@ -50,9 +50,8 @@
 		'((output-pdf "Skim")
 		  (output-dvi "xdvi")))
   (setq TeX-insert-quote t)
-  (ispell-change-dictionary "american" t)
-  (setq-default ispell-program-name "aspell")
-  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+  ;; (ispell-change-dictionary "american" t)
+  ;; (setq-default ispell-program-name "aspell")
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   )
@@ -128,9 +127,8 @@
   ;;				(output-pdf "Okular"))))
 
   (setq TeX-insert-quote t)
-  (ispell-change-dictionary "american" t)
-  (setq-default ispell-program-name "aspell")
-  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+  ;; (ispell-change-dictionary "american" t)
+  ;; (setq-default ispell-program-name "aspell")
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   )
@@ -178,9 +176,8 @@
 		'((output-pdf "Sumatra PDF")
 		  (output-dvi "xdvi")))
   (setq TeX-insert-quote t)
-  (ispell-change-dictionary "american" t)
-  (setq-default ispell-program-name "aspell")
-  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+  ;; (ispell-change-dictionary "american" t)
+  ;; (setq-default ispell-program-name "aspell")
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   )

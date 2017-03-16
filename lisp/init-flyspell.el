@@ -22,6 +22,11 @@
                   javascript-mode-hook))
     (add-hook hook 'flyspell-prog-mode)))
 
+;; add spell-checking for tex mode
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;; add spell-checking for markdown mode
+(add-hook 'markdown-mode-hook 'flyspell-mode)
+
 (after-load 'flyspell
   (add-to-list 'flyspell-prog-text-faces 'nxml-text-face))
 
