@@ -52,9 +52,6 @@
 	 (message "loading ropemacs")
 	 (pymacs-load "ropemacs" "rope-")
 	 (setq ropemacs-enable-autoimport t)))
-;; integrate ropemacs with company-mode
-(defun company-ropemacs-setup ()
-  (add-to-list 'company-backend 'company-ropemacs))
-(add-hook 'python-mode-hook 'company-ropemacs-setup)
+
 
 (provide 'init-python-mode)
