@@ -6,15 +6,6 @@
 
 (require-package 'pip-requirements)
 
-;;; Configure anaconda-mode
-;; (when (maybe-require-package 'anaconda-mode)
-;;   (after-load 'python
-;;     (add-hook 'python-mode-hook 'anaconda-mode)
-;;     (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
-;;   (when (maybe-require-package 'company-anaconda)
-;;     (after-load 'company
-;;       (add-hook 'python-mode-hook
-;;                 (lambda () (sanityinc/local-push-company-backend 'company-anaconda))))))
 
 ;;; iPython configuration
 (setq
@@ -39,19 +30,31 @@
 (require-package 'py-autopep8)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
-;;; pymacs configuration
-(require-package 'pymacs)
 
-(eval-after-load 'python
-  '(progn
-	 (autoload 'pymacs-apply "pymacs")
-	 (autoload 'pymacs-call "pymacs")
-	 (autoload 'pymacs-eval "pymacs" nil t)
-	 (autoload 'pymacs-exec "pymacs" nil t)
-	 (autoload 'pymacs-load "pymacs" nil t)
-	 (message "loading ropemacs")
-	 (pymacs-load "ropemacs" "rope-")
-	 (setq ropemacs-enable-autoimport t)))
+;;; pymacs and ropemacs configuration
+;; (require-package 'pymacs)
+
+;; (eval-after-load 'python
+;;   '(progn
+;; 	 (autoload 'pymacs-apply "pymacs")
+;; 	 (autoload 'pymacs-call "pymacs")
+;; 	 (autoload 'pymacs-eval "pymacs" nil t)
+;; 	 (autoload 'pymacs-exec "pymacs" nil t)
+;; 	 (autoload 'pymacs-load "pymacs" nil t)
+;; 	 (message "loading ropemacs")
+;; 	 (pymacs-load "ropemacs" "rope-")
+;; 	 (setq ropemacs-enable-autoimport t)))
+
+;;; jedi configuration
+(require-package 'company-jedi)
+(defun company-jedi-setup ()
+  (add-to-list 'company-backends 'company-jedi))
+(add-hook 'python-mode-hook 'company-jedi-setup)
+
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
+(add-hook 'python-mode-hook 'jedi:setup)
+
 
 
 (provide 'init-python-mode)
