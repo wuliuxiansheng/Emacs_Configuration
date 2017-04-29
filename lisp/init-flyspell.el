@@ -26,6 +26,8 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 ;; add spell-checking for markdown mode
 (add-hook 'markdown-mode-hook 'flyspell-mode)
+;; add spell checking for git commit
+(add-hook 'git-commit-setup-hook 'flyspell-mode)
 
 (after-load 'flyspell
   (add-to-list 'flyspell-prog-text-faces 'nxml-text-face))
