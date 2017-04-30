@@ -19,5 +19,6 @@
 
 ;;; EasyPG configuration for Emacs 25
 (setf epa-pinentry-mode 'loopback)
+(setq epa-file-cache-passphrase-for-symmetric-encryption t)
 
 (provide 'init-locales)
