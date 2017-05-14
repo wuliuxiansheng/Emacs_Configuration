@@ -17,7 +17,6 @@ This Emacs configuration contains useful tools, such as company, yasnippet, pyma
   - aspell is required for spell check (Modify the path for Windows in `init-preload-local.el`);
   - Tex Live is required for Auctex, and Skim is required for Mac OS X, Okular is required for Linux and Sumatra PDF is required for Windows, and also, for Windows, download libpng binary files [here](https://sourceforge.net/projects/ezwinports/files/) and copy all DLL files in bin to Emacs bin in order to support png images for Preview;
   - For Windows, follow [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html) to get TLS first. Just download gnutls and copy all DLL files in bin to Emacs bin;
-  - w3m is required to read HTML email using Gnus and, for Windows OS, download libxml2 binary files [here](https://sourceforge.net/projects/ezwinports/files/) and copy all DLL files in bin to Emacs bin to show emails correctly;
   - Use blog-admin to manage blog and modify the corresponding configuration in `init-blog.el`.
 
 ## Installation:
