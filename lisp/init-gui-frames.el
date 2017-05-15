@@ -31,6 +31,8 @@
   (tool-bar-mode -1))
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
+(when (fboundp 'menu-bar-mode)
+  (menu-bar-mode -1))
 
 (let ((no-border '(internal-border-width . 0)))
   (add-to-list 'default-frame-alist no-border)
@@ -58,11 +60,6 @@
 (global-set-key (kbd "M-C-9") (lambda () (interactive) (sanityinc/adjust-opacity nil 2)))
 (global-set-key (kbd "M-C-0") (lambda () (interactive) (modify-frame-parameters nil `((alpha . 100)))))
 
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-            (with-selected-frame frame
-              (unless window-system
-                (set-frame-parameter nil 'menu-bar-lines 0)))))
 
 (setq frame-title-format
       '((:eval (if (buffer-file-name)

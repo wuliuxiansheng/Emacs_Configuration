@@ -25,6 +25,10 @@
               (ivy-mode 1))))
 
 
+(when (maybe-require-package 'ivy-historian)
+  (add-hook 'after-init-hook (lambda () (ivy-historian-mode t))))
+
+
 (when (maybe-require-package 'counsel)
   (setq-default counsel-mode-override-describe-bindings t)
   (when (maybe-require-package 'diminish)
