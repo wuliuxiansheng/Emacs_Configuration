@@ -3,7 +3,7 @@ Emacs_Configuration
 
 Emacs Configuration based on Purcell's Emacs Configuration. It's working for Linux, Mac and Windows.
 
-This Emacs configuration contains useful tools, such as company, yasnippet, pymacs and so on, and supports the following programming language:
+This Emacs configuration contains useful tools, such as company, yasnippet and so on, and supports the following programming language:
   - C/C++
   - Python
   - Tex with Auctex
@@ -17,7 +17,8 @@ This Emacs configuration contains useful tools, such as company, yasnippet, pyma
   - aspell is required for spell check (Modify the path for Windows in `init-preload-local.el`);
   - Tex Live is required for Auctex, and Skim is required for Mac OS X, Okular is required for Linux and Sumatra PDF is required for Windows, and also, for Windows, download libpng binary files [here](https://sourceforge.net/projects/ezwinports/files/) and copy all DLL files in bin to Emacs bin in order to support png images for Preview;
   - For Windows, follow [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html) to get TLS first. Just download gnutls and copy all DLL files in bin to Emacs bin;
-  - Use blog-admin to manage blog and modify the corresponding configuration in `init-blog.el`.
+  - Use blog-admin to manage blog and modify the corresponding configuration in `init-blog.el`;
+  - External indexing tools, like `find` and `git` are needed for Projectile.
 
 ## Installation:
   - To install, clone this repo and move it to `~/.emacs.d`;
