@@ -11,7 +11,7 @@
 (setq
  python-shell-interpreter "ipython"
  python-shell-interpreter-args ""  ;; required by IPython 5
- ;; python-shell-completion-native-enable nil
+ python-shell-completion-native-enable nil
  ;; python-shell-prompt-regexp "In \\[[0-9]+\\]: "
  ;; python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
  ;; python-shell-completion-setup-code
