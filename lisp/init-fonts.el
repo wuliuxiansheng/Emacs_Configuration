@@ -27,7 +27,7 @@ This is helpful for writeroom-mode, in particular."
 					  charset (font-spec :family "Arial Unicode MS" :size 16.5)))
   )
 (when *is-a-linux*
-  (set-frame-font "-unkonwn-Ubuntu Mono-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1")
+  (set-frame-font "-unkonwn-Ubuntu Mono-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")
   ;; configure Chinese characters to align tables
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
 	(set-fontset-font (frame-parameter nil 'font)
