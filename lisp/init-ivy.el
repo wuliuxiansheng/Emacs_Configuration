@@ -1,15 +1,20 @@
 (when (maybe-require-package 'ivy)
   (after-load 'ivy
     (setq-default ivy-use-virtual-buffers t
+                  ivy-virtual-abbreviate 'fullpath
                   ivy-count-format ""
                   projectile-completion-system 'ivy
                   ivy-initial-inputs-alist
-                  '((counsel-M-x . "^")
-                    (man . "^")
+                  '((man . "^")
                     (woman . "^")))
+
     ;; IDO-style directory navigation
-    (define-key ivy-minibuffer-map (kbd "C-j") #'ivy-immediate-done)
     (define-key ivy-minibuffer-map (kbd "RET") #'ivy-alt-done)
+    (dolist (k '("C-j" "C-RET"))
+      (define-key ivy-minibuffer-map (kbd k) #'ivy-immediate-done))
+
+    (define-key ivy-minibuffer-map (kbd "<up>") #'ivy-previous-line-or-history)
+
     (when (maybe-require-package 'diminish)
       (diminish 'ivy-mode)))
 
@@ -24,22 +29,34 @@
             (lambda ()
               (ivy-mode 1))))
 
-
 (when (maybe-require-package 'ivy-historian)
   (add-hook 'after-init-hook (lambda () (ivy-historian-mode t))))
-
 
 (when (maybe-require-package 'counsel)
   (setq-default counsel-mode-override-describe-bindings t)
   (when (maybe-require-package 'diminish)
     (after-load 'counsel
       (diminish 'counsel-mode)))
-  (add-hook 'after-init-hook 'counsel-mode))
+  (add-hook 'after-init-hook 'counsel-mode)
+
+  (when (and (executable-find "ag") (maybe-require-package 'projectile))
+    (defun sanityinc/counsel-ag-project (initial-input)
+      "Search using `counsel-ag' from the project root for INITIAL-INPUT."
+      (interactive (list (thing-at-point 'symbol)))
+      (counsel-ag initial-input (condition-case err
+                                    (projectile-project-root)
+                                  (error default-directory))))
+    (global-set-key (kbd "M-?") 'sanityinc/counsel-ag-project)))
 
 
 (when (maybe-require-package 'swiper)
   (after-load 'ivy
-	(define-key ivy-mode-map (kbd "C-s") 'swiper)))
+    (defun sanityinc/swiper-at-point (sym)
+      "Use `swiper' to search for the symbol at point."
+      (interactive (list (thing-at-point 'symbol)))
+      (swiper sym))
+
+    (define-key ivy-mode-map (kbd "M-s /") 'sanityinc/swiper-at-point)))
 
 
 

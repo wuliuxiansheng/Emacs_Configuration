@@ -23,7 +23,7 @@
  )
 
 ;;; python style checking
-(require-package 'pep8)
+;; (require-package 'pep8)
 (require-package 'pylint)
 
 ;; integrate autopep8
