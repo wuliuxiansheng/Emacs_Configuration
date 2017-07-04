@@ -1,11 +1,13 @@
 /.historian
 /.session
+/session.*
 /.smex-items
 /.uptimes.el
 /auto-save-list
 /custom.el
 /ditaa*.jar
 /history
+/network-security.data
 /elpa-*
 /org-clock-save.el
 /projectile-bookmarks.eld
