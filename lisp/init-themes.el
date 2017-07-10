@@ -26,12 +26,14 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (color-theme-sanityinc-solarized-light))
+  (color-theme-sanityinc-solarized-light)
+  (reapply-themes))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (color-theme-sanityinc-solarized-dark))
+  (color-theme-sanityinc-solarized-dark)
+  (reapply-themes))
 
 ;;------------------------------------------------------------------------------
 ;; Theme Configuration for Org-mode
