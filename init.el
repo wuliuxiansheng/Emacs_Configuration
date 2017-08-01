@@ -95,8 +95,9 @@
 (require 'init-html)
 
 (require 'init-python-mode)
-
 (require 'init-cc-mode)
+(when *is-a-linux*
+  (require 'init-ros))
 
 (require 'init-paredit)
 (require 'init-lisp)
