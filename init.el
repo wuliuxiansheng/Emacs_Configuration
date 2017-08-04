@@ -92,6 +92,8 @@
 (require 'init-deft)
 (require 'init-code)
 
+(require 'init-yasnippet)
+
 (require 'init-html)
 
 (require 'init-python-mode)
@@ -113,8 +115,6 @@
 (require 'init-folding)
 (require 'init-dash)
 (require 'init-ledger)
-
-(require 'init-yasnippet)
 
 (require 'init-auctex)
 ;; (require 'init-ac-math)
