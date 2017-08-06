@@ -13,5 +13,8 @@
 (after-load 'flyspell
   (add-to-list 'flyspell-prog-text-faces 'nxml-text-face))
 
+(eval-after-load "flyspell"
+  '(define-key flyspell-mode-map (kbd "C-;") nil))
+
 
 (provide 'init-flyspell)
