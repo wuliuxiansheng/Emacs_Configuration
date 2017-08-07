@@ -24,6 +24,7 @@ This Emacs configuration contains useful tools, such as company, yasnippet and s
   - To install, clone this repo and move it to `~/.emacs.d`;
   - Put `utility/.gnus.el` in home directory and modify user information in .gnus.el and .emacs.d/.signature, and use gmail2bbdb to import contacts from Gmail;
   - Put `utility/config` in `~/.ssh/` and modify it for ssh host information;
+  - Configure `install-mode` in `init.el` to be *full*, *programming* or *text*. Only necessary packages for programming will be configured when selecting *programming* and only necessary packages for text will be configured when selecting *text*. Default value is *full* and all packages will be configured;
   - When starting Emacs for the first time, required packages will be installed automatically;
   - After the installation is finished, when closing Emacs after opening a `.c` or `.cpp` file, `.emacs.d/semanticdb/` is created for SemanticDB.
 
