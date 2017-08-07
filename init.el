@@ -19,6 +19,15 @@
 (setq ad-redefinition-action 'accept) ;; ignore the redefinition warning
 
 ;;----------------------------------------------------------------------------
+;; Set installation mode: text, programming, full
+;;----------------------------------------------------------------------------
+(setq install-mode "full")
+
+(let ((install-modes '("full" "text" "programming")))
+  (when (not (member install-mode install-modes))
+	(error "Set install-mode from full, text or programming")))
+
+;;----------------------------------------------------------------------------
 ;; Temporarily reduce garbage collection during startup
 ;;----------------------------------------------------------------------------
 (defconst sanityinc/initial-gc-cons-threshold gc-cons-threshold
@@ -94,12 +103,16 @@
 
 (require 'init-yasnippet)
 
-(require 'init-html)
+(when (not (string-equal install-mode "text"))
+  (require 'init-html)
+  (require 'init-python-mode)
+  (require 'init-cc-mode)
+  (when *is-a-linux*
+	(require 'init-ros))
+  (require 'init-matlab-mode))
 
-(require 'init-python-mode)
-(require 'init-cc-mode)
-(when *is-a-linux*
-  (require 'init-ros))
+(when (not *is-a-windows*)
+  (require 'init-multi-term))
 
 (require 'init-paredit)
 (require 'init-lisp)
@@ -116,24 +129,19 @@
 (require 'init-dash)
 (require 'init-ledger)
 
-(require 'init-auctex)
-;; (require 'init-ac-math)
-(require 'init-company-math)
-
-(require 'init-matlab-mode)
-(when (not *is-a-windows*)
-  (require 'init-multi-term)
-  )
-
-(require 'init-mail)
-(require 'init-blog)
+(when (not (string-equal install-mode "programming"))
+  (require 'init-auctex)
+  ;; (require 'init-ac-math)
+  (require 'init-company-math)
+  (require 'init-mail)
+  (require 'init-blog))
 
 (require 'init-ssh)
 ;; Extra packages which don't require any configuration
-
 (require-package 'gnuplot)
-(require-package 'lua-mode)
-(require-package 'htmlize)
+(when (not (string-equal install-mode "text"))
+  (require-package 'lua-mode)
+  (require-package 'htmlize))
 ;; (when (not *is-a-windows*)
 ;;   (require-package 'dsvn)
 ;;   (autoload 'svn-status "dsvn" "Run `svn status'." t)
