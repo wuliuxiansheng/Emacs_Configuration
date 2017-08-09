@@ -55,6 +55,9 @@
 (setq jedi:complete-on-dot t)
 (add-hook 'python-mode-hook 'jedi:setup)
 
+(setq jedi-custom-file (expand-file-name "jedi-custom.el" user-emacs-directory))
+(when (file-exists-p jedi-custom-file)
+  (load jedi-custom-file))
 
 
 (provide 'init-python-mode)
