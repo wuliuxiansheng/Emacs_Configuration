@@ -82,7 +82,11 @@
 (global-semantic-idle-scheduler-mode 1)
 
 (semantic-mode 1)
-;; (global-ede-mode 1)
+(global-ede-mode 1)
+
+(setq ede-custom-file (expand-file-name "c-cpp-projects.el" user-emacs-directory))
+(when (file-exists-p ede-custom-file)
+  (load ede-custom-file))
 
 ;; remove semantic for python mode and html mode
 (setq semantic-new-buffer-setup-functions
@@ -92,32 +96,6 @@
 				 semantic-new-buffer-setup-functions))
 
 (remove-hook 'python-mode-hook 'wisent-python-default-setup)
-
-(defvar user-include-dirs-cpp
-  '("." "./inc" "../inc" "../../../../common/c/user/inc"
-	"../../../../common/cpp/user/inc"
-	"../../../../smores_common/c/inc" "../../../../smores_common/cpp/inc"
-	"../../../../stm32/c/user/inc" "../../../../stm32/cpp/user/inc"
-	"../../../../stm32f30x/c/user/inc" "../../../../stm32f30x/c/st/inc"
-	"../../../../stm32f37x/c/user/inc" "../../../../stm32f37x/c/st/inc"
-	))
-
-(defvar user-include-dirs-c
-  '("." "./inc" "../inc"
-	"/usr/local/CrossPack-AVR-20131216/avr/include/avr"
-	"/usr/local/CrossPack-AVR-20131216/avr/include"
-	"/usr/local/CrossPack-AVR-20131216/avr/include/util"))
-
-(defun semantic-setup ()
-  (mapc (lambda (dir)
-		  (semantic-add-system-include dir 'c++-mode))
-		user-include-dirs-cpp)
-  (mapc (lambda (dir)
-		  (semantic-add-system-include dir 'c-mode))
-		user-include-dirs-c)
-  )
-
-(add-hook 'semantic-init-hooks 'semantic-setup)
 
 ;; add company-semantic to company mode
 (defun company-semantic-setup ()
@@ -134,14 +112,14 @@
 (add-hook 'c++-mode-hook 'company-c-headers-setup)
 (add-hook 'c-mode-hook 'company-c-headers-setup)
 
-;; add user path for searching c/c++ header files
+(setq header-custom-file (expand-file-name "cc-mode-header-custom.el" user-emacs-directory))
+(when (file-exists-p header-custom-file)
+  (load header-custom-file))
 
-;; combine two user include directories
-(setq user-include-dirs (append user-include-dirs-cpp user-include-dirs-c))
-
-(eval-after-load 'company-c-headers
-  '(mapcar (lambda (item) (add-to-list 'company-c-headers-path-user item))
-		   user-include-dirs))
+(defun ede-object-system-include-path ()
+  (when ede-object
+	(ede-system-include-path ede-object)))
+(setq company-c-headers-path-system 'ede-object-system-include-path)
 
 
 (provide 'init-cc-mode)
