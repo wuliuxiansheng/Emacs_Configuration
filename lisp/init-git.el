@@ -64,6 +64,8 @@
              "^  \\([a-z\\-]+\\) +"
              (shell-command-to-string "git svn help") 1))))
 
+(autoload 'vc-git-root "vc-git")
+
 (defun git-svn (dir command)
   "Run a git svn subcommand in DIR."
   (interactive (list (read-directory-name "Directory: ")
