@@ -11,7 +11,7 @@ This Emacs configuration contains useful tools, such as company, yasnippet and s
   - HTML
 
 ## Requirements:
-  - Emacs 23.3 or greater (Emacs 24 is preferred);
+  - Emacs 24.1 or greater;
   - iPython and autopep8 are required for python, pylint is optinal for python style guide, and Jedi and python-epc are required for python completion;
   - zsh is required for multi-term (Modify shell preference in `init-multi-term.el`);
   - aspell is required for spell check (Modify the path for Windows in `init-preload-local.el`);
@@ -40,4 +40,6 @@ This Emacs configuration contains useful tools, such as company, yasnippet and s
   - For Windows, if it's not installed successfully for the first time, restart Emacs and it should be working;
   - For TeX Live on Mac and Windows, using pdfsync package is also working for forward and inverse search but less accurate. Thus, I recommend generating .synctex.gz rather than using pdfsync package to generate .pdfsync for forward and inverse search;
   - TeX mode for Windows sometimes gets stuck. Try `C-g` to cancel running;
-  - gnupg 2.1 is required for EasyPG in Emacs 25.
+  - gnupg 2.1 is required for EasyPG in Emacs 25;
+  - `jedi-custom.el` can be used to customize Jedi, like adding some special **sys.path** when starting Jedi server (example is in `utility/jedi-custom.el`);
+  - `cc-mode-header-custom.el` can be used to customize the include paths for company-c-headers package and `cc-mode-projects.el` can be used for EDE project configuration (examples are in `utility/cc-mode-header-custom.el` and `utility/cc-mode-projects.el`).
