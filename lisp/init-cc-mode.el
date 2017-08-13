@@ -84,7 +84,7 @@
 (semantic-mode 1)
 (global-ede-mode 1)
 
-(setq ede-custom-file (expand-file-name "c-cpp-projects.el" user-emacs-directory))
+(setq ede-custom-file (expand-file-name "cc-mode-projects.el" user-emacs-directory))
 (when (file-exists-p ede-custom-file)
   (load ede-custom-file))
 
@@ -115,11 +115,6 @@
 (setq header-custom-file (expand-file-name "cc-mode-header-custom.el" user-emacs-directory))
 (when (file-exists-p header-custom-file)
   (load header-custom-file))
-
-(defun ede-object-system-include-path ()
-  (when ede-object
-	(ede-system-include-path ede-object)))
-(setq company-c-headers-path-system 'ede-object-system-include-path)
 
 
 (provide 'init-cc-mode)
