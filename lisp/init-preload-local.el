@@ -13,7 +13,7 @@
 ;; line number configuration
 (global-linum-mode t);show line number
 ;; disable line number display for some modes
-(setq linum-disabled-modes-list '(eshell-mode term-mode org-mode text-mode inferior-python-mode TeX-output-mode compilation-mode))
+(setq linum-disabled-modes-list '(eshell-mode term-mode org-mode text-mode inferior-python-mode TeX-output-mode compilation-mode comint-mode))
 (defun linum-on ()
   (unless (or (minibufferp)
 			  (member major-mode linum-disabled-modes-list))
