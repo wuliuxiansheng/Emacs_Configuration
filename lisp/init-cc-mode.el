@@ -124,6 +124,21 @@
 (when (file-exists-p header-custom-file)
   (load header-custom-file))
 
+;;; CMake configuration
+(require-package 'cmake-mode)
+(setq auto-mode-alist
+	  (append
+	   '(("CMakeLists\\.txt\\'" . cmake-mode))
+	   '(("\\.cmake\\'" . cmake-mode))
+	   auto-mode-alist))
+
+
+(load "company-cmake")
+(defun company-cmake-setup ()
+  (add-to-list 'company-backends 'company-cmake))
+(add-hook 'cmake-mode-hook 'company-cmake-setup)
+
+
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode ends here
