@@ -97,6 +97,14 @@
 
 (remove-hook 'python-mode-hook 'wisent-python-default-setup)
 
+;; set SemanticDB search throttle
+(setq-mode-local c-mode
+				 semanticdb-find-default-throttle
+				 '(project unloaded recursive))
+(setq-mode-local c++-mode
+				 semanticdb-find-default-throttle
+				 '(project unloaded recursive))
+
 ;; add company-semantic to company mode
 (defun company-semantic-setup ()
   (add-to-list 'company-backends 'company-semantic))
