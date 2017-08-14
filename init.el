@@ -104,6 +104,7 @@
 (require 'init-yasnippet)
 
 (when (not (string-equal install-mode "text"))
+  (require 'init-nxml)
   (require 'init-html)
   (require 'init-python-mode)
   (require 'init-cc-mode)
