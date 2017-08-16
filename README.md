@@ -43,5 +43,5 @@ This Emacs configuration contains useful tools, such as company, yasnippet and s
   - For TeX Live on Mac and Windows, using pdfsync package is also working for forward and inverse search but less accurate. Thus, I recommend generating .synctex.gz rather than using pdfsync package to generate .pdfsync for forward and inverse search;
   - TeX mode for Windows sometimes gets stuck. Try `C-g` to cancel running;
   - gnupg 2.1 is required for EasyPG in Emacs 25;
-  - `jedi-custom.el` can be used to customize Jedi, like adding some special **sys.path** when starting Jedi server (example is in `utility/jedi-custom.el`);
-  - `cc-mode-header-custom.el` can be used to customize the include paths for company-c-headers package and `cc-mode-projects.el` can be used for EDE project configuration (examples are in `utility/cc-mode-header-custom.el` and `utility/cc-mode-projects.el`).
+  - `.emacs.d/jedi-custom.el` can be used to customize Jedi, like adding some special **sys.path** when starting Jedi server (example is in `utility/jedi-custom.el`);
+  - `.emacs.d/cc-mode-header-custom.el` can be used to customize the include paths for company-c-headers package and `.emacs.d/cc-mode-projects.el` can be used for EDE project configuration (examples are in `utility/cc-mode-header-custom.el` and `utility/cc-mode-projects.el`).
