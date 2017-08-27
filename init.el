@@ -140,9 +140,7 @@
 (require 'init-ssh)
 ;; Extra packages which don't require any configuration
 (require-package 'gnuplot)
-(when (not (string-equal install-mode "text"))
-  (require-package 'lua-mode)
-  (require-package 'htmlize))
+(require-package 'htmlize)
 ;; (when (not *is-a-windows*)
 ;;   (require-package 'dsvn)
 ;;   (autoload 'svn-status "dsvn" "Run `svn status'." t)
