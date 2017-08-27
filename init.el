@@ -95,7 +95,6 @@
 
 (require 'init-compile)
 (require 'init-crontab)
-(require 'init-markdown)
 (require 'init-csv)
 (require 'init-org)
 (require 'init-deft)
@@ -131,6 +130,7 @@
 (require 'init-ledger)
 
 (when (not (string-equal install-mode "programming"))
+  (require 'init-markdown)
   (require 'init-auctex)
   ;; (require 'init-ac-math)
   (require 'init-company-math)
