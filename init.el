@@ -1,10 +1,9 @@
-
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
 (let ((minver "24.1"))
   (when (version< emacs-version minver)
-    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
+	(error "Your Emacs is too old -- this config requires v%s or higher" minver)))
 (when (version< emacs-version "24.4")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
@@ -34,7 +33,7 @@
   "Initial value of `gc-cons-threshold' at start-up time.")
 (setq gc-cons-threshold (* 128 1024 1024))
 (add-hook 'after-init-hook
-          (lambda () (setq gc-cons-threshold sanityinc/initial-gc-cons-threshold)))
+		  (lambda () (setq gc-cons-threshold sanityinc/initial-gc-cons-threshold)))
 
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
@@ -94,7 +93,6 @@
 (require 'init-projectile)
 
 (require 'init-compile)
-(require 'init-crontab)
 (require 'init-csv)
 (require 'init-org)
 (require 'init-deft)
