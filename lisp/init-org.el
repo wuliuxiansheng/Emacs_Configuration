@@ -43,6 +43,10 @@
 	  org-export-backends (quote (ascii html icalendar latex md))
 	  org-startup-align-all-tables t)
 
+;; org-mode emphasis modification for *'some contents'*
+(setcar (nthcdr 2 org-emphasis-regexp-components) " \t\r\n,\"")
+(org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
+
 
 ;; Lots of stuff from http://doc.norang.ca/org-mode.html
 
