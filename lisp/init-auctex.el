@@ -3,18 +3,7 @@
 (require-package 'auctex)
 
 (when *is-a-mac*
-  ;; load auctex only when editing tex files
-  (eval-after-load "tex-mode"
-	'(progn
-	   (load "auctex.el" nil t t)
-	   )
-	)
 
-  (setenv "PATH" (concat "/usr/texbin:/usr/local/bin:" (getenv "PATH")))
-  (setq exec-path (append '("/usr/texbin" "/usr/local/bin") exec-path))
-
-  ;;(if (string-equal system-type "windows-nt")
-  ;;     (require 'tex-mik))
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil)
