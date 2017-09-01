@@ -46,12 +46,6 @@
   )
 
 (when *is-a-linux*
-  (eval-after-load "tex-mode"
-	'(progn
-	   (load "auctex.el" nil t t)
-	   ;; (load "preview-latex.el" nil t t)
-	   )
-	)
 
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
@@ -61,8 +55,8 @@
 
   (add-hook 'LaTeX-mode-hook
 			(lambda()
-			  (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
-			  (setq TeX-command-default "XeLaTeX")))
+			  (add-to-list 'TeX-command-list '("PDFLaTeX" "%`pdflatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
+			  (setq TeX-command-default "PDFLaTeX")))
 
   (mapc (lambda (mode)
 		  (add-hook 'LaTeX-mode-hook mode))
