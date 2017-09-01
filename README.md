@@ -13,7 +13,7 @@ This Emacs configuration contains useful tools, such as company, yasnippet and s
 
 ## Requirements:
   - Emacs 24.1 or greater;
-  - iPython and autopep8 are required for python, pylint is optinal for python style guide, and Jedi and python-epc are required for python completion;
+  - iPython and autopep8 are required for python, pylint is optinal for python style guide, Jedi and python-epc are required for python completion, and flake8 are required for Python syntax checking;
   - zsh is required for multi-term (Modify shell preference in `init-multi-term.el`);
   - aspell is required for spell check (Modify the path for Windows in `init-preload-local.el`);
   - Tex Live is required for Auctex, and Skim is required for Mac OS X, Okular is required for Linux and Sumatra PDF is required for Windows, and also, for Windows, download libpng binary files [here](https://sourceforge.net/projects/ezwinports/files/) and copy all DLL files in bin to Emacs bin in order to support png images for Preview;
