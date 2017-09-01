@@ -8,8 +8,6 @@
   (setq TeX-parse-self t)
   (setq-default TeX-master nil)
 
-  (setq TeX-output-view-style (quote (("^pdf$" "." "evince %o %(outpage)"))))
-
   (add-hook 'LaTeX-mode-hook
 			(lambda()
 			  (add-to-list 'TeX-command-list '("PDFLaTeX" "%`pdflatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
@@ -50,8 +48,6 @@
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil)
-
-  (setq TeX-output-view-style '(("^pdf$" "." "okular %o %(outpage)")))
 
   (add-hook 'LaTeX-mode-hook
 			(lambda()
@@ -121,8 +117,6 @@
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil)
-
-  (setq TeX-output-view-style (quote (("^pdf$" "." "evince %o %(outpage)"))))
 
   (add-hook 'LaTeX-mode-hook
             (lambda()
