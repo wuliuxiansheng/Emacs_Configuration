@@ -17,12 +17,12 @@
 ;; combine two user include directories
 (setq user-include-dirs (append user-include-dirs-cpp user-include-dirs-c))
 
-(defvar system-include-dirs
-  '("/opt/ros/indigo/include"))
+;; (defvar system-include-dirs
+;;   '("/opt/ros/indigo/include" "/usr/lib/gcc/avr/4.8.2/include" "/usr/lib/avr/include"))
 
 (eval-after-load 'company-c-headers
   '(mapcar (lambda (item) (add-to-list 'company-c-headers-path-user item))
 		   user-include-dirs))
-(eval-after-load 'company-c-headers
-  '(mapcar (lambda (item) (add-to-list 'company-c-headers-path-system item))
-		   system-include-dirs))
+;; (eval-after-load 'company-c-headers
+;;   '(mapcar (lambda (item) (add-to-list 'company-c-headers-path-system item))
+;; 		   system-include-dirs))
