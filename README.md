@@ -17,7 +17,7 @@ This Emacs configuration contains useful tools, such as company, yasnippet and s
   - zsh is required for multi-term (Modify shell preference in `init-multi-term.el`);
   - aspell is required for spell check (Modify the path for Windows in `init-preload-local.el`);
   - Tex Live is required for Auctex, and Skim is required for Mac OS X, Okular is required for Linux and Sumatra PDF is required for Windows, and also, for Windows, download libpng binary files [here](https://sourceforge.net/projects/ezwinports/files/) and copy all DLL files in bin to Emacs bin in order to support png images for Preview;
-  - For Windows, follow [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html) to get TLS first. Just download gnutls and copy all DLL files in bin to Emacs bin;
+  - For Windows, follow [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html) if using Emacs 24 to get TLS first. Just download gnutls and copy all DLL files in bin to Emacs bin. If using Emacs 25, download GnuTLS libraries [here](http://alpha.gnu.org/gnu/emacs/pretest/windows/). Download `emacs-25-i686-deps.zip` for 32-bit Windows OS, or download `emacs-25-x86_64-deps.zip` for 64-bit Windows OS;
   - Use blog-admin to manage blog and modify the corresponding configuration in `init-blog.el`;
   - External indexing tools, like `find` and `git` are needed for Projectile;
   - ROS support is configured only for Linux machine and ros-DISTRO-rosemacs is required. The default ROS version is Indigo which can be modified in `init-ros.el`.
