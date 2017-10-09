@@ -1,4 +1,6 @@
+;;; -*- lexical-binding: t -*-
 (when (maybe-require-package 'ivy)
+  (add-hook 'after-init-hook 'ivy-mode)
   (after-load 'ivy
     (setq-default ivy-use-virtual-buffers t
                   ivy-virtual-abbreviate 'fullpath
@@ -43,14 +45,29 @@
       (diminish 'counsel-mode)))
   (add-hook 'after-init-hook 'counsel-mode)
 
-  (when (and (executable-find "ag") (maybe-require-package 'projectile))
-    (defun sanityinc/counsel-ag-project (initial-input)
-      "Search using `counsel-ag' from the project root for INITIAL-INPUT."
-      (interactive (list (thing-at-point 'symbol)))
-      (counsel-ag initial-input (condition-case err
-                                    (projectile-project-root)
-                                  (error default-directory))))
-    (global-set-key (kbd "M-?") 'sanityinc/counsel-ag-project)))
+  (when (maybe-require-package 'projectile)
+    (let ((search-function
+           (cond
+            ((executable-find "rg") 'counsel-rg)
+            ((executable-find "ag") 'counsel-ag)
+            ((executable-find "pt") 'counsel-pt)
+            ((executable-find "ack") 'counsel-ack))))
+      (when search-function
+        (defun sanityinc/counsel-search-project (initial-input &optional use-current-dir)
+          "Search using `counsel-ag' from the project root for INITIAL-INPUT.
+If there is no project root, or if the prefix argument
+USE-CURRENT-DIR is set, then search from the current directory
+instead."
+          (interactive (list (thing-at-point 'symbol)
+                             current-prefix-arg))
+          (let ((current-prefix-arg)
+                (dir (if use-current-dir
+                         default-directory
+                       (condition-case err
+                           (projectile-project-root)
+                         (error default-directory)))))
+            (funcall search-function initial-input dir)))))
+    (global-set-key (kbd "M-?") 'sanityinc/counsel-search-project)))
 
 
 (when (maybe-require-package 'swiper)
@@ -62,7 +79,7 @@
 
     (define-key ivy-mode-map (kbd "M-s /") 'sanityinc/swiper-at-point)
 
-	(define-key ivy-mode-map (kbd "C-s") 'swiper)))
+    (define-key ivy-mode-map (kbd "C-s") 'swiper)))
 
 
 

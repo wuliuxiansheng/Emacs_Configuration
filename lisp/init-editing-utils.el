@@ -1,9 +1,9 @@
 (require-package 'unfill)
 
 (when (fboundp 'electric-pair-mode)
-  (electric-pair-mode))
+  (add-hook 'after-init-hook 'electric-pair-mode))
 (when (eval-when-compile (version< "24.4" emacs-version))
-  (electric-indent-mode 1))
+  (add-hook 'after-init-hook 'electric-indent-mode))
 
 (maybe-require-package 'list-unicode-display)
 
@@ -29,11 +29,11 @@
  truncate-lines nil
  truncate-partial-width-windows nil)
 
-(global-auto-revert-mode)
+(add-hook 'after-init-hook 'global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t
       auto-revert-verbose nil)
 
-(transient-mark-mode t)
+(add-hook 'after-init-hook 'transient-mark-mode)
 
 
  ;;; A simple visible bell which works in all terminal types
@@ -44,6 +44,12 @@
 
 (setq-default
  ring-bell-function 'sanityinc/flash-mode-line)
+
+
+
+(when (maybe-require-package 'beacon)
+  (setq-default beacon-lighter "")
+  (add-hook 'after-init-hook 'beacon-mode))
 
 
 
@@ -60,21 +66,13 @@
 
 
 
-(when (eval-when-compile (string< "24.3.1" emacs-version))
-  ;; https://github.com/purcell/emacs.d/issues/138
-  (after-load 'subword
-    (diminish 'subword-mode)))
+(after-load 'subword
+  (diminish 'subword-mode))
 
 
 
-(when (maybe-require-package 'indent-guide)
-  (add-hook 'prog-mode-hook 'indent-guide-mode)
-  (after-load 'indent-guide
-    (diminish 'indent-guide-mode)))
-
-
-
-(require-package 'nlinum)
+(unless (fboundp 'display-line-numbers-mode)
+  (require-package 'nlinum))
 
 
 (when (require-package 'rainbow-delimiters)
@@ -83,12 +81,13 @@
 
 
 (when (fboundp 'global-prettify-symbols-mode)
-  (global-prettify-symbols-mode))
+  (add-hook 'after-init-hook 'global-prettify-symbols-mode))
 
 
 (require-package 'undo-tree)
-(global-undo-tree-mode)
-(diminish 'undo-tree-mode)
+(add-hook 'after-init-hook 'global-undo-tree-mode)
+(after-load 'undo-tree
+  (diminish 'undo-tree-mode))
 
 
 (when (maybe-require-package 'symbol-overlay)
@@ -128,7 +127,7 @@
 ;;----------------------------------------------------------------------------
 ;; Show matching parens
 ;;----------------------------------------------------------------------------
-(show-paren-mode 1)
+(add-hook 'after-init-hook 'show-paren-mode)
 
 ;;----------------------------------------------------------------------------
 ;; Expand region
@@ -192,8 +191,9 @@
 ;; Page break lines
 ;;----------------------------------------------------------------------------
 (require-package 'page-break-lines)
-(global-page-break-lines-mode)
-(diminish 'page-break-lines-mode)
+(add-hook 'after-init-hook 'global-page-break-lines-mode)
+(after-load 'page-break-lines
+  (diminish 'page-break-lines-mode))
 
 ;;----------------------------------------------------------------------------
 ;; Shift lines up and down with M-up and M-down. When paredit is enabled,
@@ -207,7 +207,7 @@
 (global-set-key [M-S-down] 'md/move-lines-down)
 
 (global-set-key (kbd "C-c d") 'md/duplicate-down)
-(global-set-key (kbd "C-c D") 'md/duplicate-up)
+(global-set-key (kbd "C-c u") 'md/duplicate-up)
 
 ;;----------------------------------------------------------------------------
 ;; Fix backward-up-list to understand quotes, see http://bit.ly/h7mdIL
@@ -228,9 +228,9 @@
 ;; Cut/copy the current line if no region is active
 ;;----------------------------------------------------------------------------
 (require-package 'whole-line-or-region)
-(whole-line-or-region-mode t)
-(diminish 'whole-line-or-region-mode)
-(make-variable-buffer-local 'whole-line-or-region-mode)
+(add-hook 'after-init-hook 'whole-line-or-region-mode)
+(after-load 'whole-line-or-region
+  (diminish 'whole-line-or-region-mode))
 
 (defun suspend-mode-during-cua-rect-selection (mode-name)
   "Add an advice to suspend `MODE-NAME' while selecting a CUA rectangle."
@@ -302,15 +302,14 @@ With arg N, insert N newlines."
 
 
 (require-package 'highlight-escape-sequences)
-(hes-mode)
+(add-hook 'after-init-hook 'hes-mode)
 
 
 (require-package 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "M-s" "C-h"))
-(add-hook 'after-init-hook
-		  (lambda ()
-			(guide-key-mode 1)
-			(diminish 'guide-key-mode)))
+(setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "M-s" "C-h" "C-c C-a"))
+(add-hook 'after-init-hook 'guide-key-mode)
+(after-load 'guide-key
+  (diminish 'guide-key-mode))
 
 ;;----------------------------------------------------------------------------
 ;; Edit multiple regions simultaneously

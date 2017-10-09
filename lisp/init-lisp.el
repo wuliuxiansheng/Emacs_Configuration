@@ -1,12 +1,7 @@
-(load-library "hideshow")
-(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
-
 (require-package 'elisp-slime-nav)
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
   (add-hook hook 'turn-on-elisp-slime-nav-mode))
 (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "ELisp")))
-
-(require-package 'lively)
 
 (setq-default initial-scratch-message
               (concat ";; Happy hacking, " (or user-login-name "") " - Emacs!\n\n"))
@@ -27,8 +22,8 @@
 (after-load 'lisp-mode
   (define-key emacs-lisp-mode-map (kbd "C-x C-e") 'sanityinc/eval-last-sexp-or-region))
 
-(require-package 'ipretty)
-(ipretty-mode 1)
+(when (maybe-require-package 'ipretty)
+  (add-hook 'after-init-hook 'ipretty-mode))
 
 
 (defadvice pp-display-expression (after sanityinc/make-read-only (expression out-buffer-name) activate)
@@ -71,7 +66,7 @@
   (interactive)
   (if sanityinc/repl-original-buffer
       (funcall sanityinc/repl-switch-function sanityinc/repl-original-buffer)
-    (error "No original buffer.")))
+    (error "No original buffer")))
 
 (after-load 'elisp-mode
   (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'sanityinc/switch-to-ielm))
@@ -94,26 +89,15 @@
 ;; Automatic byte compilation
 ;; ----------------------------------------------------------------------------
 (when (maybe-require-package 'auto-compile)
-  (auto-compile-on-save-mode 1)
-  (auto-compile-on-load-mode 1))
+  (add-hook 'after-init-hook 'auto-compile-on-save-mode)
+  (add-hook 'after-init-hook 'auto-compile-on-load-mode))
 
 ;; ----------------------------------------------------------------------------
 ;; Load .el if newer than corresponding .elc
 ;; ----------------------------------------------------------------------------
 (setq load-prefer-newer t)
 
-;; ----------------------------------------------------------------------------
-;; Highlight current sexp
-;; ----------------------------------------------------------------------------
-
-(require-package 'hl-sexp)
-
-;; Prevent flickery behaviour due to hl-sexp-mode unhighlighting before each command
-(after-load 'hl-sexp
-  (defadvice hl-sexp-mode (after unflicker (&optional turn-on) activate)
-    (when turn-on
-      (remove-hook 'pre-command-hook #'hl-sexp-unhighlight))))
-
+
 
 (require-package 'immortal-scratch)
 (add-hook 'after-init-hook 'immortal-scratch-mode)
@@ -186,7 +170,7 @@
     (add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
   (require-package 'eldoc-eval)
   (require 'eldoc-eval)
-  (eldoc-in-minibuffer-mode 1))
+  (add-hook 'after-init-hook 'eldoc-in-minibuffer-mode))
 
 (add-to-list 'auto-mode-alist '("\\.emacs-project\\'" . emacs-lisp-mode))
 (add-to-list 'auto-mode-alist '("archive-contents\\'" . emacs-lisp-mode))
@@ -256,7 +240,8 @@
 (add-hook 'emacs-lisp-mode-hook 'sanityinc/run-theme-mode-hooks-if-theme t)
 
 (when (maybe-require-package 'rainbow-mode)
-  (add-hook 'sanityinc/theme-mode-hook 'rainbow-mode))
+  (add-hook 'sanityinc/theme-mode-hook 'rainbow-mode)
+  (add-hook 'help-mode-hook 'rainbow-mode))
 
 (when (maybe-require-package 'aggressive-indent)
   ;; Can be prohibitively slow with very long forms
