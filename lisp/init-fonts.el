@@ -19,24 +19,24 @@ This is helpful for writeroom-mode, in particular."
 
 ;;; Default font setting for different OS
 (when *is-a-mac*
-  (set-frame-font "-*-Menlo-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+  (set-frame-font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
   ;; configure Chinese characters to align tables
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
-	(set-fontset-font (frame-parameter nil 'font)
-					  charset (font-spec :family "Arial Unicode MS" :size 16.5)))
+    (set-fontset-font (frame-parameter nil 'font)
+                      charset (font-spec :family "Arial Unicode MS" :size 16.5)))
   )
 (when *is-a-linux*
   (set-frame-font "-unkonwn-Ubuntu Mono-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")
   ;; configure Chinese characters to align tables
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
-	(set-fontset-font (frame-parameter nil 'font)
-					  charset (font-spec :family "Noto Sans CJK JP" :size 18))))
+    (set-fontset-font (frame-parameter nil 'font)
+                      charset (font-spec :family "Noto Sans CJK JP" :size 18))))
 (when *is-a-windows*
   (set-frame-font "-outline-Courier New-normal-normal-normal-mono-14-*-*-*-c-*-iso8859-1")
   ;; configure Chinese characters to align tables
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
-	(set-fontset-font (frame-parameter nil 'font)
-					  charset (font-spec :family "NSimsun" :size 15))))
+    (set-fontset-font (frame-parameter nil 'font)
+                      charset (font-spec :family "NSimsun" :size 15))))
 
 
 
