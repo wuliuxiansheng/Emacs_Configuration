@@ -1,6 +1,7 @@
 ;; customized include user path
 (defvar user-include-dirs-cpp
-  '("." "./inc" "../inc" "../include" "../../../devel/include"
+  '("." "./inc" "../inc" "../include"
+	"../../../devel/include" "../../../../devel/include"
 	"../../../../common/c/user/inc" "../../../../common/cpp/user/inc"
 	"../../../../smores_common/c/inc" "../../../../smores_common/cpp/inc"
 	"../../../../stm32/c/user/inc" "../../../../stm32/cpp/user/inc"
