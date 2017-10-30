@@ -75,6 +75,24 @@
 (add-hook 'c-mode-hook 'cc-mode-compile)
 (add-hook 'c++-mode-hook 'cc-mode-compile)
 
+;;; c/c++ header complete
+(require-package 'company-c-headers)
+
+;; add company-c-headers to company mode
+(defun company-c-headers-setup ()
+  (add-to-list 'company-backends 'company-c-headers))
+(add-hook 'c++-mode-hook 'company-c-headers-setup)
+(add-hook 'c-mode-hook 'company-c-headers-setup)
+
+(defun ede-object-system-include-path ()
+  (when ede-object
+	(ede-system-include-path ede-object)))
+(setq company-c-headers-path-system 'ede-object-system-include-path)
+
+(setq header-custom-file (expand-file-name "cc-mode-header-custom.el" user-emacs-directory))
+(when (file-exists-p header-custom-file)
+  (load header-custom-file))
+
 ;;; CEDET Configuration
 (require 'semantic)
 
@@ -110,24 +128,6 @@
   (add-to-list 'company-backends 'company-semantic))
 (add-hook 'c++-mode-hook 'company-semantic-setup)
 (add-hook 'c-mode-hook 'company-semantic-setup)
-
-;;; c/c++ header complete
-(require-package 'company-c-headers)
-
-;; add company-c-headers to company mode
-(defun company-c-headers-setup ()
-  (add-to-list 'company-backends 'company-c-headers))
-(add-hook 'c++-mode-hook 'company-c-headers-setup)
-(add-hook 'c-mode-hook 'company-c-headers-setup)
-
-(defun ede-object-system-include-path ()
-  (when ede-object
-	(ede-system-include-path ede-object)))
-(setq company-c-headers-path-system 'ede-object-system-include-path)
-
-(setq header-custom-file (expand-file-name "cc-mode-header-custom.el" user-emacs-directory))
-(when (file-exists-p header-custom-file)
-  (load header-custom-file))
 
 ;;; CMake configuration
 (require-package 'cmake-mode)
