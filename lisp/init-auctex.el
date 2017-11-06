@@ -11,6 +11,7 @@
   (add-hook 'LaTeX-mode-hook
 			(lambda()
 			  (add-to-list 'TeX-command-list '("PDFLaTeX" "%`pdflatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
+			  (add-to-list 'TeX-command-list '("XeTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
 			  (setq TeX-command-default "PDFLaTeX")))
 
   (mapc (lambda (mode)
@@ -52,6 +53,7 @@
   (add-hook 'LaTeX-mode-hook
 			(lambda()
 			  (add-to-list 'TeX-command-list '("PDFLaTeX" "%`pdflatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
+			  (add-to-list 'TeX-command-list '("XeTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
 			  (setq TeX-command-default "PDFLaTeX")))
 
   (mapc (lambda (mode)
@@ -93,6 +95,7 @@
   (add-hook 'LaTeX-mode-hook
             (lambda()
               (add-to-list 'TeX-command-list '("PDFLaTeX" "%`pdflatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
+			  (add-to-list 'TeX-command-list '("XeTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
               (setq TeX-command-default "PDFLaTeX")))
 
   (mapc (lambda (mode)
