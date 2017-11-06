@@ -30,6 +30,13 @@
  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
  )
 
+;; cdlatex for org-mode
+(require-package 'cdlatex)
+(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+
+;; display of entities as UTF-8 characters
+(setq org-pretty-entities t)
+
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
 
