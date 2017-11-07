@@ -137,8 +137,6 @@
 	   '(("\\.cmake\\'" . cmake-mode))
 	   auto-mode-alist))
 
-
-(load "company-cmake")
 (defun company-cmake-setup ()
   (add-to-list 'company-backends 'company-cmake))
 (add-hook 'cmake-mode-hook 'company-cmake-setup)
