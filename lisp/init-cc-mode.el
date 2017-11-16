@@ -125,7 +125,10 @@
 
 ;; add company-semantic to company mode
 (defun company-semantic-setup ()
-  (add-to-list 'company-backends 'company-semantic))
+  "Configure company-backends for company-semantic and company-yasnippet."
+  (push '(company-semantic :with company-yasnippet) company-backends)
+  ;; (add-to-list 'company-backends 'company-semantic)
+  )
 (add-hook 'c++-mode-hook 'company-semantic-setup)
 (add-hook 'c-mode-hook 'company-semantic-setup)
 
