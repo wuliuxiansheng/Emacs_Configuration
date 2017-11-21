@@ -16,7 +16,7 @@
 (defvar c-default-style)
 (defvar c-basic-offset)
 ;; set the style and offset
-(setq c-default-style "k&r"
+(setq c-default-style "linux"
 	  c-basic-offset 4)
 ;; tables instead of spaces
 (setq-default c-basic-offset 4
