@@ -116,21 +116,44 @@
 (remove-hook 'python-mode-hook 'wisent-python-default-setup)
 
 ;; set SemanticDB search throttle
-(setq-mode-local c-mode
-				 semanticdb-find-default-throttle
-				 '(project unloaded recursive))
-(setq-mode-local c++-mode
-				 semanticdb-find-default-throttle
-				 '(project unloaded recursive))
+;; (setq-mode-local c-mode
+;; 				 semanticdb-find-default-throttle
+;; 				 '(project unloaded recursive))
+;; (setq-mode-local c++-mode
+;; 				 semanticdb-find-default-throttle
+;; 				 '(project unloaded recursive))
 
 ;; add company-semantic to company mode
-(defun company-semantic-setup ()
-  "Configure company-backends for company-semantic and company-yasnippet."
-  (push '(company-semantic :with company-yasnippet) company-backends)
-  ;; (add-to-list 'company-backends 'company-semantic)
-  )
-(add-hook 'c++-mode-hook 'company-semantic-setup)
-(add-hook 'c-mode-hook 'company-semantic-setup)
+;; (defun company-semantic-setup ()
+;;   "Configure company-backends for company-semantic and company-yasnippet."
+;;   (push '(company-semantic :with company-yasnippet) company-backends)
+;;   ;; (add-to-list 'company-backends 'company-semantic)
+;;   )
+;; (add-hook 'c++-mode-hook 'company-semantic-setup)
+;; (add-hook 'c-mode-hook 'company-semantic-setup)
+
+;;; RTags configuration
+(require-package 'rtags)
+;; path for rtags
+(setq rtags-path "~/rtags/bin")
+
+(rtags-enable-standard-keybindings)
+(setq rtags-autostart-diagnostics t)
+(rtags-diagnostics)
+
+;;; Irony reconfiguration
+(require-package 'irony)
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+(require-package 'company-irony)
+(add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
+(defun company-irony-setup ()
+  "Configure company-backends for company-irony."
+  (push '(company-irony :with company-yasnippet) company-backends))
+(add-hook 'c++-mode-hook 'company-irony-setup)
+(add-hook 'c-mode-hook 'company-irony-setup)
 
 ;;; CMake configuration
 (require-package 'cmake-mode)
@@ -143,8 +166,6 @@
 (defun company-cmake-setup ()
   (add-to-list 'company-backends 'company-cmake))
 (add-hook 'cmake-mode-hook 'company-cmake-setup)
-
-
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode ends here
