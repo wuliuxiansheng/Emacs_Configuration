@@ -151,9 +151,14 @@
 (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
 (defun company-irony-setup ()
   "Configure company-backends for company-irony."
+  (delete 'company-semantic company-backends)
   (push '(company-irony :with company-yasnippet) company-backends))
 (add-hook 'c++-mode-hook 'company-irony-setup)
 (add-hook 'c-mode-hook 'company-irony-setup)
+;; flycheck-irony
+(require-package 'flycheck-irony)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 
 ;;; CMake configuration
 (require-package 'cmake-mode)
