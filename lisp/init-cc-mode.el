@@ -81,8 +81,6 @@
 ;; add company-c-headers to company mode
 (defun company-c-headers-setup ()
   (add-to-list 'company-backends 'company-c-headers))
-(add-hook 'c++-mode-hook 'company-c-headers-setup)
-(add-hook 'c-mode-hook 'company-c-headers-setup)
 
 (defun ede-object-system-include-path ()
   (when ede-object
@@ -124,13 +122,11 @@
 ;; 				 '(project unloaded recursive))
 
 ;; add company-semantic to company mode
-;; (defun company-semantic-setup ()
-;;   "Configure company-backends for company-semantic and company-yasnippet."
-;;   (push '(company-semantic :with company-yasnippet) company-backends)
-;;   ;; (add-to-list 'company-backends 'company-semantic)
-;;   )
-;; (add-hook 'c++-mode-hook 'company-semantic-setup)
-;; (add-hook 'c-mode-hook 'company-semantic-setup)
+(defun company-semantic-setup ()
+  "Configure company-backends for company-semantic and company-yasnippet."
+  (push '(company-semantic :with company-yasnippet) company-backends)
+  ;; (add-to-list 'company-backends 'company-semantic)
+  )
 
 ;;; RTags configuration
 (require-package 'rtags)
@@ -153,12 +149,43 @@
   "Configure company-backends for company-irony."
   (delete 'company-semantic company-backends)
   (push '(company-irony :with company-yasnippet) company-backends))
-(add-hook 'c++-mode-hook 'company-irony-setup)
-(add-hook 'c-mode-hook 'company-irony-setup)
+;; irony-c-headers
+(require-package 'company-irony-c-headers)
+(defun company-irony-c-headers-setup ()
+  "Configure company-backends for company-irony-c-headers."
+  (add-to-list 'company-backends 'company-irony-c-headers))
 ;; flycheck-irony
 (require-package 'flycheck-irony)
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+
+
+;;; Selection between CEDET and RTags
+(defun cedet-enable ()
+  "Start CEDET."
+  (interactive)
+  (remove-hook 'c++-mode-hook 'company-irony-c-headers-setup)
+  (remove-hook 'c-mode-hook 'company-irony-c-headers-setup)
+  (remove-hook 'c++-mode-hook 'company-irony-setup)
+  (remove-hook 'c-mode-hook 'company-irony-setup)
+  (add-hook 'c++-mode-hook 'company-c-headers-setup)
+  (add-hook 'c-mode-hook 'company-c-headers-setup)
+  (add-hook 'c++-mode-hook 'company-semantic-setup)
+  (add-hook 'c-mode-hook 'company-semantic-setup)
+  )
+
+(defun irony-mode-enable ()
+  "Start irony mode."
+  (interactive)
+  (remove-hook 'c++-mode-hook 'company-c-headers-setup)
+  (remove-hook 'c-mode-hook 'company-c-headers-setup)
+  (remove-hook 'c++-mode-hook 'company-semantic-setup)
+  (remove-hook 'c-mode-hook 'company-semantic-setup)
+  (add-hook 'c++-mode-hook 'company-irony-c-headers-setup)
+  (add-hook 'c-mode-hook 'company-irony-c-headers-setup)
+  (add-hook 'c++-mode-hook 'company-irony-setup)
+  (add-hook 'c-mode-hook 'company-irony-setup)
+  )
 
 ;;; CMake configuration
 (require-package 'cmake-mode)
