@@ -16,9 +16,18 @@
   (interactive (list (read-directory-name "Directory: ")))
   (let* ((default-directory dir)
 		 (compilation-buffer-name-function (lambda (major-mode-name) "*catkin_make*")))
+	(compile "catkin_make"))
+  )
+
+(defun ros-catkin-make-json (dir)
+  "Run catkin_make command in DIR."
+  (interactive (list (read-directory-name "Directory: ")))
+  (let* ((default-directory dir)
+		 (compilation-buffer-name-function (lambda (major-mode-name) "*catkin_make*")))
 	(compile "catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ."))
   )
 
 (global-set-key (kbd "C-x C-r M") 'ros-catkin-make)
+(global-set-key (kbd "C-x C-r C-m") 'ros-catkin-make-json)
 
 (provide 'init-ros)
