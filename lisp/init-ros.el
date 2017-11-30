@@ -1,4 +1,4 @@
-(add-to-list 'load-path "/opt/ros/indigo/share/emacs/site-lisp")
+(add-to-list 'load-path "/opt/ros/kinetic/share/emacs/site-lisp")
 
 (require 'rosemacs-config)
 
@@ -28,6 +28,6 @@
   )
 
 (global-set-key (kbd "C-x C-r M") 'ros-catkin-make)
-(global-set-key (kbd "C-x C-r C-m") 'ros-catkin-make-json)
+(global-set-key (kbd "C-x C-r C-j") 'ros-catkin-make-json)
 
 (provide 'init-ros)
