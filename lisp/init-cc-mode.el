@@ -192,6 +192,7 @@
   (remove-hook 'c-mode-hook 'company-c-headers-setup)
   (remove-hook 'c++-mode-hook 'company-semantic-setup)
   (remove-hook 'c-mode-hook 'company-semantic-setup)
+  (rtags-start-process-unless-running)
   (add-hook 'c++-mode-hook 'irony-mode)
   (add-hook 'c-mode-hook 'irony-mode)
   (add-hook 'c++-mode-hook 'company-irony-c-headers-setup)
