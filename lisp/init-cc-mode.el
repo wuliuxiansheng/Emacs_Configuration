@@ -94,11 +94,21 @@
 ;;; CEDET Configuration
 (require 'semantic)
 
-(global-semanticdb-minor-mode 1)
-(global-semantic-idle-scheduler-mode 1)
+(defun semantic-enable ()
+  "Enable semantic."
+  (global-semanticdb-minor-mode 1)
+  (global-semantic-idle-scheduler-mode 1)
+  (semantic-mode 1)
+  (global-ede-mode 1)
+  )
 
-(semantic-mode 1)
-(global-ede-mode 1)
+(defun semantic-disable ()
+  "Disable semantic."
+  (global-semanticdb-minor-mode nil)
+  (global-semantic-idle-scheduler-mode nil)
+  (semantic-mode nil)
+  (global-ede-mode nil)
+  )
 
 (setq ede-custom-file (expand-file-name "cc-mode-projects.el" user-emacs-directory))
 (when (file-exists-p ede-custom-file)
@@ -130,8 +140,6 @@
 
 ;;; RTags configuration
 (require-package 'rtags)
-;; path for rtags
-(setq rtags-path "~/rtags/bin")
 
 (rtags-enable-standard-keybindings)
 (setq rtags-autostart-diagnostics t)
@@ -139,12 +147,11 @@
 
 ;;; Irony reconfiguration
 (require-package 'irony)
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
 (require-package 'company-irony)
 (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
+(setq company-irony-ignore-case 'smart)
 (defun company-irony-setup ()
   "Configure company-backends for company-irony."
   (delete 'company-semantic company-backends)
@@ -164,23 +171,29 @@
 (defun cedet-enable ()
   "Start CEDET."
   (interactive)
+  (remove-hook 'c++-mode-hook 'irony-mode)
+  (remove-hook 'c-mode-hook 'irony-mode)
   (remove-hook 'c++-mode-hook 'company-irony-c-headers-setup)
   (remove-hook 'c-mode-hook 'company-irony-c-headers-setup)
   (remove-hook 'c++-mode-hook 'company-irony-setup)
   (remove-hook 'c-mode-hook 'company-irony-setup)
+  (semantic-enable)
   (add-hook 'c++-mode-hook 'company-c-headers-setup)
   (add-hook 'c-mode-hook 'company-c-headers-setup)
   (add-hook 'c++-mode-hook 'company-semantic-setup)
   (add-hook 'c-mode-hook 'company-semantic-setup)
   )
 
-(defun irony-mode-enable ()
+(defun irony-enable ()
   "Start irony mode."
   (interactive)
+  (semantic-disable)
   (remove-hook 'c++-mode-hook 'company-c-headers-setup)
   (remove-hook 'c-mode-hook 'company-c-headers-setup)
   (remove-hook 'c++-mode-hook 'company-semantic-setup)
   (remove-hook 'c-mode-hook 'company-semantic-setup)
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
   (add-hook 'c++-mode-hook 'company-irony-c-headers-setup)
   (add-hook 'c-mode-hook 'company-irony-c-headers-setup)
   (add-hook 'c++-mode-hook 'company-irony-setup)
