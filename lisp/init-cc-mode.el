@@ -93,13 +93,13 @@
 
 ;;; CEDET Configuration
 (require 'semantic)
+(global-ede-mode 1)
 
 (defun semantic-enable ()
   "Enable semantic."
   (global-semanticdb-minor-mode 1)
   (global-semantic-idle-scheduler-mode 1)
   (semantic-mode 1)
-  (global-ede-mode 1)
   )
 
 (defun semantic-disable ()
@@ -107,7 +107,6 @@
   (global-semanticdb-minor-mode nil)
   (global-semantic-idle-scheduler-mode nil)
   (semantic-mode nil)
-  (global-ede-mode nil)
   )
 
 (setq ede-custom-file (expand-file-name "cc-mode-projects.el" user-emacs-directory))
