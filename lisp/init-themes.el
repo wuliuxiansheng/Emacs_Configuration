@@ -35,6 +35,8 @@
   (color-theme-sanityinc-solarized-dark)
   (reapply-themes))
 
+(maybe-require-package 'dimmer)
+
 ;;------------------------------------------------------------------------------
 ;; Theme Configuration for Org-mode
 ;;------------------------------------------------------------------------------

@@ -11,10 +11,8 @@
 (add-hook 'git-commit-setup-hook 'flyspell-mode)
 
 (after-load 'flyspell
+  (define-key flyspell-mode-map (kbd "C-;") nil)
   (add-to-list 'flyspell-prog-text-faces 'nxml-text-face))
-
-(eval-after-load "flyspell"
-  '(define-key flyspell-mode-map (kbd "C-;") nil))
 
 
 (provide 'init-flyspell)

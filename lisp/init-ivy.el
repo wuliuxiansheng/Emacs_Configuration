@@ -6,6 +6,8 @@
                   ivy-virtual-abbreviate 'fullpath
                   ivy-count-format ""
                   projectile-completion-system 'ivy
+                  ivy-magic-tilde nil
+                  ivy-dynamic-exhibit-delay-ms 150
                   ivy-initial-inputs-alist
                   '((man . "^")
                     (woman . "^")))
@@ -25,15 +27,7 @@
     (interactive)
     (require-package 'flx)
     (setq-default ivy-re-builders-alist
-                  '((t . ivy--regex-fuzzy))))
-
-  (add-hook 'after-init-hook
-            (lambda ()
-              (when (bound-and-true-p ido-ubiquitous-mode)
-                (ido-ubiquitous-mode -1))
-              (when (bound-and-true-p ido-mode)
-                (ido-mode -1))
-              (ivy-mode 1))))
+                  '((t . ivy--regex-fuzzy)))))
 
 (when (maybe-require-package 'ivy-historian)
   (add-hook 'after-init-hook (lambda () (ivy-historian-mode t))))
@@ -77,10 +71,12 @@ instead."
       (interactive (list (thing-at-point 'symbol)))
       (swiper sym))
 
-    (define-key ivy-mode-map (kbd "M-s /") 'sanityinc/swiper-at-point)
+    (define-key ivy-mode-map (kbd "M-s /") 'sanityinc/swiper-at-point)))
 
-    (define-key ivy-mode-map (kbd "C-s") 'swiper)))
+;; (define-key ivy-mode-map (kbd "C-s") 'swiper)))
 
+(when (maybe-require-package 'ivy-xref)
+  (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
 
 (provide 'init-ivy)

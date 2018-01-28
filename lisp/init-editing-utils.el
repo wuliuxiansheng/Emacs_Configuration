@@ -36,14 +36,27 @@
 (add-hook 'after-init-hook 'transient-mark-mode)
 
 
- ;;; A simple visible bell which works in all terminal types
+(when (maybe-require-package 'dynamic-spaces)
+  (dynamic-spaces-global-mode))
 
-(defun sanityinc/flash-mode-line ()
-  (invert-face 'mode-line)
-  (run-with-timer 0.05 nil 'invert-face 'mode-line))
 
-(setq-default
- ring-bell-function 'sanityinc/flash-mode-line)
+
+;; Huge files
+
+(require-package 'vlf)
+
+(defun ffap-vlf ()
+  "Find file at point with VLF."
+  (interactive)
+  (let ((file (ffap-file-at-point)))
+    (unless (file-exists-p file)
+      (error "File does not exist: %s" file))
+    (vlf file)))
+
+
+;;; A simple visible bell which works in all terminal types
+(require-package 'mode-line-bell)
+(add-hook 'after-init-hook 'mode-line-bell-mode)
 
 
 
@@ -191,10 +204,10 @@
 ;;----------------------------------------------------------------------------
 ;; Page break lines
 ;;----------------------------------------------------------------------------
-(require-package 'page-break-lines)
-(add-hook 'after-init-hook 'global-page-break-lines-mode)
-(after-load 'page-break-lines
-  (diminish 'page-break-lines-mode))
+(when (maybe-require-package 'page-break-lines)
+  (add-hook 'after-init-hook 'global-page-break-lines-mode)
+  (after-load 'page-break-lines
+    (diminish 'page-break-lines-mode)))
 
 ;;----------------------------------------------------------------------------
 ;; Shift lines up and down with M-up and M-down. When paredit is enabled,

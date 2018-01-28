@@ -3,7 +3,7 @@
 
 
 (defvar sanityinc/require-times nil
-  "A list of (FEATURE . LOAD-DURATION).
+  "A list of (FEATURE LOAD-START-TIME LOAD-DURATION).
 LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 
 (defadvice require (around sanityinc/build-require-times (feature &optional filename noerror) activate)
@@ -15,7 +15,7 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
       (when (and (not already-loaded) (memq feature features))
         (let ((time (sanityinc/time-subtract-millis (current-time) require-start-time)))
           (add-to-list 'sanityinc/require-times
-                       (cons feature time)
+                       (list feature require-start-time time)
                        t))))))
 
 
