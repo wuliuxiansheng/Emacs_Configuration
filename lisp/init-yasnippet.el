@@ -6,4 +6,6 @@
 (define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
 (yas-global-mode t)
 
+(require-package 'yasnippet-snippets)
+
 (provide 'init-yasnippet)
