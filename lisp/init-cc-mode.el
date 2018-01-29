@@ -106,7 +106,7 @@
   "Disable semantic."
   (global-semanticdb-minor-mode nil)
   (global-semantic-idle-scheduler-mode nil)
-  (semantic-mode nil)
+  (semantic-mode -1)
   )
 
 (setq ede-custom-file (expand-file-name "cc-mode-projects.el" user-emacs-directory))
