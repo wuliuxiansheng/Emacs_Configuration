@@ -24,7 +24,7 @@
 
 ;;; python style checking
 ;; (require-package 'pep8)
-(require-package 'pylint)
+;; (require-package 'pylint)
 
 ;; integrate autopep8
 (require-package 'py-autopep8)
