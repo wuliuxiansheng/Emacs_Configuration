@@ -109,7 +109,8 @@
   (require 'init-cc-mode)
   (when *is-a-linux*
 	(require 'init-ros))
-  (require 'init-matlab-mode))
+  (require 'init-matlab-mode)
+  (require 'init-arduino))
 
 (when (not *is-a-windows*)
   (require 'init-multi-term))
