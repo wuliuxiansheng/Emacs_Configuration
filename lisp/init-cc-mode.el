@@ -13,8 +13,9 @@
 
 ;;; c and c++ style
 ;; tables instead of spaces
-(setq-default tab-width 4
-              indent-tabs-mode t)
+(setq-default c-basic-offset 4
+			  tab-width 4
+			  indent-tabs-mode t)
 
 
 ;;; run compile command without hitting Enter
