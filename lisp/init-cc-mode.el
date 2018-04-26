@@ -220,10 +220,10 @@
 ;; clang-format the buffer when saving a file
 (add-hook 'c++-mode-hook
 		  '(lambda ()
-			 (add-hook 'before-save-hook #'clang-format-buffer)))
+			 (add-hook 'before-save-hook #'clang-format-buffer nil 'local)))
 (add-hook 'c-mode-hook
 		  '(lambda ()
-			 (add-hook 'before-save-hook #'clang-format-buffer)))
+			 (add-hook 'before-save-hook #'clang-format-buffer nil 'local)))
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode ends here
