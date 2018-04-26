@@ -12,43 +12,9 @@
 ;; C-c @ C-c     toggle hide/show
 
 ;;; c and c++ style
-;; declare c-default-style and c-basic-offset
-(defvar c-default-style)
-(defvar c-basic-offset)
-;; set the style and offset
-(setq c-default-style "linux"
-	  c-basic-offset 4)
 ;; tables instead of spaces
-(setq-default c-basic-offset 4
-			  tab-width 4
-			  indent-tabs-mode t)
-
-;;(add-hook 'c-mode-common-hook ( lambda()
-;;                                ( c-set-style "k&r" )
-;;                                (setq c-basic-offset 4) ) )
-;;(add-hook 'c++-mode-common-hook ( lambda()
-;;                                  ( c-set-style "k&r" )
-;;                                  (setq c-basic-offset 4) ) )
-;;(setq c-mode-hook '(lambda () (auto-fill-mode 1)))
-;;(setq c-indent-level 5)
-;;(setq c-continued-statement-offset 5)
-;;(setq c-argdecl-indent 0)
-;;(setq c-brace-offset -5)
-;;(setq c-label-offset -5)
-
-;;;cc-mode configuration
-;; tab indent for
-;;(defun my-c-mode-hook ()
-;;  (setq c-basic-offset 4
-;;        indent-tabs-mode t
-;;        default-tab-width 4))
-;;(add-hook 'c-mode-hook 'my-c-mode-hook)
-;; tab indent for c++
-;;(defun my-c++-mode-hook()
-;;  (setq c-basic-offset 4
-;;	indent-tabs-mode t
-;;	default-tab-width 4))
-;;(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+(setq-default tab-width 4
+              indent-tabs-mode t)
 
 
 ;;; run compile command without hitting Enter
@@ -218,12 +184,10 @@
 ;; required when use a specific version of clang-format
 ;; (setq clang-format-executable "/usr/bin/clang-format-3.8")
 ;; clang-format the buffer when saving a file
-(add-hook 'c++-mode-hook
-		  '(lambda ()
-			 (add-hook 'before-save-hook #'clang-format-buffer nil 'local)))
-(add-hook 'c-mode-hook
-		  '(lambda ()
-			 (add-hook 'before-save-hook #'clang-format-buffer nil 'local)))
+(defun clang-format-on-save ()
+  (add-hook 'before-save-hook #'clang-format-buffer nil 'local))
+(add-hook 'c++-mode-hook 'clang-format-on-save)
+(add-hook 'c-mode-hook 'clang-format-on-save)
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode ends here
