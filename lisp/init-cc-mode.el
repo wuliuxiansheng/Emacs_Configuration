@@ -213,5 +213,12 @@
   (add-to-list 'company-backends 'company-cmake))
 (add-hook 'cmake-mode-hook 'company-cmake-setup)
 
+;;; clang-format configuration
+(require-package 'clang-format)
+;; clang-format the buffer when saving a file
+(add-hook 'c-mode-common-hook
+		  '(lambda ()
+			 (add-hook 'before-save-hook #'clang-format-buffer)))
+
 (provide 'init-cc-mode)
 ;;; init-cc-mode ends here
