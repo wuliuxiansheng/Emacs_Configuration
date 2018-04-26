@@ -215,8 +215,13 @@
 
 ;;; clang-format configuration
 (require-package 'clang-format)
+;; required when use a specific version of clang-format
+;; (setq clang-format-executable "/usr/bin/clang-format-3.8")
 ;; clang-format the buffer when saving a file
-(add-hook 'c-mode-common-hook
+(add-hook 'c++-mode-hook
+		  '(lambda ()
+			 (add-hook 'before-save-hook #'clang-format-buffer)))
+(add-hook 'c-mode-hook
 		  '(lambda ()
 			 (add-hook 'before-save-hook #'clang-format-buffer)))
 
