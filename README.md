@@ -6,10 +6,11 @@ Emacs Configuration based on Purcell's Emacs Configuration. It's working for Lin
 This Emacs configuration contains useful tools, such as company, yasnippet and so on, and supports the following programming languages and framework:
   - C/C++
   - Python
-  - Tex with Auctex
+  - TeX with Auctex
   - MATLAB
   - HTML
   - ROS
+  - Arduino
 
 ## Requirements:
   - Emacs 24.1 or greater;
@@ -20,7 +21,8 @@ This Emacs configuration contains useful tools, such as company, yasnippet and s
   - For Windows, follow [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html) if using Emacs 24 to get TLS first. Just download gnutls and copy all DLL files in bin to Emacs bin. If using Emacs 25, download GnuTLS libraries [here](http://alpha.gnu.org/gnu/emacs/pretest/windows/). Download `emacs-25-i686-deps.zip` for 32-bit Windows OS, or download `emacs-25-x86_64-deps.zip` for 64-bit Windows OS;
   - Use blog-admin to manage blog and modify the corresponding configuration in `init-blog.el`;
   - External indexing tools, like `find` and `git` are needed for Projectile;
-  - ROS support is configured only for Linux machine and ros-DISTRO-rosemacs is required. The default ROS version is Indigo which can be modified in `init-ros.el`.
+  - ROS support is configured only for Linux machine and ros-DISTRO-rosemacs is required. The default ROS version is Indigo which can be modified in `init-ros.el`;
+  - Arduino IDE 1.6.6 or later is required for Arduino configuration.
 
 ## Installation:
   - To install, clone this repo and move it to `~/.emacs.d`;
@@ -28,7 +30,7 @@ This Emacs configuration contains useful tools, such as company, yasnippet and s
   - Put `utility/config` in `~/.ssh/` and modify it for ssh host information;
   - Configure `install-mode` in `init.el` to be *full*, *programming* or *text*. Only necessary packages for programming will be configured when selecting *programming* and only necessary packages for text will be configured when selecting *text*. Default value is *full* and all packages will be configured;
   - When starting Emacs for the first time, required packages will be installed automatically;
-  - After the installation is finished, when closing Emacs after opening a `.c` or `.cpp` file, `.emacs.d/semanticdb/` is created for SemanticDB.
+  - After the installation is finished, when closing Emacs after opening a `.c` or `.cpp` file with `M-x cedet-enable`, `.emacs.d/semanticdb/` is created for SemanticDB.
 
 ## Note:
   - The default theme for Mac OS X and Windows is light style but dark style for Linux. Modify this in init-themes.el in lisp folder if you want;
@@ -44,4 +46,5 @@ This Emacs configuration contains useful tools, such as company, yasnippet and s
   - TeX mode for Windows sometimes gets stuck. Try `C-g` to cancel running;
   - gnupg 2.1 is required for EasyPG in Emacs 25;
   - `.emacs.d/jedi-custom.el` can be used to customize Jedi, like adding some special **sys.path** when starting Jedi server (example is in `utility/jedi-custom.el`);
-  - `.emacs.d/cc-mode-header-custom.el` can be used to customize the include paths for company-c-headers package and `.emacs.d/cc-mode-projects.el` can be used for EDE project configuration (examples are in `utility/cc-mode-header-custom.el` and `utility/cc-mode-projects.el`).
+  - `.emacs.d/cc-mode-header-custom.el` can be used to customize the include paths for company-c-headers package and `.emacs.d/cc-mode-projects.el` can be used for EDE project configuration (examples are in `utility/cc-mode-header-custom.el` and `utility/cc-mode-projects.el`);
+  - Arduino IDE path can be modified in `init-arduino.el`.
