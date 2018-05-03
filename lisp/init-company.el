@@ -8,7 +8,7 @@
   (after-load 'company
     (diminish 'company-mode "CMP")
     (define-key company-mode-map (kbd "M-/") 'company-complete)
-    (define-key company-active-map (kbd "M-/") 'company-select-next)
+    (define-key company-active-map (kbd "M-/") 'company-other-backend)
     (setq-default company-dabbrev-other-buffers 'all
                   company-tooltip-align-annotations t))
   (global-set-key (kbd "M-C-/") 'company-complete)
