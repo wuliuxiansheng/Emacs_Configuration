@@ -148,7 +148,7 @@
 ;;   (autoload 'svn-status "dsvn" "Run `svn status'." t)
 ;;   (autoload 'svn-update "dsvn" "Run `svn update'." t)
 ;;   )
-(require-package 'psvn)
+;; (require-package 'psvn)
 (when *is-a-mac*
   (require-package 'osx-location))
 (maybe-require-package 'regex-tool)
