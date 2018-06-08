@@ -19,6 +19,7 @@
 (defconst *is-a-windows* (eq system-type 'windows-nt))
 
 (setq ad-redefinition-action 'accept) ;; ignore the redefinition warning
+(setq debug-on-error nil) ;; turn off debug-on-error
 
 ;;----------------------------------------------------------------------------
 ;; Set installation mode: text, programming, full
