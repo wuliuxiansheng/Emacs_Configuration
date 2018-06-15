@@ -3,22 +3,28 @@
 
 (require-package 'company-arduino)
 
+(defun company-arduino-header-path ()
+  "Return the arduino include path for the current buffer."
+  (let ((default '("~/Arduino/libraries/ros_lib/")))
+	(company-arduino-append-include-dirs default t)))
+
 (defun arduino-enable ()
   "Start arduino mode."
   (interactive)
   (add-to-list 'irony-supported-major-modes 'arduino-mode)
   (add-hook 'irony-mode-hook 'company-arduino-turn-on)
-  (add-to-list 'company-c-headers-path-system 'company-arduino-includes-dirs)
+  (setq company-c-headers-path-system 'company-arduino-header-path)
   (add-hook 'arduino-mode-hook 'irony-mode)
-  (add-hook 'arduino-mode-hook 'company-irony-setup)
-  (add-hook 'arduino-mode-hook 'company-c-headers-setup))
+  ;; add company-c-headers to company-backends before company-irony
+  (add-hook 'arduino-mode-hook 'company-c-headers-setup)
+  (add-hook 'arduino-mode-hook 'company-irony-setup))
 
 (defun arduino-disable ()
   "Disable arduino mode."
   (interactive)
   (delete 'arduino-mode irony-supported-major-modes)
   (remove-hook 'irony-mode-hook 'company-arduino-turn-on)
-  (delete 'company-arduino-includes-dirs company-c-headers-path-system)
+  (setq company-c-headers-path-system 'ede-object-system-include-path)
   (remove-hook 'arduino-mode-hook 'irony-mode)
   (remove-hook 'arduino-mode-hook 'company-irony-setup)
   (remove-hook 'arduino-mode-hook 'company-c-headers-setup))
