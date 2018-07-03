@@ -11,11 +11,17 @@
 ;; C-c @ C-h     hide block
 ;; C-c @ C-c     toggle hide/show
 
-;;; c and c++ style
-;; tables instead of spaces
-(setq-default c-basic-offset 4
-			  tab-width 4
-			  indent-tabs-mode t)
+;;; cc-mode style
+(defun cc-common-setup ()
+  (setq-default c-basic-offset 4
+				tab-width 4
+				indent-tabs-mode t)
+  (c-set-offset 'innamespace 0)
+  (c-set-offset 'inclass 4)
+  (c-set-offset 'access-label -2))
+
+(add-hook 'c-mode-hook 'cc-common-setup)
+(add-hook 'c++-mode-hook 'cc-common-setup)
 
 
 ;;; run compile command without hitting Enter
