@@ -18,7 +18,8 @@
 				indent-tabs-mode t)
   (c-set-offset 'innamespace 0)
   (c-set-offset 'inclass 4)
-  (c-set-offset 'access-label -2))
+  (c-set-offset 'access-label -2)
+  (c-set-offset 'defun-block-intro 4))
 
 (add-hook 'c-mode-hook 'cc-common-setup)
 (add-hook 'c++-mode-hook 'cc-common-setup)
