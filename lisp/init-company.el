@@ -10,7 +10,14 @@
     (define-key company-mode-map (kbd "M-/") 'company-complete)
     (define-key company-active-map (kbd "M-/") 'company-other-backend)
     (setq-default company-dabbrev-other-buffers 'all
-                  company-tooltip-align-annotations t))
+                  company-tooltip-align-annotations t)
+	;; use numbers 0-9 to select company completion candidates
+	;; (setq company-show-numbers t)
+	;; (let ((map company-active-map))
+	;;   (mapc (lambda (x) (define-key map (format "%d" x)
+	;; 				 `(lambda () (interactive) (company-complete-number ,x))))
+	;; 		(number-sequence 0 9)))
+	;; )
   (global-set-key (kbd "M-C-/") 'company-complete)
   (when (maybe-require-package 'company-quickhelp)
     (add-hook 'after-init-hook 'company-quickhelp-mode))
