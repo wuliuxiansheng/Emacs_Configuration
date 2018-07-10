@@ -17,7 +17,7 @@
 	;;   (mapc (lambda (x) (define-key map (format "%d" x)
 	;; 				 `(lambda () (interactive) (company-complete-number ,x))))
 	;; 		(number-sequence 0 9)))
-	;; )
+	)
   (global-set-key (kbd "M-C-/") 'company-complete)
   (when (maybe-require-package 'company-quickhelp)
     (add-hook 'after-init-hook 'company-quickhelp-mode))
