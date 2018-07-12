@@ -63,7 +63,8 @@
 			 (local-set-key "<TAB>" 'bbdb-complete-name)))
 
 ;; Fetch only part of the article if we can
-(setq gnus-have-read-active-file 'some)
+;; not working in Emacs 26
+;; (setq gnus-have-read-active-file 'some)
 
 ;; Tree view for groups
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
@@ -75,28 +76,29 @@
 (setq gnus-thread-ignore-subject t)
 
 ;; Personal Information
-(setq user-full-name "User Name"
-	  user-mail-address "useremail@gmail.com")
+(setq user-full-name "Chao Liu"
+	  user-mail-address "chaoliu@seas.upenn.edu")
 
 ;; Use w3m to read HTML email
 ;; (setq mm-text-html-renderer 'w3m)
 
 ;; Setup to send email through SMTP
-;; (setq message-send-mail-function 'smtpmail-send-it
-;;	  smtpmail-default-smtp-server "smtp.gmail.com"
-;;	  smtpmail-smtp-service 587
-;;	  smtpmail-local-domain "homepc")
+;; Customize mail address in Gmail setting
 (setq message-send-mail-function 'smtpmail-send-it
-	  smtpmail-default-smtp-server "smtp.seas.upenn.edu"
+	  smtpmail-default-smtp-server "smtp.gmail.com"
 	  smtpmail-smtp-service 587
 	  smtpmail-local-domain "homepc")
+;; (setq message-send-mail-function 'smtpmail-send-it
+;;	  smtpmail-default-smtp-server "smtp.seas.upenn.edu"
+;;	  smtpmail-smtp-service 587
+;;	  smtpmail-local-domain "homepc")
 
 (setq gnus-use-correct-string-widths nil)
 
 (eval-after-load 'gnus-topic
   '(progn
-	 ;; (setq gnus-message-archive-group '((format-time-string "sent.%Y")))
-	 (setq gnus-message-archive-group "nnimap+seas.upenn:Sent Messages")
+	 ;; (setq gnus-message-archive-group "nnimap+seas.upenn:Sent Messages")
+	 (setq gnus-message-archive-group "nnimap+gmail:[Gmail]/已发邮件")
 	 (setq gnus-server-alist '(("archive" nnfolder "archive" (nnfolder-directory "~/Mail/archive")
 								(nnfolder-active-file "~/Mail/archive/active")
 								(nnfolder-get-new-mail nil)
@@ -104,27 +106,26 @@
 
 	 (setq gnus-topic-topology '(("Gnus" visible)
 								 (("misc" visible))
-								 (("gmail" visible nil nil))
-								 (("seas.upenn" visible nil nil))))
+								 (("gmail" visible))
+								 (("seas.upenn" visible))))
 
-	 (setq gnus-topic-alist '(("seas.upenn"
-							   "nnimap+seas.upenn:Inbox"
-							   "nnimap+seas.upenn:Drafts"
-							   "nnimap+seas.upenn:Sent"
-							   "nnimap+seas.upenn:Junk"
-							   "nnimap+seas.upenn:Deleted")
-							  ("gmail"	; the key of topic
+	 (setq gnus-topic-alist '(("misc"
+							   "nndraft:drafts")
+							  ("gmail"
 							   "INBOX"
 							   "[Gmail]/Sent Mail"
 							   "[Gmail]/Trash"
 							   "Sent Messages"
 							   "Drafts")
-							  ("misc" ; the key of topic
-							   "nnfolder+archive:sent.2015-12"
-							   "nnfolder+archive:sent.2016"
-							   "nnfolder+archive:sent.2017"
-							   "nndraft:drafts")
-							  ("Gnus")))))
+							  ("seas.upenn"
+							   "nnimap+seas.upenn:Inbox"
+							   "nnimap+seas.upenn:Drafts"
+							   "nnimap+seas.upenn:Sent"
+							   "nnimap+seas.upenn:Junk"
+							   "nnimap+seas.upenn:Deleted Messages")
+							  ("Gnus")
+							  ))
+	 ))
 
 ;; Signature
 (setq message-signature-file "~/.emacs.d/.signature")
