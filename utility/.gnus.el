@@ -7,25 +7,25 @@
 
 ;; email account configuration
 (add-to-list 'gnus-secondary-select-methods
-			 '(nnimap "gmail"
-					  (nnimap-address "imap.gmail.com")
-					  (nnimap-server-port 993)
-					  (nnimap-stream ssl)
-					  (nnir-search-engine imap)
-					  (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
-					  (nnmail-expiry-wait 90)))
+             '(nnimap "gmail"
+                      (nnimap-address "imap.gmail.com")
+                      (nnimap-server-port 993)
+                      (nnimap-stream ssl)
+                      (nnir-search-engine imap)
+                      (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
+                      (nnmail-expiry-wait 90)))
 
 (add-to-list 'gnus-secondary-select-methods
-			 '(nnimap "seas.upenn"
-					  (nnimap-address "chaoliu.mail.seas.upenn.edu")
-					  (nnimap-server-port 993)
-					  (nnimap-stream ssl)
-					  (nnir-search-engine imap)
-					  (nnmail-expiry-wait 90)))
+             '(nnimap "seas.upenn"
+                      (nnimap-address "chaoliu.mail.seas.upenn.edu")
+                      (nnimap-server-port 993)
+                      (nnimap-stream ssl)
+                      (nnir-search-engine imap)
+                      (nnmail-expiry-wait 90)))
 
 (setq gnus-thread-sort-functions
-	  '((not gnus-thread-sort-by-date)
-		(not gnus-thread-sort-by-number)))
+      '((not gnus-thread-sort-by-date)
+        (not gnus-thread-sort-by-number)))
 
 ;; NO 'passive
 (setq gnus-use-cache t)
@@ -97,35 +97,35 @@
 
 (eval-after-load 'gnus-topic
   '(progn
-	 ;; (setq gnus-message-archive-group "nnimap+seas.upenn:Sent Messages")
-	 (setq gnus-message-archive-group "nnimap+gmail:[Gmail]/已发邮件")
-	 (setq gnus-server-alist '(("archive" nnfolder "archive" (nnfolder-directory "~/Mail/archive")
-								(nnfolder-active-file "~/Mail/archive/active")
-								(nnfolder-get-new-mail nil)
-								(nnfolder-inhibit-expiry t))))
+     ;; (setq gnus-message-archive-group "nnimap+seas.upenn:Sent Messages")
+     (setq gnus-message-archive-group "nnimap+gmail:[Gmail]/已发邮件")
+     (setq gnus-server-alist '(("archive" nnfolder "archive" (nnfolder-directory "~/Mail/archive")
+                                (nnfolder-active-file "~/Mail/archive/active")
+                                (nnfolder-get-new-mail nil)
+                                (nnfolder-inhibit-expiry t))))
 
-	 (setq gnus-topic-topology '(("Gnus" visible)
-								 (("misc" visible))
-								 (("gmail" visible))
-								 (("seas.upenn" visible))))
+     (setq gnus-topic-topology '(("Gnus" visible)
+                                 (("misc" visible))
+                                 (("gmail" visible))
+                                 (("seas.upenn" visible))))
 
-	 (setq gnus-topic-alist '(("misc"
-							   "nndraft:drafts")
-							  ("gmail"
-							   "INBOX"
-							   "[Gmail]/Sent Mail"
-							   "[Gmail]/Trash"
-							   "Sent Messages"
-							   "Drafts")
-							  ("seas.upenn"
-							   "nnimap+seas.upenn:Inbox"
-							   "nnimap+seas.upenn:Drafts"
-							   "nnimap+seas.upenn:Sent"
-							   "nnimap+seas.upenn:Junk"
-							   "nnimap+seas.upenn:Deleted Messages")
-							  ("Gnus")
-							  ))
-	 ))
+     (setq gnus-topic-alist '(("misc"
+                               "nndraft:drafts")
+                              ("gmail"
+                               "INBOX"
+                               "[Gmail]/Sent Mail"
+                               "[Gmail]/Trash"
+                               "Sent Messages"
+                               "Drafts")
+                              ("seas.upenn"
+                               "nnimap+seas.upenn:Inbox"
+                               "nnimap+seas.upenn:Drafts"
+                               "nnimap+seas.upenn:Sent"
+                               "nnimap+seas.upenn:Junk"
+                               "nnimap+seas.upenn:Deleted Messages")
+                              ("Gnus")
+                              ))
+     ))
 
 ;; Signature
 (setq message-signature-file "~/.emacs.d/.signature")
