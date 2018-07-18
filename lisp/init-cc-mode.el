@@ -137,9 +137,9 @@
   "Configure company-backends for company-irony-c-headers."
   (add-to-list 'company-backends 'company-irony-c-headers))
 ;; flycheck-irony
-(require-package 'flycheck-irony)
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+;; (require-package 'flycheck-irony)
+;; (eval-after-load 'flycheck
+;;   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 
 
 ;;; Selection between CEDET and RTags
@@ -175,6 +175,36 @@
   (add-hook 'c++-mode-hook 'company-irony-setup)
   (add-hook 'c-mode-hook 'company-irony-setup)
   )
+
+
+;;; lsp configuration
+(require-package 'lsp-mode)
+(require-package 'lsp-ui)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+(with-eval-after-load 'lsp-mode
+  (add-hook 'lsp-after-open-hook (lambda () (lsp-ui-flycheck-enable 1))))
+(setq lsp-ui-sideline-show-symbol nil)
+(add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+
+;;; cquery configuration
+(add-hook 'prog-major-mode #'lsp-prog-major-mode-enable)
+(require-package 'cquery)
+(setq cquery-executable "~/cquery/build/release/bin/cquery")
+(add-hook 'c-mode-hook 'lsp-cquery-enable)
+(add-hook 'c++-mode-hook 'lsp-cquery-enable)
+
+(require-package 'company-lsp)
+(defun company-lsp-setup ()
+  "Configure company-backends for company-lsp and company-yasnippet."
+  (push '(company-lsp :with company-yasnippet) company-backends)
+  )
+(add-hook 'c-mode-hook 'company-lsp-setup)
+(add-hook 'c++-mode-hook 'company-lsp-setup)
+
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'c++-mode-hook 'company-irony-c-headers-setup)
+(add-hook 'c-mode-hook 'company-irony-c-headers-setup)
 
 ;;; CMake configuration
 (require-package 'cmake-mode)
