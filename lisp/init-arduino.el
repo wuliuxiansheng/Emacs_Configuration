@@ -6,7 +6,15 @@
 (defun company-arduino-header-path ()
   "Return the arduino include path for the current buffer."
   (let ((default '("~/Arduino/libraries/ros_lib/")))
-	(company-arduino-append-include-dirs default t)))
+    (company-arduino-append-include-dirs default t)))
+
+;;; company-irony configuration
+(require-package 'company-irony)
+(add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
+(setq company-irony-ignore-case 'smart)
+(defun company-irony-setup ()
+  "Configure company-backends for company-irony."
+  (push '(company-irony :with company-yasnippet) company-backends))
 
 (defun arduino-enable ()
   "Start arduino mode."

@@ -108,7 +108,7 @@
 ;; add company-semantic to company mode
 (defun company-semantic-setup ()
   "Configure company-backends for company-semantic and company-yasnippet."
-  (delete 'company-irony company-backends)
+  (delete 'company-rtags company-backends)
   (push '(company-semantic :with company-yasnippet) company-backends)
   ;; (add-to-list 'company-backends 'company-semantic)
   )
@@ -119,27 +119,36 @@
 (rtags-enable-standard-keybindings)
 (setq rtags-autostart-diagnostics t)
 (rtags-diagnostics)
+;;; RTags completion
+(require-package 'company-rtags)
+(defun company-rtags-setup ()
+  "Configure company-backends for company-rtags."
+  (delete 'company-semantic company-backends)
+  (setq rtags-completions-enabled t)
+  (push '(company-rtags :with company-yasnippet) company-backends))
+;;; Flycheck RTags
+(require-package 'flycheck-rtags)
+(require 'flycheck-rtags)
+(defun flycheck-rtags-setup ()
+  "Configure flycheck-rtags."
+  (flycheck-select-checker 'rtags)
+  (setq-local flycheck-highlighting-mode nil)
+  (setq-local flycheck-check-syntax-automatically nil))
+
 
 ;;; Irony reconfiguration
 (require-package 'irony)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-(require-package 'company-irony)
-(add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
-(setq company-irony-ignore-case 'smart)
-(defun company-irony-setup ()
-  "Configure company-backends for company-irony."
-  (delete 'company-semantic company-backends)
-  (push '(company-irony :with company-yasnippet) company-backends))
 ;; irony-c-headers
 (require-package 'company-irony-c-headers)
 (defun company-irony-c-headers-setup ()
   "Configure company-backends for company-irony-c-headers."
   (add-to-list 'company-backends 'company-irony-c-headers))
 ;; flycheck-irony
-(require-package 'flycheck-irony)
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+;; (require-package 'flycheck-irony)
+;; (eval-after-load 'flycheck
+;;   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 
 
 ;;; Selection between CEDET and RTags
@@ -150,8 +159,12 @@
   (remove-hook 'c-mode-hook 'irony-mode)
   (remove-hook 'c++-mode-hook 'company-irony-c-headers-setup)
   (remove-hook 'c-mode-hook 'company-irony-c-headers-setup)
-  (remove-hook 'c++-mode-hook 'company-irony-setup)
-  (remove-hook 'c-mode-hook 'company-irony-setup)
+  ;; (remove-hook 'c++-mode-hook 'company-irony-setup)
+  ;; (remove-hook 'c-mode-hook 'company-irony-setup)
+  (remove-hook 'c++-mode-hook 'company-rtags-setup)
+  (remove-hook 'c-mode-hook 'company-rtags-setup)
+  (remove-hook 'c++-mode-hook 'flycheck-rtags-setup)
+  (remove-hook 'c-mode-hook 'flycheck-rtags-setup)
   (semantic-enable)
   (add-hook 'c++-mode-hook 'company-c-headers-setup)
   (add-hook 'c-mode-hook 'company-c-headers-setup)
@@ -159,7 +172,7 @@
   (add-hook 'c-mode-hook 'company-semantic-setup)
   )
 
-(defun irony-enable ()
+(defun rtags-enable ()
   "Start irony mode."
   (interactive)
   (semantic-disable)
@@ -172,8 +185,12 @@
   (add-hook 'c-mode-hook 'irony-mode)
   (add-hook 'c++-mode-hook 'company-irony-c-headers-setup)
   (add-hook 'c-mode-hook 'company-irony-c-headers-setup)
-  (add-hook 'c++-mode-hook 'company-irony-setup)
-  (add-hook 'c-mode-hook 'company-irony-setup)
+  ;; (add-hook 'c++-mode-hook 'company-irony-setup)
+  ;; (add-hook 'c-mode-hook 'company-irony-setup)
+  (add-hook 'c++-mode-hook 'company-rtags-setup)
+  (add-hook 'c-mode-hook 'company-rtags-setup)
+  (add-hook 'c++-mode-hook 'flycheck-rtags-setup)
+  (add-hook 'c-mode-hook 'flycheck-rtags-setup)
   )
 
 ;;; CMake configuration
