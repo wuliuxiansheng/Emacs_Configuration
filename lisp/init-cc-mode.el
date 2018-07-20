@@ -185,6 +185,7 @@
   (add-hook 'lsp-after-open-hook (lambda () (lsp-ui-flycheck-enable 1))))
 (setq lsp-ui-sideline-show-symbol nil)
 (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+(setq lsp-ui-sideline-show-symbol nil)
 
 ;;; cquery configuration
 (add-hook 'prog-major-mode #'lsp-prog-major-mode-enable)
@@ -192,12 +193,26 @@
 (setq cquery-executable "~/cquery/build/release/bin/cquery")
 (add-hook 'c-mode-hook 'lsp-cquery-enable)
 (add-hook 'c++-mode-hook 'lsp-cquery-enable)
+(setq cquery-extra-init-params '(:index (:comments 2) :cacheFormat "msgpack" :completion (:detailedLabel t)))
+(defun cquery-find-base ()
+  (interactive)
+  (lsp-ui-peek-find-custom 'base "$cquery/base"))
+(defun cquery-find-callers ()
+  (interactive)
+  (lsp-ui-peek-find-custom 'callers "$cquery/callers"))
+(defun cquery-find-vars ()
+  (interactive)
+  (lsp-ui-peek-find-custom 'vars "$cquery/vars"))
+
 
 (require-package 'company-lsp)
 (defun company-lsp-setup ()
   "Configure company-backends for company-lsp and company-yasnippet."
   (push '(company-lsp :with company-yasnippet) company-backends)
   )
+(setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
+(setq company-lsp-enable-snippet t)
+
 (add-hook 'c-mode-hook 'company-lsp-setup)
 (add-hook 'c++-mode-hook 'company-lsp-setup)
 
