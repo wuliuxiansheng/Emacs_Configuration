@@ -10,6 +10,8 @@
            " Proj"
          (format " Proj[%s]" (projectile-project-name))))))
 
+  (setq projectile-keymap-prefix (kbd "C-c p"))
+
   ;;Configuration for Windows
   (when *is-a-windows*
     (setq projectile-indexing-method 'alien))
