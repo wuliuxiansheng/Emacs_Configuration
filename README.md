@@ -30,7 +30,8 @@ This Emacs configuration contains useful tools, such as company, yasnippet and s
   - Put `utility/config` in `~/.ssh/` and modify it for ssh host information;
   - Configure `install-mode` in `init.el` to be *full*, *programming* or *text*. Only necessary packages for programming will be configured when selecting *programming* and only necessary packages for text will be configured when selecting *text*. Default value is *full* and all packages will be configured;
   - When starting Emacs for the first time, required packages will be installed automatically;
-  - After the installation is finished, when closing Emacs after opening a `.c` or `.cpp` file with `M-x cedet-enable`, `.emacs.d/semanticdb/` is created for SemanticDB.
+  - Run `M-x rtags-install` and `M-x irony-install-server` to finish RTags and Irony installation;
+  - After the installation is finished, when closing Emacs after opening a `.c` or `.cpp` file with `M-x cedet-enable`, `.emacs.d/semanticdb/` is created for SemanticDB;
 
 ## Note:
   - The default theme for Mac OS X and Windows is light style but dark style for Linux. Modify this in init-themes.el in lisp folder if you want;
