@@ -23,8 +23,16 @@
   "Run catkin_make command in DIR."
   (interactive (list (read-directory-name "Directory: ")))
   (let* ((default-directory dir)
-		 (compilation-buffer-name-function (lambda (major-mode-name) "*catkin_make*")))
-	(compile "catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ."))
+	 (compilation-buffer-name-function (lambda (major-mode-name) "*catkin_make*")))
+    (compile "catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ."))
+  )
+
+(defun ros-catkin-make-release (dir)
+  "Run catkin_make --release command in DIR."
+  (interactive (list (read-directory-name "Directory: ")))
+  (let* ((default-directory dir)
+         (compilation-buffer-name-function (lambda (major-mode-name) "*catkin_make*")))
+    (compile "catkin_make -DCMAKE_BUILD_TYPE=Release"))
   )
 
 (global-set-key (kbd "C-x C-r M") 'ros-catkin-make)
