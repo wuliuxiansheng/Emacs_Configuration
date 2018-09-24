@@ -208,6 +208,8 @@ typical word processor."
 
 ;;; Agenda views
 
+(setq org-agenda-files (list "~/Dropbox/OrgNotes/"))
+
 (setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
 
 
