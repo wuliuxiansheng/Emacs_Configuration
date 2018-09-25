@@ -204,6 +204,8 @@ typical word processor."
       (quote (("NEXT" :inherit warning)
               ("PROJECT" :inherit font-lock-string-face))))
 
+(setq org-lowest-priority ?E)
+
 
 
 ;;; Agenda views
