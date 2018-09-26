@@ -13,7 +13,7 @@ This Emacs configuration contains useful tools, such as company, yasnippet and s
   - Arduino
 
 ## Requirements:
-  - Emacs 24.1 or greater;
+  - Emacs 24.3 or greater;
   - iPython and autopep8 are required for python, pylint is optinal for python style guide, Jedi and python-epc are required for python completion, and flake8 are required for Python syntax checking;
   - zsh is required for multi-term (Modify shell preference in `init-multi-term.el`);
   - aspell is required for spell check (Modify the path for Windows in `init-preload-local.el`);
