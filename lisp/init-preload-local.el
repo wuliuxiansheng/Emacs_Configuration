@@ -8,8 +8,4 @@
   (setq grep-find-command '("findstr /sn  *" . 13))
   (setq default-directory "~/"))
 
-;;;highlight the current row
-(require 'hl-line)
-(global-hl-line-mode t)
-
 (provide 'init-preload-local)

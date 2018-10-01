@@ -35,6 +35,10 @@
 (after-load 'autorevert
   (diminish 'auto-revert-mode))
 
+;; highlight the current row
+(require 'hl-line)
+(global-hl-line-mode t)
+
 (add-hook 'after-init-hook 'transient-mark-mode)
 
 
