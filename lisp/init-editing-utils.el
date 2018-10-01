@@ -343,4 +343,11 @@ With arg N, insert N newlines."
 (define-key global-map (kbd "C-c ;") 'iedit-mode)
 
 
+;;----------------------------------------------------------------------------
+;; EasyPG configuration for Emacs 25
+;;----------------------------------------------------------------------------
+(setf epa-pinentry-mode 'loopback)
+(setq epa-file-cache-passphrase-for-symmetric-encryption t)
+
+
 (provide 'init-editing-utils)
