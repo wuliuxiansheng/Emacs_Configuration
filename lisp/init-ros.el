@@ -27,6 +27,13 @@
     (compile "catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ."))
   )
 
+(defun ros-catkin-make-debug (dir)
+  "Run catkin_make with Debug mode."
+  (interactive (list (read-directory-name "Directory: ")))
+  (let* ((default-directory dir)
+         (compilation-buffer-name-function (lambda (major-mode-name) "*catkin_make*")))
+    (compile "catkin_make -DCMAKE_BUILD_TYPE=Debug")))
+
 (defun ros-catkin-make-release (dir)
   "Run catkin_make --release command in DIR."
   (interactive (list (read-directory-name "Directory: ")))
