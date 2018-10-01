@@ -8,10 +8,6 @@
   (setq grep-find-command '("findstr /sn  *" . 13))
   (setq default-directory "~/"))
 
-;;;cursor stop blinking
-(blink-cursor-mode -1)
-(transient-mark-mode 1)
-
 ;;;highlight the current row
 (require 'hl-line)
 (global-hl-line-mode t)
