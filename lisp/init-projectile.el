@@ -12,6 +12,8 @@
 
   (setq projectile-keymap-prefix (kbd "C-c p"))
 
+  (maybe-require-package 'ibuffer-projectile)
+
   ;;Configuration for Windows
   (when *is-a-windows*
     (setq projectile-indexing-method 'alien))

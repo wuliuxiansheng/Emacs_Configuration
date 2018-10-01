@@ -5,7 +5,7 @@
 (when *is-a-mac*
   (setq-default custom-enabled-themes '(sanityinc-solarized-light)))
 (when *is-a-linux*
-  (setq-default custom-enabled-themes '(sanityinc-solarized-dark)))
+  (setq-default custom-enabled-themes '(sanityinc-tomorrow-bright)))
 (when *is-a-windows*
       (setq-default custom-enabled-themes '(sanityinc-solarized-light)))
 
@@ -26,17 +26,18 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (color-theme-sanityinc-solarized-light)
+  (setq custom-enabled-themes '(sanityinc-solarized-light))
   (reapply-themes))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (color-theme-sanityinc-solarized-dark)
+  (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
   (reapply-themes))
 
+
 (when (maybe-require-package 'dimmer)
-  (setq-default dimmer-fraction 0.1)
+  (setq-default dimmer-fraction 0.15)
   (add-hook 'after-init-hook 'dimmer-mode))
 
 ;;------------------------------------------------------------------------------

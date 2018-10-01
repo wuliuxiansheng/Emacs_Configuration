@@ -5,11 +5,11 @@
 
 (defadvice desktop-read (around time-restore activate)
   (let ((start-time (current-time)))
-	(prog1
-		ad-do-it
-	  (message "Desktop restored in %.2fms"
-			   (sanityinc/time-subtract-millis (current-time)
-											   start-time)))))
+    (prog1
+        ad-do-it
+      (message "Desktop restored in %.2fms"
+               (sanityinc/time-subtract-millis (current-time)
+                                               start-time)))))
 
 (defadvice desktop-create-buffer (around time-create activate)
   (let ((start-time (current-time))

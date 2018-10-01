@@ -4,7 +4,7 @@
 (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "ELisp")))
 
 (setq-default initial-scratch-message
-              (concat ";; Happy hacking, " (or user-login-name "") " - Emacs!\n\n"))
+              (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n"))
 
 
 
@@ -126,14 +126,9 @@
   "Run `check-parens' when the current buffer is saved."
   (add-hook 'after-save-hook #'check-parens nil t))
 
-(defun sanityinc/disable-indent-guide ()
-  (when (bound-and-true-p indent-guide-mode)
-    (indent-guide-mode -1)))
-
 (defvar sanityinc/lispy-modes-hook
   '(enable-paredit-mode
     turn-on-eldoc-mode
-    sanityinc/disable-indent-guide
     sanityinc/enable-check-parens-on-save)
   "Hook run in all Lisp modes.")
 
