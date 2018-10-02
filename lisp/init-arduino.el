@@ -5,8 +5,14 @@
 
 (defun company-arduino-header-path ()
   "Return the arduino include path for the current buffer."
-  (let ((default '("~/Arduino/libraries/" "~/arduino-ide/libraries/")))
+  (let ((default '("~/Arduino/libraries/" "~/Arduino/hardware/" "~/arduino-ide/libraries/")))
     (company-arduino-append-include-dirs default t)))
+
+(defvar company-user-arduino-includes-dirs
+  '("-I/home/chaoliu/Arduino/hardware/" "-I/home/chaoliu/Arduino/libraries/"))
+
+(eval-after-load 'company-arduino
+  '(setq irony-arduino-includes-options (append irony-arduino-includes-options company-user-arduino-includes-dirs)))
 
 ;;; Irony reconfiguration
 (require-package 'irony)
