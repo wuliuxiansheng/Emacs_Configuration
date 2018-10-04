@@ -13,9 +13,10 @@
 
 ;;; cc-mode style
 (defun cc-common-setup ()
+  "Set default style for cc-mode."
   (setq-default c-basic-offset 4
-				tab-width 4
-				indent-tabs-mode t)
+		tab-width 4
+		indent-tabs-mode t)
   (c-set-offset 'innamespace 0)
   (c-set-offset 'inclass 4)
   (c-set-offset 'access-label -2)
@@ -31,18 +32,22 @@
 
 ;;; key binding for compile
 (defun cc-mode-compile-make ()
+  "Command make."
   (interactive)
   (setq compile-command "cd ../ && make")
   (call-interactively 'compile))
 (defun cc-mode-compile-flash ()
+  "Command make flash."
   (interactive)
   (setq compile-command "cd ../ && make flash")
   (call-interactively 'compile))
 (defun cc-mode-compile-clean ()
+  "Command make clean."
   (interactive)
   (setq compile-command "cd ../ && make clean")
   (call-interactively 'compile))
 (defun cc-mode-compile ()
+  "Key bindings for compile commands."
   (local-set-key (kbd "C-x C m") 'cc-mode-compile-make)
   (local-set-key (kbd "C-x C f") 'cc-mode-compile-flash)
   (local-set-key (kbd "C-x C c") 'cc-mode-compile-clean))
@@ -55,11 +60,12 @@
 
 ;; add company-c-headers to company mode
 (defun company-c-headers-setup ()
+  "Company mode for header files."
   (add-to-list 'company-backends 'company-c-headers))
 
 (defun ede-object-system-include-path ()
   (when ede-object
-	(ede-system-include-path ede-object)))
+    (ede-system-include-path ede-object)))
 (setq company-c-headers-path-system 'ede-object-system-include-path)
 
 (setq header-custom-file (expand-file-name "cc-mode-header-custom.el" user-emacs-directory))
