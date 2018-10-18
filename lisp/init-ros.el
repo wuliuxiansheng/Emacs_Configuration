@@ -28,7 +28,7 @@
   )
 
 (defun ros-catkin-make-debug (dir)
-  "Run catkin_make with Debug mode."
+  "Run catkin_make with Debug mode in DIR."
   (interactive (list (read-directory-name "Directory: ")))
   (let* ((default-directory dir)
          (compilation-buffer-name-function (lambda (major-mode-name) "*catkin_make*")))
