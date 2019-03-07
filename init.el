@@ -109,8 +109,9 @@
   (require 'init-html)
   (require 'init-python-mode)
   (require 'init-cc-mode)
+  (require 'init-julia)
   (when *is-a-linux*
-	(require 'init-ros))
+    (require 'init-ros))
   (require 'init-matlab-mode)
   (require 'init-arduino))
 
