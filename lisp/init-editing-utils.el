@@ -97,6 +97,7 @@
 ;;     (linum-mode 1)))
 (require-package 'nlinum)
 (add-hook 'prog-mode-hook 'nlinum-mode)
+(add-hook 'bibtex-mode-hook 'nlinum-mode)
 
 
 (when (require-package 'rainbow-delimiters)
