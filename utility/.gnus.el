@@ -1,6 +1,6 @@
 (require 'nnir)
 
-(setq gnus-select-method '(nntp "news.gmane.org"))
+(setq gnus-select-method '(nnnil ""))
 
 ;; ask encryption password once
 (setq epa-file-cache-passphrase-for-symmetric-encryption t)
