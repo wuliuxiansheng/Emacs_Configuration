@@ -119,6 +119,7 @@
 (when (not *is-a-windows*)
   (require 'init-multi-term))
 
+(require 'init-yaml)
 (require 'init-paredit)
 (require 'init-lisp)
 (require 'init-slime)

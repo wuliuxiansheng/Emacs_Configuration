@@ -6,17 +6,13 @@
 ;;   (after-load 'redshank
 ;;	(define-key redshank-mode-map (kbd "C-x C-r C-l") nil)))
 
-(require-package 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
-
 ;; configure catkin_make command
 (defun ros-catkin-make (dir)
   "Run catkin_make command in DIR."
   (interactive (list (read-directory-name "Directory: ")))
   (let* ((default-directory dir)
-		 (compilation-buffer-name-function (lambda (major-mode-name) "*catkin_make*")))
-	(compile "catkin_make"))
+         (compilation-buffer-name-function (lambda (major-mode-name) "*catkin_make*")))
+    (compile "catkin_make"))
   )
 
 (defun ros-catkin-make-json (dir)
