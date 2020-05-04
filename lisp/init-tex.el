@@ -115,4 +115,4 @@
 ;;;end emacs + auctex
 
 
-(provide 'init-auctex)
+(provide 'init-tex)

@@ -137,7 +137,7 @@
 
 (when (not (string-equal install-mode "programming"))
   (require 'init-markdown)
-  (require 'init-auctex)
+  (require 'init-tex)
   ;; (require 'init-ac-math)
   (require 'init-company-math)
   (require 'init-mail)
