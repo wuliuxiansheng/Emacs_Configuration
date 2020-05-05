@@ -42,38 +42,11 @@
       '((ivy-bibtex . ivy--regex-ignore-order)
         (t . ivy--regex-plus)))
 (setq bibtex-completion-bibliography
-      '("~/Documents/tether_tube_robots-svn/resource/papers.bib"
-        "~/Documents/smores-svn/reconfiguration/ref/papers.bib"))
+      '("/path/to/bibtex-file-1.bib"
+        "/path/to/bibtex-file-2.bib"))
 (setq bibtex-completion-library-path
-      '("~/Documents/smores-svn/reconfiguration/ref"
-        "~/Documents/smores-svn/reconfiguration/ref/assembly"
-        "~/Documents/smores-svn/reconfiguration/ref/control"
-        "~/Documents/smores-svn/reconfiguration/ref/diff-drive_planning"
-        "~/Documents/smores-svn/reconfiguration/ref/hardware"
-        "~/Documents/smores-svn/reconfiguration/ref/isomorphism"
-        "~/Documents/smores-svn/reconfiguration/ref/kinematics"
-        "~/Documents/smores-svn/reconfiguration/ref/reconfiguration"
-        "~/Documents/smores-svn/reconfiguration/ref/motion_planning"
-        "~/Documents/smores-svn/reconfiguration/ref/motion_planning/arm"
-        "~/Documents/smores-svn/reconfiguration/ref/motion_planning/collision"
-        "~/Documents/smores-svn/reconfiguration/ref/motion_planning/humanoid"
-        "~/Documents/smores-svn/reconfiguration/ref/motion_planning/locomotion"
-        "~/Documents/smores-svn/reconfiguration/ref/motion_planning/manipulation"
-        "~/Documents/smores-svn/reconfiguration/ref/motion_planning/quadratic programming"
-        "~/Documents/smores-svn/reconfiguration/ref/motion_planning/rrt and prm"
-        "~/Documents/smores-svn/reconfiguration/ref/motion_planning/task_planning"
-        "~/Documents/tether_tube_robots-svn/resource"
-        "~/Documents/tether_tube_robots-svn/resource/kinematics/Jacobian"
-        "~/Documents/tether_tube_robots-svn/resource/kinematics/Manipulability"
-        "~/Documents/tether_tube_robots-svn/resource/kinematics/Task"
-        "~/Documents/tether_tube_robots-svn/resource/kinematics/Workspace"
-        "~/Documents/tether_tube_robots-svn/resource/tether_robot"
-        "~/Documents/tether_tube_robots-svn/resource/control_planning"
-        "~/Documents/tether_tube_robots-svn/resource/aerial_manipulator"
-        "~/Documents/tether_tube_robots-svn/resource/aerial_manipulator/compliant"
-        "~/Documents/tether_tube_robots-svn/resource/aerial_manipulator/parallel_manipulator"
-        "~/Documents/tether_tube_robots-svn/resource/aerial_manipulator/serial_manipulator"
-        "~/Documents/tether_tube_robots-svn/resource/hardware"))
+      '("/path1/to/pdfs"
+        "/path2/to/pdfs"))
 ;; (after-load 'ivy
 ;;   (ivy-add-actions
 ;;    'ivy-bibtex
