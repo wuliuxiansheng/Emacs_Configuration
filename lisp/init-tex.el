@@ -41,12 +41,10 @@
 (setq ivy-re-builders-alist
       '((ivy-bibtex . ivy--regex-ignore-order)
         (t . ivy--regex-plus)))
-(setq bibtex-completion-bibliography
-      '("/path/to/bibtex-file-1.bib"
-        "/path/to/bibtex-file-2.bib"))
-(setq bibtex-completion-library-path
-      '("/path1/to/pdfs"
-        "/path2/to/pdfs"))
+(setq bib-custom-file (expand-file-name "bib-custom.el" user-emacs-directory))
+(when (file-exists-p bib-custom-file)
+  (load bib-custom-file))
+
 ;; (after-load 'ivy
 ;;   (ivy-add-actions
 ;;    'ivy-bibtex
