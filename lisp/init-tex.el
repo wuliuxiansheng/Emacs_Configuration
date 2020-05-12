@@ -50,10 +50,6 @@
 ;;    'ivy-bibtex
 ;;    '(("i" ivy-bibtex-insert-bibtex "Insert citation"))))
 
-(setq bibtex-completion-pdf-open-function
-      (lambda (fpath)
-        (call-process "open" nil 0 nil fpath)))
-
 (when *is-a-mac*
   (setq TeX-source-correlate-mode t)
   (setq TeX-source-correlate-method 'synctex)
@@ -62,6 +58,11 @@
   (setq TeX-view-program-selection
         '((output-pdf "Skim")
           (output-dvi "xdvi")))
+
+  ;; use default app to open pdf if available
+  (setq bibtex-completion-pdf-open-function
+		(lambda (fpath)
+		  (call-process "open" nil 0 nil fpath)))
   )
 
 (when *is-a-linux*
@@ -71,6 +72,11 @@
   (eval-after-load "tex"
     '(setcar (cdr (assoc 'output-pdf TeX-view-program-selection)) "Okular"))
   (setq TeX-source-correlate-method 'synctex)
+
+  ;; use default app to open pdf if available
+  (setq bibtex-completion-pdf-open-function
+		(lambda (fpath)
+		  (call-process "evince" nil 0 nil fpath)))
   )
 
 (when *is-a-windows*
