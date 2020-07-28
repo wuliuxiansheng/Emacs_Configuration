@@ -33,6 +33,14 @@
 (require-package 'cdlatex)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
+;; use xelatex as compiler for Chinese
+(setq org-latex-pdf-process
+      '("latexmk -pdflatex='xelatex -interaction nonstopmode' -pdf -bibtex -f %f"))
+
+;; org-ref
+(require-package 'org-ref)
+(require 'org-ref)
+
 ;; display of entities as UTF-8 characters
 (setq org-pretty-entities t)
 
