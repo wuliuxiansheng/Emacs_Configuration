@@ -112,7 +112,8 @@
   (require 'init-python-mode)
   (require 'init-cc-mode)
   (when *is-a-linux*
-	(require 'init-ros))
+    (require 'init-ros))
+  (require 'init-csharp)
   (require 'init-matlab-mode)
   (require 'init-arduino))
 
