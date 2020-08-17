@@ -36,6 +36,10 @@
 ;; use xelatex as compiler for Chinese
 (setq org-latex-pdf-process
       '("latexmk -pdflatex='xelatex -interaction nonstopmode' -pdf -bibtex -f %f"))
+;; no need to confirm when evaluating latex code blocks
+(defun my-org-confirm-babel-evaluate (lang body)
+  (not (member lang '("latex"))))
+(setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
 
 ;; org-ref
 (require-package 'org-ref)
