@@ -31,6 +31,8 @@
             ;; (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
             ))
 
+(add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)
+
 (setq TeX-insert-quote t)
 ;; (ispell-change-dictionary "american" t)
 ;; (setq-default ispell-program-name "aspell")

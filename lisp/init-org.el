@@ -9,6 +9,8 @@
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 (setq org-mobile-files '("~/Dropbox/OrgNotes"))
 
+(require 'org-tempo)
+
 ;; org-mode encryption
 (require 'org-crypt)
 (org-crypt-use-before-save-magic)
