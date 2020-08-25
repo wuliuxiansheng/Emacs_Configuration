@@ -9,7 +9,11 @@
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 (setq org-mobile-files '("~/Dropbox/OrgNotes"))
 
-(require 'org-tempo)
+;; for org-version>9.2, enable <s for structure template
+(with-eval-after-load 'org
+  (unless (version< org-version "9.2")
+    (require 'org-tempo))
+  )
 
 ;; org-mode encryption
 (require 'org-crypt)
