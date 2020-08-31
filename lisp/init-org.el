@@ -39,6 +39,10 @@
 (require-package 'cdlatex)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
+
+;; Configure default viewer for Linux when exporting PDF
+(when *is-a-linux*
+  (add-to-list 'org-file-apps '("pdf" . "evince %s")))
 ;; use xelatex as compiler for Chinese
 (setq org-latex-pdf-process
       '("latexmk -pdflatex='xelatex -interaction nonstopmode' -pdf -bibtex -f %f"))
