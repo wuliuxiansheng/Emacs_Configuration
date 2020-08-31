@@ -35,6 +35,11 @@
  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
  )
 
+;; ox-extra for ignore-headlines
+(require-package 'org-plus-contrib)
+(require 'ox-extra)
+(ox-extras-activate '(ignore-headlines))
+
 ;; cdlatex for org-mode
 (require-package 'cdlatex)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
