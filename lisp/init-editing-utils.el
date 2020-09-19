@@ -254,8 +254,8 @@
 ;; Cut/copy the current line if no region is active
 ;;----------------------------------------------------------------------------
 (require-package 'whole-line-or-region)
-(add-hook 'after-init-hook 'whole-line-or-region-mode)
-(after-load 'whole-line-or-region
+(add-hook 'after-init-hook 'whole-line-or-region-global-mode)
+(with-eval-after-load 'whole-line-or-region
   (diminish 'whole-line-or-region-local-mode))
 
 (defun suspend-mode-during-cua-rect-selection (mode-name)
@@ -273,8 +273,6 @@
          (defadvice cua--deactivate-rectangle (after ,advice-name activate)
            (when ,flagvar
              (,mode-name 1)))))))
-
-(suspend-mode-during-cua-rect-selection 'whole-line-or-region-mode)
 
 
 
