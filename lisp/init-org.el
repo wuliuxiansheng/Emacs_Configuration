@@ -55,6 +55,13 @@
 (defun my-org-confirm-babel-evaluate (lang body)
   (not (member lang '("latex"))))
 (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+;; LaTeX class letter
+(add-to-list 'org-latex-classes
+             '("letter"
+               "\\documentclass{letter}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
 
 ;; org-ref
 (require-package 'org-ref)
