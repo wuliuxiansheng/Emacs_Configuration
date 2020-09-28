@@ -48,6 +48,8 @@
 ;; Configure default viewer for Linux when exporting PDF
 (when *is-a-linux*
   (add-to-list 'org-file-apps '("pdf" . "evince %s")))
+(when *is-a-mac*
+  (add-to-list 'org-file-apps '("pdf" . "/Applications/Skim.app/Contents/SharedSupport/displayline 1 %s")))
 ;; use xelatex as compiler for Chinese
 (setq org-latex-pdf-process
       '("latexmk -pdflatex='xelatex -interaction nonstopmode' -pdf -bibtex -f %f"))
