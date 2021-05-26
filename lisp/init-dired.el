@@ -73,4 +73,7 @@ Version 2019-11-04"
 (global-set-key (kbd "C-c o") 'file-open-in-external-app)
 (global-set-key (kbd "C-c s") 'file-show-in-desktop)
 
+;; move deleted files to trash bin
+(setq delete-by-moving-to-trash t)
+
 (provide 'init-dired)
