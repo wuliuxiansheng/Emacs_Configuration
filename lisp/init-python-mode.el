@@ -9,8 +9,9 @@
 
 ;;; iPython configuration
 (setq
- python-shell-interpreter "ipython"
- python-shell-interpreter-args "-i"
+ python-shell-interpreter "jupyter"
+ python-shell-interpreter-args "console --simple-prompt"
+ python-shell-prompt-detect-failure-warning nil
  ;; python-shell-completion-native-enable nil
  ;; python-shell-prompt-regexp "In \\[[0-9]+\\]: "
  ;; python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
@@ -21,6 +22,7 @@
  ;; python-shell-completion-string-code
  ;; "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
  )
+(add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter")
 
 ;;; python style checking
 ;; (require-package 'pep8)
