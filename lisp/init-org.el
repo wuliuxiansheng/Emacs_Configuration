@@ -21,7 +21,8 @@
 (setq org-tags-exclude-from-inheritance (quote ("crypt")))
 (setq org-crypt-key nil)
 
-
+(setq org-startup-folded t)
+(setq org-latex-prefer-user-labels t)
 ;; org-mode bullets
 (require-package 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))

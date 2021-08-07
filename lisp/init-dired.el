@@ -76,4 +76,7 @@ Version 2019-11-04"
 ;; move deleted files to trash bin
 (setq delete-by-moving-to-trash t)
 
+;; change permission in dired
+(setq wdired-allow-to-change-permissions t)
+
 (provide 'init-dired)

@@ -8,6 +8,7 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 
+;; require imagemagick to convert images
 (add-hook 'LaTeX-mode-hook
           (lambda()
             (add-to-list 'TeX-command-list '("PDFLaTeX" "%`pdflatex --shell-escape --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
