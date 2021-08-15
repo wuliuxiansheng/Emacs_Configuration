@@ -48,21 +48,29 @@
 ;; 	 (setq ropemacs-enable-autoimport t)))
 
 ;;; jedi configuration
-(require-package 'company-jedi)
-(defun company-jedi-setup ()
-  "Configure company-backends for company-jedi and company-yasnippet."
-  (push '(company-jedi :with company-yasnippet) company-backends)
-  ;; (add-to-list 'company-backends 'company-jedi)
+;; (require-package 'company-jedi)
+;; (defun company-jedi-setup ()
+;;   "Configure company-backends for company-jedi and company-yasnippet."
+;;   (push '(company-jedi :with company-yasnippet) company-backends)
+;;   ;; (add-to-list 'company-backends 'company-jedi)
+;;   )
+;; (add-hook 'python-mode-hook 'company-jedi-setup)
+
+;; (setq jedi:setup-keys t)
+;; (setq jedi:complete-on-dot t)
+;; (add-hook 'python-mode-hook 'jedi:setup)
+
+;; (setq jedi-custom-file (expand-file-name "jedi-custom.el" user-emacs-directory))
+;; (when (file-exists-p jedi-custom-file)
+;;   (load jedi-custom-file))
+
+
+(add-hook 'python-mode-hook #'lsp-deferred)
+
+(require-package 'lsp-jedi)
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-disabled-clients 'pyls)
+  ;; (add-to-list 'lsp-enabled-clients 'jedi)
   )
-(add-hook 'python-mode-hook 'company-jedi-setup)
-
-(setq jedi:setup-keys t)
-(setq jedi:complete-on-dot t)
-(add-hook 'python-mode-hook 'jedi:setup)
-
-(setq jedi-custom-file (expand-file-name "jedi-custom.el" user-emacs-directory))
-(when (file-exists-p jedi-custom-file)
-  (load jedi-custom-file))
-
 
 (provide 'init-python-mode)
