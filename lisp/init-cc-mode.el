@@ -171,6 +171,15 @@
   (add-hook 'c-mode-hook 'flycheck-rtags-setup)
   )
 
+;; LSP configuration
+(require-package 'dap-mode)
+
+(with-eval-after-load 'lsp-mode
+  (require 'dap-cpptools))
+
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
+
 ;;; CMake configuration
 (require-package 'cmake-mode)
 (setq auto-mode-alist
