@@ -122,6 +122,8 @@
 ;;; RTags configuration
 (require-package 'rtags)
 
+;; if version warnings or errors show up
+;; (setq rtags-verify-protocol-version nil)
 (rtags-enable-standard-keybindings)
 (setq rtags-autostart-diagnostics t)
 (rtags-diagnostics)
