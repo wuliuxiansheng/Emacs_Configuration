@@ -14,9 +14,9 @@
 ;;; cc-mode style
 (defun cc-common-setup ()
   "Set default style for cc-mode."
-  (setq-default c-basic-offset 4
-		tab-width 4
-		indent-tabs-mode t)
+  ;; (setq-default c-basic-offset 4
+  ;; 		tab-width 4
+  ;; 		indent-tabs-mode t)
   (c-set-offset 'innamespace 0)
   (c-set-offset 'inclass 4)
   (c-set-offset 'access-label -2)
