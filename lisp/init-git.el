@@ -1,8 +1,7 @@
 ;; TODO: link commits from vc-log to magit-show-commit
 ;; TODO: smerge-mode
 (require-package 'git-blamed)
-(require-package 'gitignore-mode)
-(require-package 'gitconfig-mode)
+(require-package 'git-modes)
 (maybe-require-package 'git-timemachine)
 
 (when *is-a-windows*
