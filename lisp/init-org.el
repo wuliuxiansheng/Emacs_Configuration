@@ -78,6 +78,8 @@
 
 (setq org-startup-indented t)
 
+;; required for exporting markdown
+(require 'ox-md)
 ;; Various preferences
 (setq org-log-done t
       org-edit-timestamp-down-means-later t
