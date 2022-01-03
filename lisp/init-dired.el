@@ -88,5 +88,8 @@ Version 2019-11-04"
 ;; change permission in dired
 (setq wdired-allow-to-change-permissions t)
 
+;; display readable file size
+(setq dired-listing-switches "-alh")
+
 (provide 'init-dired)
 ;;; init-dired.el ends here
