@@ -1,3 +1,7 @@
+;;; init-nxml.el --- Support for editing XML with NXML -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (add-auto-mode
  'nxml-mode
  (concat "\\."
@@ -30,9 +34,8 @@ indentation rules."
     (nxml-mode)
     (indent-region beg end)))
 
-;;----------------------------------------------------------------------------
+
 ;; Integration with tidy for html + xml
-;;----------------------------------------------------------------------------
 
 (defun sanityinc/tidy-buffer-xml (beg end)
   "Run \"tidy -xml\" on the region from BEG to END, or whole buffer."
@@ -44,3 +47,4 @@ indentation rules."
 
 
 (provide 'init-nxml)
+;;; init-nxml.el ends here

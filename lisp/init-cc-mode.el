@@ -1,3 +1,7 @@
+;;; init-cc.el --- cc files -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;;; C/C++ Configuration
 
 ;;; code hide
@@ -95,13 +99,13 @@
   (load ede-custom-file))
 
 ;; remove semantic for python mode and html mode
-(setq semantic-new-buffer-setup-functions
-	  (remove-if (lambda (buffer-setup-function)
-				   (member (car buffer-setup-function)
-						   '(python-mode html-mode)))
-				 semantic-new-buffer-setup-functions))
+;; (setq semantic-new-buffer-setup-functions
+;; 	  (remove-if (lambda (buffer-setup-function)
+;; 				   (member (car buffer-setup-function)
+;; 						   '(python-mode html-mode)))
+;; 				 semantic-new-buffer-setup-functions))
 
-(remove-hook 'python-mode-hook 'wisent-python-default-setup)
+;; (remove-hook 'python-mode-hook 'wisent-python-default-setup)
 
 ;; set SemanticDB search throttle
 ;; (setq-mode-local c-mode

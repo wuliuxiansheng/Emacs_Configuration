@@ -1,9 +1,12 @@
+;;; init-editing-utils.el --- Day-to-day editing helpers -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (require-package 'unfill)
 
 (when (fboundp 'electric-pair-mode)
   (add-hook 'after-init-hook 'electric-pair-mode))
-(when (eval-when-compile (version< "24.4" emacs-version))
-  (add-hook 'after-init-hook 'electric-indent-mode))
+(add-hook 'after-init-hook 'electric-indent-mode)
 
 (maybe-require-package 'list-unicode-display)
 
@@ -12,14 +15,15 @@
 ;;----------------------------------------------------------------------------
 (blink-cursor-mode -1)
 (setq-default
- bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
+ bookmark-default-file (locate-user-emacs-file ".bookmarks.el")
  buffers-menu-max-size 30
  case-fold-search t
  column-number-mode t
- delete-selection-mode t
  ediff-split-window-function 'split-window-horizontally
  ediff-window-setup-function 'ediff-setup-windows-plain
  indent-tabs-mode nil
+ create-lockfiles nil
+ auto-save-default nil
  make-backup-files nil
  mouse-yank-at-point t
  save-interprogram-paste-before-kill t
@@ -29,10 +33,12 @@
  truncate-lines nil
  truncate-partial-width-windows nil)
 
+(add-hook 'after-init-hook 'delete-selection-mode)
+
 (add-hook 'after-init-hook 'global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t
       auto-revert-verbose nil)
-(after-load 'autorevert
+(with-eval-after-load 'autorevert
   (diminish 'auto-revert-mode))
 
 ;; highlight the current row
@@ -44,6 +50,9 @@
 
 
 ;; Huge files
+
+(when (fboundp 'so-long-enable)
+  (add-hook 'after-init-hook 'so-long-enable))
 
 (require-package 'vlf)
 
@@ -82,7 +91,7 @@
 
 
 
-(after-load 'subword
+(with-eval-after-load 'subword
   (diminish 'subword-mode))
 
 
@@ -100,13 +109,16 @@
 (add-hook 'bibtex-mode-hook 'nlinum-mode)
 
 
-(when (require-package 'rainbow-delimiters)
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
+;; (when (boundp 'display-fill-column-indicator)
+;;   (setq-default indicate-buffer-boundaries 'left)
+;;   (setq-default display-fill-column-indicator-character ?\u254e)
+;;   (add-hook 'prog-mode-hook 'display-fill-column-indicator-mode))
 
 
 
-(when (fboundp 'global-prettify-symbols-mode)
-  (add-hook 'after-init-hook 'global-prettify-symbols-mode))
+(when (require-package 'rainbow-delimiters)
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
 (require-package 'undo-tree)
@@ -116,11 +128,12 @@
 
 
 (when (maybe-require-package 'symbol-overlay)
-  (dolist (hook '(prog-mode-hook html-mode-hook css-mode-hook yaml-mode-hook conf-mode-hook))
+  (dolist (hook '(prog-mode-hook html-mode-hook yaml-mode-hook conf-mode-hook))
     (add-hook hook 'symbol-overlay-mode))
-  (after-load 'symbol-overlay
+  (with-eval-after-load 'symbol-overlay
     (diminish 'symbol-overlay-mode)
     (define-key symbol-overlay-mode-map (kbd "M-i") 'symbol-overlay-put)
+    (define-key symbol-overlay-mode-map (kbd "M-I") 'symbol-overlay-remove-all)
     (define-key symbol-overlay-mode-map (kbd "M-n") 'symbol-overlay-jump-next)
     (define-key symbol-overlay-mode-map (kbd "M-p") 'symbol-overlay-jump-prev)))
 
@@ -135,12 +148,12 @@
 (require-package 'browse-kill-ring)
 (setq browse-kill-ring-separator "\f")
 (global-set-key (kbd "M-Y") 'browse-kill-ring)
-(after-load 'browse-kill-ring
+(with-eval-after-load 'browse-kill-ring
   (define-key browse-kill-ring-mode-map (kbd "C-g") 'browse-kill-ring-quit)
   (define-key browse-kill-ring-mode-map (kbd "M-n") 'browse-kill-ring-forward)
   (define-key browse-kill-ring-mode-map (kbd "M-p") 'browse-kill-ring-previous))
-(after-load 'page-break-lines
-  (push 'browse-kill-ring-mode page-break-lines-modes))
+(with-eval-after-load 'page-break-lines
+  (add-to-list 'page-break-lines-modes 'browse-kill-ring-mode))
 
 
 ;;----------------------------------------------------------------------------
@@ -170,12 +183,6 @@
 
 
 ;;----------------------------------------------------------------------------
-;; Rectangle selections, and overwrite text when the selection is active
-;;----------------------------------------------------------------------------
-(cua-selection-mode t)                  ; for rectangles, CUA is nice
-
-
-;;----------------------------------------------------------------------------
 ;; Handy key bindings
 ;;----------------------------------------------------------------------------
 (global-set-key (kbd "C-.") 'set-mark-command)
@@ -201,8 +208,6 @@
 (global-unset-key [M-left])
 (global-unset-key [M-right])
 
-
-
 (defun kill-back-to-indentation ()
   "Kill from point back to the first non-whitespace character on the line."
   (interactive)
@@ -218,7 +223,7 @@
 ;;----------------------------------------------------------------------------
 (when (maybe-require-package 'page-break-lines)
   (add-hook 'after-init-hook 'global-page-break-lines-mode)
-  (after-load 'page-break-lines
+  (with-eval-after-load 'page-break-lines
     (diminish 'page-break-lines-mode)))
 
 ;;----------------------------------------------------------------------------
@@ -227,27 +232,27 @@
 ;; use M-S-up and M-S-down, which will work even in lisp modes.
 ;;----------------------------------------------------------------------------
 (require-package 'move-dup)
-(global-set-key [M-up] 'md/move-lines-up)
-(global-set-key [M-down] 'md/move-lines-down)
-(global-set-key [M-S-up] 'md/move-lines-up)
-(global-set-key [M-S-down] 'md/move-lines-down)
+(global-set-key [M-up] 'move-dup-move-lines-up)
+(global-set-key [M-down] 'move-dup-move-lines-down)
+(global-set-key [M-S-up] 'move-dup-move-lines-up)
+(global-set-key [M-S-down] 'move-dup-move-lines-down)
 
-(global-set-key (kbd "C-c d") 'md/duplicate-down)
-(global-set-key (kbd "C-c u") 'md/duplicate-up)
+(global-set-key (kbd "C-c d") 'move-dup-duplicate-down)
+(global-set-key (kbd "C-c u") 'move-dup-duplicate-up)
 
 ;;----------------------------------------------------------------------------
 ;; Fix backward-up-list to understand quotes, see http://bit.ly/h7mdIL
 ;;----------------------------------------------------------------------------
-(defun backward-up-sexp (arg)
+(defun sanityinc/backward-up-sexp (arg)
   "Jump up to the start of the ARG'th enclosing sexp."
   (interactive "p")
   (let ((ppss (syntax-ppss)))
     (cond ((elt ppss 3)
            (goto-char (elt ppss 8))
-           (backward-up-sexp (1- arg)))
+           (sanityinc/backward-up-sexp (1- arg)))
           ((backward-up-list arg)))))
 
-(global-set-key [remap backward-up-list] 'backward-up-sexp) ; C-M-u, C-M-up
+(global-set-key [remap backward-up-list] 'sanityinc/backward-up-sexp) ; C-M-u, C-M-up
 
 
 ;;----------------------------------------------------------------------------
@@ -257,23 +262,6 @@
 (add-hook 'after-init-hook 'whole-line-or-region-global-mode)
 (with-eval-after-load 'whole-line-or-region
   (diminish 'whole-line-or-region-local-mode))
-
-(defun suspend-mode-during-cua-rect-selection (mode-name)
-  "Add an advice to suspend `MODE-NAME' while selecting a CUA rectangle."
-  (let ((flagvar (intern (format "%s-was-active-before-cua-rectangle" mode-name)))
-        (advice-name (intern (format "suspend-%s" mode-name))))
-    (eval-after-load 'cua-rect
-      `(progn
-         (defvar ,flagvar nil)
-         (make-variable-buffer-local ',flagvar)
-         (defadvice cua--activate-rectangle (after ,advice-name activate)
-           (setq ,flagvar (and (boundp ',mode-name) ,mode-name))
-           (when ,flagvar
-             (,mode-name 0)))
-         (defadvice cua--deactivate-rectangle (after ,advice-name activate)
-           (when ,flagvar
-             (,mode-name 1)))))))
-
 
 
 
@@ -306,12 +294,15 @@ With arg N, insert N newlines."
 
 (global-set-key (kbd "C-o") 'sanityinc/open-line-with-reindent)
 
+
+;; M-^ is inconvenient, so also bind M-j
+(global-set-key (kbd "M-j") 'join-line)
 
 ;;----------------------------------------------------------------------------
 ;; Random line sorting
 ;;----------------------------------------------------------------------------
-(defun sort-lines-random (beg end)
-  "Sort lines in region randomly."
+(defun sanityinc/sort-lines-random (beg end)
+  "Sort lines in region from BEG to END randomly."
   (interactive "r")
   (save-excursion
     (save-restriction
@@ -329,11 +320,22 @@ With arg N, insert N newlines."
 (add-hook 'after-init-hook 'hes-mode)
 
 
-(require-package 'guide-key)
-(setq guide-key/guide-key-sequence t)
-(add-hook 'after-init-hook 'guide-key-mode)
-(after-load 'guide-key
-  (diminish 'guide-key-mode))
+(require-package 'which-key)
+(add-hook 'after-init-hook 'which-key-mode)
+(setq-default which-key-idle-delay 1.5)
+(with-eval-after-load 'which-key
+  (diminish 'which-key-mode))
+
+
+(defun sanityinc/disable-features-during-macro-call (orig &rest args)
+  "When running a macro, disable features that might be expensive.
+ORIG is the advised function, which is called with its ARGS."
+  (let (post-command-hook
+        font-lock-mode
+        (tab-always-indent (or (eq 'complete tab-always-indent) tab-always-indent)))
+    (apply orig args)))
+
+(advice-add 'kmacro-call-macro :around 'sanityinc/disable-features-during-macro-call)
 
 ;;----------------------------------------------------------------------------
 ;; Edit multiple regions simultaneously
@@ -350,3 +352,4 @@ With arg N, insert N newlines."
 
 
 (provide 'init-editing-utils)
+;;; init-editing-utils.el ends here

@@ -1,3 +1,7 @@
+;;; init-dired.el --- Dired customisations -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (setq-default dired-dwim-target t)
 
 ;; Prefer g-prefixed coreutils version of standard utilities when available
@@ -5,16 +9,21 @@
   (when gls (setq insert-directory-program gls)))
 
 (when (maybe-require-package 'diredfl)
-  (after-load 'dired
-    (diredfl-global-mode)))
+  (with-eval-after-load 'dired
+    (diredfl-global-mode)
+    (require 'dired-x)))
 
-(after-load 'dired
+;; Hook up dired-x global bindings without loading it up-front
+(define-key ctl-x-map "\C-j" 'dired-jump)
+(define-key ctl-x-4-map "\C-j" 'dired-jump-other-window)
+
+(with-eval-after-load 'dired
   (setq dired-recursive-deletes 'top)
   (define-key dired-mode-map [mouse-2] 'dired-find-file)
   (define-key dired-mode-map (kbd "C-c C-p") 'wdired-change-to-wdired-mode))
 
 (when (maybe-require-package 'diff-hl)
-  (after-load 'dired
+  (with-eval-after-load 'dired
     (add-hook 'dired-mode-hook 'diff-hl-dired-mode)))
 
 ;; Open files using OS default applications
@@ -52,7 +61,7 @@ Version 2019-11-04"
        ((string-equal system-type "gnu/linux")
         (mapc
          (lambda ($fpath) (let ((process-connection-type nil))
-                       (start-process "" nil "xdg-open" $fpath))) $file-list))))))
+                            (start-process "" nil "xdg-open" $fpath))) $file-list))))))
 
 ;; Open current directory in Mac Finder, Windows Explorer or Linux file manager
 (defun file-show-in-desktop ()
@@ -80,3 +89,4 @@ Version 2019-11-04"
 (setq wdired-allow-to-change-permissions t)
 
 (provide 'init-dired)
+;;; init-dired.el ends here

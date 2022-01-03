@@ -1,3 +1,27 @@
+;;; init-org.el --- Org-mode config -*- lexical-binding: t -*-
+;;; Commentary:
+
+;; Among settings for many aspects of `org-mode', this code includes
+;; an opinionated setup for the Getting Things Done (GTD) system based
+;; around the Org Agenda.  I have an "inbox.org" file with a header
+;; including
+
+;;     #+CATEGORY: Inbox
+;;     #+FILETAGS: INBOX
+
+;; and then set this file as `org-default-notes-file'.  Captured org
+;; items will then go into this file with the file-level tag, and can
+;; be refiled to other locations as necessary.
+
+;; Those other locations are generally other org files, which should
+;; be added to `org-agenda-files-list' (along with "inbox.org" org).
+;; With that done, there's then an agenda view, accessible via the
+;; `org-agenda' command, which gives a convenient overview.
+;; `org-todo-keywords' is customised here to provide corresponding
+;; TODO states, which should make sense to GTD adherents.
+
+;;; Code:
+
 (when *is-a-mac*
   (maybe-require-package 'grab-mac-link))
 
@@ -76,6 +100,15 @@
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
 
+(defvar sanityinc/org-global-prefix-map (make-sparse-keymap)
+  "A keymap for handy global access to org helpers, particularly clocking.")
+
+(define-key sanityinc/org-global-prefix-map (kbd "j") 'org-clock-goto)
+(define-key sanityinc/org-global-prefix-map (kbd "l") 'org-clock-in-last)
+(define-key sanityinc/org-global-prefix-map (kbd "i") 'org-clock-in)
+(define-key sanityinc/org-global-prefix-map (kbd "o") 'org-clock-out)
+(define-key global-map (kbd "C-c o") sanityinc/org-global-prefix-map)
+
 (setq org-startup-indented t)
 
 ;; required for exporting markdown
@@ -98,41 +131,8 @@
 
 ;; Lots of stuff from http://doc.norang.ca/org-mode.html
 
-;; TODO: fail gracefully
-(defun sanityinc/grab-ditaa (url jar-name)
-  "Download URL and extract JAR-NAME as `org-ditaa-jar-path'."
-  ;; TODO: handle errors
-  (message "Grabbing %s for org." jar-name)
-  (let ((zip-temp (make-temp-name "emacs-ditaa")))
-    (unwind-protect
-        (progn
-          (when (executable-find "unzip")
-            (url-copy-file url zip-temp)
-            (shell-command (concat "unzip -p " (shell-quote-argument zip-temp)
-                                   " " (shell-quote-argument jar-name) " > "
-                                   (shell-quote-argument org-ditaa-jar-path)))))
-      (when (file-exists-p zip-temp)
-        (delete-file zip-temp)))))
-
-(after-load 'ob-ditaa
-  (unless (and (boundp 'org-ditaa-jar-path)
-               (file-exists-p org-ditaa-jar-path))
-    (let ((jar-name "ditaa0_9.jar")
-          (url "http://jaist.dl.sourceforge.net/project/ditaa/ditaa/0.9/ditaa0_9.zip"))
-      (setq org-ditaa-jar-path (expand-file-name jar-name (file-name-directory user-init-file)))
-      (unless (file-exists-p org-ditaa-jar-path)
-        (sanityinc/grab-ditaa url jar-name)))))
-
-(after-load 'ob-plantuml
-  (let ((jar-name "plantuml.jar")
-        (url "http://jaist.dl.sourceforge.net/project/plantuml/plantuml.jar"))
-    (setq org-plantuml-jar-path (expand-file-name jar-name (file-name-directory user-init-file)))
-    (unless (file-exists-p org-plantuml-jar-path)
-      (url-copy-file url org-plantuml-jar-path))))
-
-
 ;; Re-align tags when window shape changes
-(after-load 'org-agenda
+(with-eval-after-load 'org-agenda
   (add-hook 'org-agenda-mode-hook
             (lambda () (add-hook 'window-configuration-change-hook 'org-agenda-align-tags nil t))))
 
@@ -146,7 +146,7 @@
 This enables or modifies a number of settings so that the
 experience of editing prose is a little more like that of a
 typical word processor."
-  nil " Prose" nil
+  :init-value nil :lighter " Prose" :keymap nil
   (if prose-mode
       (progn
         (when (fboundp 'writeroom-mode)
@@ -158,15 +158,16 @@ typical word processor."
           (kill-local-variable 'buffer-face-mode-face))
         (buffer-face-mode 1)
         ;;(delete-selection-mode 1)
-        (set (make-local-variable 'blink-cursor-interval) 0.6)
-        (set (make-local-variable 'show-trailing-whitespace) nil)
-        (set (make-local-variable 'line-spacing) 0.2)
-        (set (make-local-variable 'electric-pair-mode) nil)
+        (setq-local blink-cursor-interval 0.6)
+        (setq-local show-trailing-whitespace nil)
+        (setq-local line-spacing 0.2)
+        (setq-local electric-pair-mode nil)
         (ignore-errors (flyspell-mode 1))
         (visual-line-mode 1))
     (kill-local-variable 'truncate-lines)
     (kill-local-variable 'word-wrap)
     (kill-local-variable 'cursor-type)
+    (kill-local-variable 'blink-cursor-interval)
     (kill-local-variable 'show-trailing-whitespace)
     (kill-local-variable 'line-spacing)
     (kill-local-variable 'electric-pair-mode)
@@ -202,12 +203,10 @@ typical word processor."
 ;; Targets include this file and any file contributing to the agenda - up to 5 levels deep
 (setq org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
 
-(after-load 'org-agenda
+(with-eval-after-load 'org-agenda
   (add-to-list 'org-agenda-after-show-hook 'org-show-entry))
 
-(defadvice org-refile (after sanityinc/save-all-after-refile activate)
-  "Save all org buffers after each refile operation."
-  (org-save-all-org-buffers))
+(advice-add 'org-refile :after (lambda (&rest _) (org-save-all-org-buffers)))
 
 ;; Exclude DONE state tasks from refile targets
 (defun sanityinc/verify-refile-target ()
@@ -247,8 +246,6 @@ typical word processor."
 (setq org-todo-keyword-faces
       (quote (("NEXT" :inherit warning)
               ("PROJECT" :inherit font-lock-string-face))))
-
-(setq org-lowest-priority ?E)
 
 
 
@@ -349,7 +346,7 @@ typical word processor."
 ;;; Org clock
 
 ;; Save the running clock and all clock history when exiting Emacs, load it on startup
-(after-load 'org
+(with-eval-after-load 'org
   (org-clock-persistence-insinuate))
 (setq org-clock-persist t)
 (setq org-clock-in-resume t)
@@ -378,7 +375,7 @@ typical word processor."
 (add-hook 'org-clock-out-hook 'sanityinc/hide-org-clock-from-header-line)
 (add-hook 'org-clock-cancel-hook 'sanityinc/hide-org-clock-from-header-line)
 
-(after-load 'org-clock
+(with-eval-after-load 'org-clock
   (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
   (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu))
 
@@ -410,7 +407,7 @@ typical word processor."
 
 (require-package 'org-pomodoro)
 (setq org-pomodoro-keep-killed-pomodoro-time t)
-(after-load 'org-agenda
+(with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro))
 
 
@@ -435,32 +432,37 @@ typical word processor."
 ;;                 (insert (match-string 0))))))
 
 
-(after-load 'org
+(with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-M-<up>") 'org-up-element)
   (when *is-a-mac*
     (define-key org-mode-map (kbd "M-h") nil)
-    (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link)))
+    (define-key org-mode-map (kbd "C-c g") 'grab-mac-link)))
 
-(after-load 'org
+(with-eval-after-load 'org
   (org-babel-do-load-languages
    'org-babel-load-languages
-   `((R . t)
-     (ditaa . t)
-     (dot . t)
-     (emacs-lisp . t)
-     (gnuplot . t)
-     (haskell . nil)
-     (latex . t)
-     (ledger . t)
-     (ocaml . nil)
-     (octave . t)
-     (plantuml . t)
-     (python . t)
-     (ruby . t)
-     (screen . nil)
-     (,(if (locate-library "ob-sh") 'sh 'shell) . t)
-     (sql . nil)
-     (sqlite . t))))
+   (seq-filter
+    (lambda (pair)
+      (featurep (intern (concat "ob-" (symbol-name (car pair))))))
+    '((R . t)
+      (ditaa . t)
+      (dot . t)
+      (emacs-lisp . t)
+      (gnuplot . t)
+      (haskell . nil)
+      (latex . t)
+      (ledger . t)
+      (ocaml . nil)
+      (octave . t)
+      (plantuml . t)
+      (python . t)
+      (ruby . t)
+      (screen . nil)
+      (sh . t) ;; obsolete
+      (shell . t)
+      (sql . t)
+      (sqlite . t)))))
 
 
 (provide 'init-org)
+;;; init-org.el ends here

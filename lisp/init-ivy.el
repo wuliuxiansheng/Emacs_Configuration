@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 (when (maybe-require-package 'ivy)
   (add-hook 'after-init-hook 'ivy-mode)
-  (after-load 'ivy
+  (with-eval-after-load 'ivy
     (setq-default ivy-use-virtual-buffers t
                   ivy-virtual-abbreviate 'fullpath
                   ivy-count-format ""
@@ -35,7 +35,7 @@
 (when (maybe-require-package 'counsel)
   (setq-default counsel-mode-override-describe-bindings t)
   (when (maybe-require-package 'diminish)
-    (after-load 'counsel
+    (with-eval-after-load 'counsel
       (diminish 'counsel-mode)))
   (add-hook 'after-init-hook 'counsel-mode)
 
@@ -65,7 +65,7 @@ instead."
 
 
 (when (maybe-require-package 'swiper)
-  (after-load 'ivy
+  (with-eval-after-load 'ivy
     (defun sanityinc/swiper-at-point (sym)
       "Use `swiper' to search for the symbol at point."
       (interactive (list (thing-at-point 'symbol)))
