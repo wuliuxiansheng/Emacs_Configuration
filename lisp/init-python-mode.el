@@ -22,7 +22,8 @@
  ;; python-shell-completion-string-code
  ;; "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
  )
-(add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter")
+(with-eval-after-load 'python
+  (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter"))
 
 ;;; python style checking
 ;; (require-package 'pep8)
