@@ -345,9 +345,13 @@ ORIG is the advised function, which is called with its ARGS."
 
 
 ;;----------------------------------------------------------------------------
-;; EasyPG configuration for Emacs 25
+;; EasyPG configuration
 ;;----------------------------------------------------------------------------
+(require-package 'pinentry)
+(pinentry-start)
+;; configurations for Emacs 25
 (setf epa-pinentry-mode 'loopback)
+;; (setq epg-pinentry-mode 'loopback)
 (setq epa-file-cache-passphrase-for-symmetric-encryption t)
 
 
