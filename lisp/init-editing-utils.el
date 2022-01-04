@@ -347,8 +347,10 @@ ORIG is the advised function, which is called with its ARGS."
 ;;----------------------------------------------------------------------------
 ;; EasyPG configuration
 ;;----------------------------------------------------------------------------
-(require-package 'pinentry)
-(pinentry-start)
+;; gnupg requires pinentry configuration on mac, probably due to Emacs 27 or mu
+(when *is-a-mac*
+  (require-package 'pinentry)
+  (pinentry-start))
 ;; configurations for Emacs 25
 (setf epa-pinentry-mode 'loopback)
 ;; (setq epg-pinentry-mode 'loopback)

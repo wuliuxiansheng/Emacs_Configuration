@@ -17,9 +17,10 @@
 (setq mu4e-headers-include-related t)
 (setq mu4e-change-filename-when-moving t)
 
-;; (setq mu4e-get-mail-command "mbsync -a")
-(setq mu4e-get-mail-command (format "INSIDE_EMACS=%s mbsync -a" emacs-version)
-      epa-pinentry-mode 'ask)
+(setq mu4e-get-mail-command "mbsync -a")
+(when *is-a-mac*
+  (setq mu4e-get-mail-command (format "INSIDE_EMACS=%s mbsync -a" emacs-version)
+        epa-pinentry-mode 'ask))
 
 (setq mu4e-maildir "~/.mail")
 (setq mu4e-drafts-folder "/Gmail/[Gmail]/Drafts")
