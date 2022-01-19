@@ -39,6 +39,11 @@
         ("/Gmail/[Gmail]/Sent Mail" . ?s)
         ))
 
+(setq mu4e-attachment-dir  "~/Downloads")
+(setq mu4e-compose-keep-self-cc nil)
+;; needed by mu4e<=1.4
+(setq mu4e-user-mail-address-list (quote ("chaoliu@csail.mit.edu")))
+
 (defun my-render-html-message ()
   (let ((dom (libxml-parse-html-region (point-min) (point-max))))
     (erase-buffer)
