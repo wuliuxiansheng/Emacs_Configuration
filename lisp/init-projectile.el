@@ -19,6 +19,11 @@
   ;;Configuration for Windows
   (when *is-a-windows*
     (setq projectile-indexing-method 'alien))
+
+  ;; required for non Git or SVN projects
+  (when (not *is-a-windows*)
+    (setq projectile-indexing-method 'native))
+
   )
 
 
