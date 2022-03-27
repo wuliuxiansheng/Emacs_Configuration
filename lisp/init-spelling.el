@@ -18,6 +18,8 @@
   (add-hook 'markdown-mode-hook 'flyspell-mode)
   ;; add spell checking for git commit
   (add-hook 'git-commit-setup-hook 'flyspell-mode)
+  ;; add spell checking for mu4e message mode
+  (add-hook 'mu4e-compose-mode-hook 'flyspell-mode)
 
   (with-eval-after-load 'flyspell
     (define-key flyspell-mode-map (kbd "C-;") nil)
