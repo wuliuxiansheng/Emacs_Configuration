@@ -67,6 +67,14 @@
        "Postdoctoral Associate at MIT CSAIL\n"
        "https://www.chaoliu.tech"))
 
+;; mu4e cc & bcc
+(add-hook 'mu4e-compose-mode-hook
+          (defun mail/add-cc-and-bcc ()
+            "My Function to automatically add Cc & Bcc: headers.
+    This is in the mu4e compose mode."
+            (save-excursion (message-add-header "Cc:\n"))
+            (save-excursion (message-add-header "Bcc:\n"))))
+
 ;; don't keep message compose buffers around after sending:
 (setq message-kill-buffer-on-exit t)
 
