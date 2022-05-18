@@ -186,6 +186,10 @@
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 
+;; disable header autoinsertion
+(setq lsp-clients-clangd-args
+      '("--header-insertion=never"))
+
 ;;; CMake configuration
 (require-package 'cmake-mode)
 (setq auto-mode-alist
