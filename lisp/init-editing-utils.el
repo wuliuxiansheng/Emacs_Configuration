@@ -122,6 +122,7 @@
 
 
 (require-package 'undo-tree)
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 (add-hook 'after-init-hook 'global-undo-tree-mode)
 (after-load 'undo-tree
   (diminish 'undo-tree-mode))
