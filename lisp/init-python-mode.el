@@ -6,6 +6,9 @@
 
 (require-package 'pip-requirements)
 
+(require-package 'pyvenv)
+(setenv "WORKON_HOME" (concat (getenv "CONDA_PREFIX") "/envs"))
+
 
 ;;; iPython configuration
 (setq
@@ -23,7 +26,8 @@
  ;; "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
  )
 (with-eval-after-load 'python
-  (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter"))
+  (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter")
+  (pyvenv-mode 1))
 
 ;;; python style checking
 ;; (require-package 'pep8)
