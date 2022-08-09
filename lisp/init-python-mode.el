@@ -6,9 +6,10 @@
 
 (require-package 'pip-requirements)
 
-(require-package 'pyvenv)
-(setenv "WORKON_HOME" (concat (getenv "CONDA_PREFIX") "/envs"))
-
+;; (require-package 'pyvenv)
+(require-package 'conda)
+(conda-env-initialize-interactive-shells)
+(conda-env-initialize-eshell)
 
 ;;; iPython configuration
 (when *is-a-linux*
@@ -26,6 +27,7 @@
    ;; python-shell-completion-string-code
    ;; "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
    )
+  ;; (setenv "WORKON_HOME" (concat (getenv "CONDA_PREFIX") "/envs"))
   )
 
 (when *is-a-mac*
@@ -43,7 +45,11 @@
    ;; python-shell-completion-string-code
    ;; "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
    )
+  ;; (setenv "WORKON_HOME" "/opt/homebrew/Caskroom/miniconda/base/envs")
+  (custom-set-variables
+   '(conda-anaconda-home "/opt/homebrew/Caskroom/miniconda/base/"))
   )
+
 (with-eval-after-load 'python
   (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter")
   (pyvenv-mode 1))
