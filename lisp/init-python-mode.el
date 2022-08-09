@@ -1,7 +1,7 @@
 ;;; Basic python mode configuration
 (setq auto-mode-alist
       (append '(("SConstruct\\'" . python-mode)
-				("SConscript\\'" . python-mode))
+		("SConscript\\'" . python-mode))
               auto-mode-alist))
 
 (require-package 'pip-requirements)
@@ -11,20 +11,39 @@
 
 
 ;;; iPython configuration
-(setq
- python-shell-interpreter "jupyter"
- python-shell-interpreter-args "console --simple-prompt"
- python-shell-prompt-detect-failure-warning nil
- ;; python-shell-completion-native-enable nil
- ;; python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- ;; python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- ;; python-shell-completion-setup-code
- ;; "from IPython.core.completerlib import module_completion"
- ;; python-shell-completion-module-string-code
- ;; "';'.join(module_completion('''%s'''))\n"
- ;; python-shell-completion-string-code
- ;; "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
- )
+(when *is-a-linux*
+  (setq
+   python-shell-interpreter "jupyter"
+   python-shell-interpreter-args "console --simple-prompt"
+   python-shell-prompt-detect-failure-warning nil
+   ;; python-shell-completion-native-enable nil
+   ;; python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+   ;; python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+   ;; python-shell-completion-setup-code
+   ;; "from IPython.core.completerlib import module_completion"
+   ;; python-shell-completion-module-string-code
+   ;; "';'.join(module_completion('''%s'''))\n"
+   ;; python-shell-completion-string-code
+   ;; "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+   )
+  )
+
+(when *is-a-mac*
+  (setq
+   python-shell-interpreter "ipython"
+   python-shell-interpreter-args "-i --simple-prompt"
+   python-shell-prompt-detect-failure-warning nil
+   ;; python-shell-completion-native-enable nil
+   ;; python-shell-prompt-input-regexps '("In \\[[0-9]+\\]: ")
+   ;; python-shell-prompt-output-regexps '("Out\\[[0-9]+\\]: ")
+   ;; python-shell-completion-setup-code
+   ;; "from IPython.core.completerlib import module_completion"
+   ;; python-shell-completion-module-string-code
+   ;; "';'.join(module_completion('''%s'''))\n"
+   ;; python-shell-completion-string-code
+   ;; "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+   )
+  )
 (with-eval-after-load 'python
   (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter")
   (pyvenv-mode 1))
