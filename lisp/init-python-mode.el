@@ -52,7 +52,8 @@
 
 (with-eval-after-load 'python
   (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter")
-  (pyvenv-mode 1))
+  ;; (pyvenv-mode 1)
+  )
 
 ;;; python style checking
 ;; (require-package 'pep8)
