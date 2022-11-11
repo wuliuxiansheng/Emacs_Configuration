@@ -8,8 +8,8 @@
   ;; Shorter modeline
   (setq-default projectile-mode-line-prefix " Proj")
 
-  (when (executable-find "rg")
-    (setq-default projectile-generic-command "rg --files --hidden"))
+  ;; (when (executable-find "rg")
+  ;;   (setq-default projectile-generic-command "rg --files --hidden"))
 
   (with-eval-after-load 'projectile
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
@@ -21,8 +21,8 @@
     (setq projectile-indexing-method 'alien))
 
   ;; required for non Git or SVN projects
-  (when (not *is-a-windows*)
-    (setq projectile-indexing-method 'native))
+  ;; (when (not *is-a-windows*)
+  ;;   (setq projectile-indexing-method 'naive))
 
   )
 
