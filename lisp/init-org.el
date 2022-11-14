@@ -93,6 +93,9 @@
 ;; org-ref
 (require-package 'org-ref)
 (require 'org-ref)
+(require 'org-ref-ivy)
+
+(define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
 
 ;; display of entities as UTF-8 characters
 (setq org-pretty-entities t)
