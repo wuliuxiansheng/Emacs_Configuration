@@ -93,7 +93,8 @@
 ;; org-ref
 (require-package 'org-ref)
 (require 'org-ref)
-(require 'org-ref-ivy)
+(with-eval-after-load 'ivy-bibtex
+  (require 'org-ref-ivy))
 
 (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
 
