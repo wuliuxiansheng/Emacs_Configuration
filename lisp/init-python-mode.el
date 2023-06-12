@@ -104,4 +104,14 @@
 
 (add-hook 'python-mode-hook #'lsp)
 
+;; jupyter configuration
+(require-package 'jupyter)
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   (append org-babel-load-languages
+           '((jupyter . t))))
+  (org-babel-jupyter-override-src-block "python")
+  )
+
 (provide 'init-python-mode)
