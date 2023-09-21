@@ -28,11 +28,19 @@
 (setq mu4e-refile-folder "/Gmail/[Gmail]/All Mail")
 (setq mu4e-trash-folder "/Gmail/[Gmail]/Trash")
 
-(add-to-list 'mu4e-bookmarks
-             (make-mu4e-bookmark
-              :name "Inbox - Gmail"
-              :query "maildir:/Gmail/INBOX"
-              :key ?i))
+;; mu4e version on mac is more recent
+(if *is-a-mac*
+    (add-to-list 'mu4e-bookmarks
+                 '(
+                   :name "Inbox - Gmail"
+                   :query "maildir:/Gmail/INBOX"
+                   :key ?i))
+  (add-to-list 'mu4e-bookmarks
+               (make-mu4e-bookmark
+                :name "Inbox - Gmail"
+                :query "maildir:/Gmail/INBOX"
+                :key ?i))
+  )
 
 (setq mu4e-maildir-shortcuts
       '(("/Gmail/INBOX" . ?i)
