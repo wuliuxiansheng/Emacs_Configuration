@@ -61,7 +61,7 @@
  )
 
 ;; ox-extra for ignore-headlines
-(require-package 'org-plus-contrib)
+(require-package 'org-contrib)
 (require 'ox-extra)
 (ox-extras-activate '(ignore-headlines))
 
