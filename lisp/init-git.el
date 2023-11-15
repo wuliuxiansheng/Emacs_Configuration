@@ -50,6 +50,10 @@
 (when (maybe-require-package 'git-commit)
   (add-hook 'git-commit-mode-hook 'goto-address-mode))
 
+;; show differences for long lines
+(with-eval-after-load 'magit
+  (setq magit-diff-refine-hunk (quote all)))
+
 
 (when *is-a-mac*
   (with-eval-after-load 'magit
