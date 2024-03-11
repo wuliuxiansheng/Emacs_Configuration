@@ -30,16 +30,28 @@
 
 ;; mu4e version on mac is more recent
 (if *is-a-mac*
+    (progn
+      (add-to-list 'mu4e-bookmarks
+                   '(
+                     :name "Starred - Gmail"
+                     :query "maildir:/Gmail/[Gmail]/Starred"
+                     :key ?s))
+      (add-to-list 'mu4e-bookmarks
+                   '(
+                     :name "Inbox - Gmail"
+                     :query "maildir:/Gmail/INBOX"
+                     :key ?i)))
+  (progn
     (add-to-list 'mu4e-bookmarks
                  '(
-                   :name "Inbox - Gmail"
-                   :query "maildir:/Gmail/INBOX"
-                   :key ?i))
-  (add-to-list 'mu4e-bookmarks
-               (make-mu4e-bookmark
-                :name "Inbox - Gmail"
-                :query "maildir:/Gmail/INBOX"
-                :key ?i))
+                   :name "Starred - Gmail"
+                   :query "maildir:/Gmail/[Gmail]/Starred"
+                   :key ?s))
+    (add-to-list 'mu4e-bookmarks
+                 (make-mu4e-bookmark
+                  :name "Inbox - Gmail"
+                  :query "maildir:/Gmail/INBOX"
+                  :key ?i)))
   )
 
 (setq mu4e-maildir-shortcuts
