@@ -43,10 +43,10 @@
                      :key ?i)))
   (progn
     (add-to-list 'mu4e-bookmarks
-                 '(
-                   :name "Starred - Gmail"
-                   :query "maildir:/Gmail/[Gmail]/Starred"
-                   :key ?s))
+                 (make-mu4e-bookmark
+                  :name "Starred - Gmail"
+                  :query "maildir:/Gmail/[Gmail]/Starred"
+                  :key ?s))
     (add-to-list 'mu4e-bookmarks
                  (make-mu4e-bookmark
                   :name "Inbox - Gmail"
