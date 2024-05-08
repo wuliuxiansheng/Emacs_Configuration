@@ -61,7 +61,7 @@
 
 ;; integrate autopep8
 (require-package 'py-autopep8)
-(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+(add-hook 'python-mode-hook 'py-autopep8-mode)
 
 
 ;;; pymacs and ropemacs configuration
