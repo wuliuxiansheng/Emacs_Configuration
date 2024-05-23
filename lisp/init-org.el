@@ -98,6 +98,30 @@
 
 (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
 
+;; org-roam
+(require-package 'org-roam)
+(require-package 'org-roam-ui)
+(require-package 'org-roam-bibtex)
+
+(setq org-roam-directory (file-truename "~/Dropbox/Notes/org-roam"))
+(org-roam-db-autosync-mode)
+
+(setq org-roam-ui-sync-theme t
+      org-roam-ui-follow t
+      org-roam-ui-update-on-save t
+      org-roam-ui-open-on-start t)
+
+(with-eval-after-load 'org-roam
+  (require 'org-roam-bibtex))
+
+(setq orb-preformat-keywords '("entry-type" "citekey" "keywords" "author" "booktitle" "journal" "year"))
+(add-to-list 'org-roam-capture-templates
+             '("r" "bibliography reference" plain
+               (file "~/Dropbox/Notes/org-roam/references/template.org")
+               :target
+               (file+head "references/${citekey}.org" "#+title: ${title}\n")
+               :unnarrowed t))
+
 ;; display of entities as UTF-8 characters
 (setq org-pretty-entities t)
 
