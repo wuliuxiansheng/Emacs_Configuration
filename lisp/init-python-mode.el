@@ -104,6 +104,13 @@
 
 (add-hook 'python-mode-hook #'lsp)
 
+(with-eval-after-load 'lsp-mode
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-tramp-connection "pylsp")
+                    :major-modes '(python-mode)
+                    :remote? t
+                    :server-id 'pylsp-remote)))
+
 ;; jupyter configuration
 (require-package 'jupyter)
 (with-eval-after-load 'org

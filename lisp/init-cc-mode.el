@@ -190,6 +190,14 @@
 (setq lsp-clients-clangd-args
       '("--header-insertion=never"))
 
+(with-eval-after-load 'lsp-mode
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-tramp-connection "clangd-12")
+                    :major-modes '(c++-mode c-mode)
+                    :remote? t
+                    :server-id 'clangd-remote))
+  )
+
 ;;; CMake configuration
 (require-package 'cmake-mode)
 (setq auto-mode-alist
