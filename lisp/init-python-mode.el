@@ -118,7 +118,13 @@
    'org-babel-load-languages
    (append org-babel-load-languages
            '((jupyter . t))))
-  (org-babel-jupyter-override-src-block "python")
+  ;; (org-babel-jupyter-override-src-block "python")
+  (setq org-babel-default-header-args:jupyter-python
+        '((:async . "yes")
+          (:session . "py")
+          (:kernel . "python3")))
   )
+(setq jupyter-repl-completion-at-point-hook-depth 1)
+(setq jupyter-repl-echo-eval-p t)
 
 (provide 'init-python-mode)
