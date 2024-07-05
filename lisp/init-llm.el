@@ -11,7 +11,7 @@
  gptel-backend (gptel-make-ollama "Ollama"
                  :host "localhost:11434"
                  :stream t
-                 :models '("llama3:latest", "llama3:text")))
+                 :models '("llama3:latest" "llama3:text")))
 
 (setq gptel-default-mode 'org-mode)
 
