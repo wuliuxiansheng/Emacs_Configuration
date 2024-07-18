@@ -114,7 +114,7 @@
 (with-eval-after-load 'org-roam
   (require 'org-roam-bibtex))
 
-(setq orb-preformat-keywords '("entry-type" "citekey" "keywords" "author" "booktitle" "journal" "year"))
+(setq orb-preformat-keywords '("entry-type" "citekey" "keywords" "author" "booktitle" "journal" "year" "file" "abstract"))
 (add-to-list 'org-roam-capture-templates
              '("r" "bibliography reference" plain
                (file "~/Dropbox/Notes/org-roam/references/template.org")
