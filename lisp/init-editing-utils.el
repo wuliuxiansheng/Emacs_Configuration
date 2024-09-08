@@ -24,7 +24,7 @@
  indent-tabs-mode nil
  create-lockfiles nil
  auto-save-default nil
- make-backup-files nil
+ ;; make-backup-files nil
  mouse-yank-at-point t
  save-interprogram-paste-before-kill t
  scroll-preserve-screen-position 'always
@@ -32,6 +32,10 @@
  tooltip-delay 1.5
  truncate-lines nil
  truncate-partial-width-windows nil)
+
+(setq backup-by-copying t
+      backup-directory-alist '(("." . "~/.emacs.d/backups"))
+      delete-old-versions t)
 
 (add-hook 'after-init-hook 'delete-selection-mode)
 

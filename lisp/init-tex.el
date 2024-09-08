@@ -39,6 +39,11 @@
 ;; (setq-default ispell-program-name "aspell")
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
+;; fix the issue of electric pairing for {} in bibtex mode
+(add-hook 'bibtex-mode-hook
+          (lambda ()
+            (setq electric-pair-preserve-balance nil)))
+
 ;; ivy-bibtex configuration
 (autoload 'ivy-bibtex "ivy-bibtex" "" t)
 (setq ivy-re-builders-alist
