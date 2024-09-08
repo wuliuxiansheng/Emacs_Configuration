@@ -20,7 +20,7 @@
       (list 'auto-fill-mode
             'LaTeX-math-mode
             'turn-on-reftex
-            'linum-mode))
+            'nlinum-mode))
 (add-hook 'LaTeX-mode-hook
           (lambda ()
             (setq TeX-auto-untabify t ;; remove all tabs before saving
