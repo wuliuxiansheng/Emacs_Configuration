@@ -7,11 +7,11 @@
 ;;   :models '("llama3:latest", "llama3:text"))          ;List of models
 
 (setq
- gptel-model "llama3:latest"
+ gptel-model "llama3.1:latest"
  gptel-backend (gptel-make-ollama "Ollama"
                  :host "localhost:11434"
                  :stream t
-                 :models '("llama3:latest" "llama3:text")))
+                 :models '("llama3.1:latest" "llama3.1:text")))
 
 (setq gptel-default-mode 'org-mode)
 
