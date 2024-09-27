@@ -1,8 +1,8 @@
 IMAPAccount gmail
 Host imap.gmail.com
-User xxx@gmail.com
+User personal@gmail.com
 # use gpg to decode the password
-PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.gmail.com login xxx@gmail.com/ {print $NF}'"
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.gmail.com login personal@gmail.com/ {print $NF}'"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
@@ -15,8 +15,39 @@ Path ~/.mail/Gmail/
 Inbox ~/.mail/Gmail/Inbox
 
 Channel gmail
-Master :gmail-remote:
-Slave :gmail-local:
+Far :gmail-remote:
+Near :gmail-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *
+
+
+# academia email configuration
+IMAPAccount academia
+Host imap.gmail.com
+User academia@gmail.com
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.gmail.com login academia@gmail.com/ {print substr($0, 66, 19)}'"
+# Pass abcd\ efgh\ ijkl\ mnop
+# not working
+# PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine imap.gmail.com login academia@gmail.com/ {out = $6; for(i=7;i<=NF;i++) {out = out " " $i}; print out}'"
+SSLType IMAPS
+SSLVersions TLSv1.2
+AuthMechs PLAIN
+SystemCertificates no
+CertificateFile ~/.mail/certificates/root-certificates.pem
+
+IMAPStore academia-remote
+Account academia
+
+MaildirStore academia-local
+SubFolders Verbatim
+Path ~/.mail/Academia/
+Inbox ~/.mail/Academia/Inbox
+
+Channel academia
+Far :academia-remote:
+Near :academia-local:
 Patterns *
 Create Both
 Expunge Both

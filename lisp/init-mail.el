@@ -23,41 +23,73 @@
         epa-pinentry-mode 'ask))
 
 (setq mu4e-maildir "~/.mail")
-(setq mu4e-drafts-folder "/Gmail/[Gmail]/Drafts")
-(setq mu4e-sent-folder "/Gmail/[Gmail]/Sent Mail")
-(setq mu4e-refile-folder "/Gmail/[Gmail]/All Mail")
-(setq mu4e-trash-folder "/Gmail/[Gmail]/Trash")
+
+(setq mu4e-contexts
+      (list
+       (make-mu4e-context
+        :name "Personal"
+        :match-func
+        (lambda (msg)
+          (when msg
+            (string-prefix-p "/Gmail" (mu4e-message-field msg :maildir))))
+        :vars '((user-mail-address . "chaoliu@csail.mit.edu")
+                (user-full-name . "Chao Liu")
+                (mu4e-drafts-folder . "/Gmail/[Gmail]/Drafts")
+                (mu4e-sent-folder . "/Gmail/[Gmail]/Sent Mail")
+                (mu4e-refile-folder . "/Gmail/[Gmail]/All Mail")
+                (mu4e-trash-folder . "/Gmail/[Gmail]/Trash")
+                (mu4e-maildir-shortcuts . (("/Gmail/INBOX" . ?i)
+                                           ("/Gmail/[Gmail]/Sent Mail" . ?s)
+                                           ("/Gmail/[Gmail]/Starred" . ?S))))
+        )
+
+       (make-mu4e-context
+        :name "Academia"
+        :match-func
+        (lambda (msg)
+          (when msg
+            (string-prefix-p "/Academia" (mu4e-message-field msg :maildir))))
+        :vars '((user-mail-address . "chaoliuacademia@gmail.com")
+                (user-full-name . "Chao Liu")
+                (mu4e-drafts-folder . "/Academia/[Gmail]/Drafts")
+                (mu4e-sent-folder . "/Academia/[Gmail]/Sent Mail")
+                (mu4e-refile-folder . "/Academia/[Gmail]/All Mail")
+                (mu4e-trash-folder . "/Academia/[Gmail]/Trash")
+                (mu4e-maildir-shortcuts . (("/Academia/INBOX" . ?i)
+                                           ("/Academia/[Gmail]/Sent Mail" . ?s)
+                                           ("/Academia/[Gmail]/Starred" . ?S))))
+        )))
 
 ;; mu4e version on mac is more recent
-(if *is-a-mac*
-    (progn
-      (add-to-list 'mu4e-bookmarks
-                   '(
-                     :name "Starred - Gmail"
-                     :query "maildir:/Gmail/[Gmail]/Starred"
-                     :key ?s))
-      (add-to-list 'mu4e-bookmarks
-                   '(
-                     :name "Inbox - Gmail"
-                     :query "maildir:/Gmail/INBOX"
-                     :key ?i)))
-  (progn
-    (add-to-list 'mu4e-bookmarks
-                 (make-mu4e-bookmark
-                  :name "Starred - Gmail"
-                  :query "maildir:/Gmail/[Gmail]/Starred"
-                  :key ?s))
-    (add-to-list 'mu4e-bookmarks
-                 (make-mu4e-bookmark
-                  :name "Inbox - Gmail"
-                  :query "maildir:/Gmail/INBOX"
-                  :key ?i)))
-  )
+;; (if *is-a-mac*
+;;     (progn
+;;       (add-to-list 'mu4e-bookmarks
+;;                    '(
+;;                      :name "Starred - Gmail"
+;;                      :query "maildir:/Gmail/[Gmail]/Starred"
+;;                      :key ?s))
+;;       (add-to-list 'mu4e-bookmarks
+;;                    '(
+;;                      :name "Inbox - Gmail"
+;;                      :query "maildir:/Gmail/INBOX"
+;;                      :key ?i)))
+;;   (progn
+;;     (add-to-list 'mu4e-bookmarks
+;;                  (make-mu4e-bookmark
+;;                   :name "Starred - Gmail"
+;;                   :query "maildir:/Gmail/[Gmail]/Starred"
+;;                   :key ?s))
+;;     (add-to-list 'mu4e-bookmarks
+;;                  (make-mu4e-bookmark
+;;                   :name "Inbox - Gmail"
+;;                   :query "maildir:/Gmail/INBOX"
+;;                   :key ?i)))
+;;   )
 
-(setq mu4e-maildir-shortcuts
-      '(("/Gmail/INBOX" . ?i)
-        ("/Gmail/[Gmail]/Sent Mail" . ?s)
-        ))
+;; (setq mu4e-maildir-shortcuts
+;;       '(("/Gmail/INBOX" . ?i)
+;;         ("/Gmail/[Gmail]/Sent Mail" . ?s)
+;;         ))
 
 (setq mu4e-attachment-dir  "~/Downloads")
 (setq mu4e-compose-keep-self-cc nil)
