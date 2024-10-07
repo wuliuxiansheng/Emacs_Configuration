@@ -40,7 +40,8 @@
                 (mu4e-trash-folder . "/Gmail/[Gmail]/Trash")
                 (mu4e-maildir-shortcuts . (("/Gmail/INBOX" . ?i)
                                            ("/Gmail/[Gmail]/Sent Mail" . ?s)
-                                           ("/Gmail/[Gmail]/Starred" . ?S))))
+                                           ("/Gmail/[Gmail]/Starred" . ?S)))
+                (smtpmail-smtp-user . "chao.liu0307"))
         )
 
        (make-mu4e-context
@@ -57,7 +58,8 @@
                 (mu4e-trash-folder . "/Academia/[Gmail]/Trash")
                 (mu4e-maildir-shortcuts . (("/Academia/INBOX" . ?i)
                                            ("/Academia/[Gmail]/Sent Mail" . ?s)
-                                           ("/Academia/[Gmail]/Starred" . ?S))))
+                                           ("/Academia/[Gmail]/Starred" . ?S)))
+                (smtpmail-smtp-user . "chaoliuacademia"))
         )))
 
 ;; mu4e version on mac is more recent
@@ -94,7 +96,7 @@
 (setq mu4e-attachment-dir  "~/Downloads")
 (setq mu4e-compose-keep-self-cc nil)
 ;; needed by mu4e<=1.4
-(setq mu4e-user-mail-address-list (quote ("chaoliu@csail.mit.edu")))
+;; (setq mu4e-user-mail-address-list (quote ("chaoliu@csail.mit.edu")))
 
 (defun my-render-html-message ()
   (let ((dom (libxml-parse-html-region (point-min) (point-max))))
