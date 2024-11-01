@@ -109,7 +109,15 @@
 ;;               (member major-mode linum-disabled-modes-list))
 ;;     (linum-mode 1)))
 (require-package 'nlinum)
+(require-package 'highlight-indent-guides)
+(require 'highlight-indent-guides)
+(setq highlight-indent-guides-method 'character)
+(setq highlight-indent-guides-auto-enabled nil)
+(set-face-background 'highlight-indent-guides-odd-face "#424242")
+(set-face-background 'highlight-indent-guides-even-face "#626262")
+(set-face-foreground 'highlight-indent-guides-character-face "#626262")
 (add-hook 'prog-mode-hook 'nlinum-mode)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (add-hook 'bibtex-mode-hook 'nlinum-mode)
 
 
