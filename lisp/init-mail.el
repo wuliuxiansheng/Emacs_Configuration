@@ -60,7 +60,26 @@
                                            ("/Academia/[Gmail]/Sent Mail" . ?s)
                                            ("/Academia/[Gmail]/Starred" . ?S)))
                 (smtpmail-smtp-user . "chaoliuacademia"))
-        )))
+        )
+
+       (make-mu4e-context
+        :name "UBC-Gmail"
+        :match-func
+        (lambda (msg)
+          (when msg
+            (string-prefix-p "/UBC_Gmail" (mu4e-message-field msg :maildir))))
+        :vars '((user-mail-address . "chaoliu.ubc@gmail.com")
+                (user-full-name . "Chao Liu")
+                (mu4e-drafts-folder . "/UBC_Gmail/[Gmail]/Drafts")
+                (mu4e-sent-folder . "/UBC_Gmail/[Gmail]/Sent Mail")
+                (mu4e-refile-folder . "/UBC_Gmail/[Gmail]/All Mail")
+                (mu4e-trash-folder . "/UBC_Gmail/[Gmail]/Trash")
+                (mu4e-maildir-shortcuts . (("/UBC_Gmail/INBOX" . ?i)
+                                           ("/UBC_Gmail/[Gmail]/Sent Mail" . ?s)
+                                           ("/UBC_Gmail/[Gmail]/Starred" . ?S)))
+                (smtpmail-smtp-user . "chaoliu.ubc"))
+        )
+       ))
 
 ;; mu4e version on mac is more recent
 ;; (if *is-a-mac*
@@ -118,7 +137,6 @@
 (setq mu4e-compose-signature
       (concat
        "Chao Liu\n"
-       "Postdoctoral Associate at MIT CSAIL\n"
        "https://www.chaoliu.tech"))
 
 ;; mu4e cc & bcc
