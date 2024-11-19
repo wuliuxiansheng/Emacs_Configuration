@@ -150,5 +150,8 @@
 ;; don't keep message compose buffers around after sending:
 (setq message-kill-buffer-on-exit t)
 
+;; sending html email
+(require-package 'org-mime)
+
 
 (provide 'init-mail)
