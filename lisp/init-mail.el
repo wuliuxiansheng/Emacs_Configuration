@@ -3,8 +3,8 @@
 (require-package 'bbdb)
 
 ;; import from Gmail contacts
-(require-package 'gmail2bbdb)
-(autoload 'gmail2bbdb-import-file "gmail2bbdb" nil t nil)
+;; (require-package 'gmail2bbdb)
+;; (autoload 'gmail2bbdb-import-file "gmail2bbdb" nil t nil)
 
 ;; Read HTML mail
 ;; (require-package 'w3m)
