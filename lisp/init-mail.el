@@ -32,7 +32,7 @@
         (lambda (msg)
           (when msg
             (string-prefix-p "/Gmail" (mu4e-message-field msg :maildir))))
-        :vars '((user-mail-address . "chaoliu@csail.mit.edu")
+        :vars '((user-mail-address . "xxx[at]xxx")
                 (user-full-name . "Chao Liu")
                 (mu4e-drafts-folder . "/Gmail/[Gmail]/Drafts")
                 (mu4e-sent-folder . "/Gmail/[Gmail]/Sent Mail")
@@ -41,7 +41,9 @@
                 (mu4e-maildir-shortcuts . (("/Gmail/INBOX" . ?i)
                                            ("/Gmail/[Gmail]/Sent Mail" . ?s)
                                            ("/Gmail/[Gmail]/Starred" . ?S)))
-                (smtpmail-smtp-user . "chao.liu0307"))
+                (smtpmail-smtp-user . "xxx")
+                (smtpmail-smtp-server . "smtp.gmail.com")
+                (smtpmail-smtp-service . 587))
         )
 
        (make-mu4e-context
@@ -50,7 +52,7 @@
         (lambda (msg)
           (when msg
             (string-prefix-p "/Academia" (mu4e-message-field msg :maildir))))
-        :vars '((user-mail-address . "chaoliuacademia@gmail.com")
+        :vars '((user-mail-address . "xxx[at]xxx")
                 (user-full-name . "Chao Liu")
                 (mu4e-drafts-folder . "/Academia/[Gmail]/Drafts")
                 (mu4e-sent-folder . "/Academia/[Gmail]/Sent Mail")
@@ -59,7 +61,9 @@
                 (mu4e-maildir-shortcuts . (("/Academia/INBOX" . ?i)
                                            ("/Academia/[Gmail]/Sent Mail" . ?s)
                                            ("/Academia/[Gmail]/Starred" . ?S)))
-                (smtpmail-smtp-user . "chaoliuacademia"))
+                (smtpmail-smtp-user . "xxx")
+                (smtpmail-smtp-server . "smtp.gmail.com")
+                (smtpmail-smtp-service . 587))
         )
 
        (make-mu4e-context
@@ -68,7 +72,7 @@
         (lambda (msg)
           (when msg
             (string-prefix-p "/UBC_Gmail" (mu4e-message-field msg :maildir))))
-        :vars '((user-mail-address . "chaoliu.ubc@gmail.com")
+        :vars '((user-mail-address . "xxx[at]xxx")
                 (user-full-name . "Chao Liu")
                 (mu4e-drafts-folder . "/UBC_Gmail/[Gmail]/Drafts")
                 (mu4e-sent-folder . "/UBC_Gmail/[Gmail]/Sent Mail")
@@ -77,7 +81,28 @@
                 (mu4e-maildir-shortcuts . (("/UBC_Gmail/INBOX" . ?i)
                                            ("/UBC_Gmail/[Gmail]/Sent Mail" . ?s)
                                            ("/UBC_Gmail/[Gmail]/Starred" . ?S)))
-                (smtpmail-smtp-user . "chaoliu.ubc"))
+                (smtpmail-smtp-user . "xxx")
+                (smtpmail-smtp-server . "smtp.gmail.com")
+                (smtpmail-smtp-service . 587))
+        )
+
+       (make-mu4e-context
+        :name "FASmail"
+        :match-func
+        (lambda (msg)
+          (when msg
+            (string-prefix-p "/UBC_FASmail" (mu4e-message-field msg :maildir))))
+        :vars '((user-mail-address . "xxx[at]xxx")
+                (user-full-name . "Chao Liu")
+                (mu4e-drafts-folder . "/UBC_FASmail/Drafts")
+                (mu4e-sent-folder . "/UBC_FASmail/Sent Items")
+                (mu4e-trash-folder . "/UBC_FASmail/Deleted Items")
+                (mu4e-maildir-shortcuts . (("/UBC_FASmail/INBOX" . ?i)
+                                           ("/UBC_FASmail/Sent Items" . ?s)
+                                           ))
+                (smtpmail-smtp-user . "xxx")
+                (smtpmail-smtp-server . "smtp.mail.ubc.ca")
+                (smtpmail-smtp-service . 587))
         )
        ))
 
@@ -130,8 +155,8 @@
 
 ;; SMTP configuration
 (setq send-mail-function 'smtpmail-send-it)
-(setq smtpmail-smtp-server "smtp.gmail.com")
-(setq smtpmail-smtp-service 587)
+;; (setq smtpmail-smtp-server "smtp.gmail.com")
+;; (setq smtpmail-smtp-service 587)
 (setq smtpmail-stream-type 'starttls)
 
 (setq mu4e-compose-signature
