@@ -162,7 +162,7 @@
 (setq mu4e-compose-signature
       (concat
        "Chao Liu\n"
-       "https://www.chaoliu.tech"))
+       "https://chaoliu.tech"))
 
 ;; mu4e cc & bcc
 (add-hook 'mu4e-compose-mode-hook
