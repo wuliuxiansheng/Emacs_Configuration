@@ -121,6 +121,14 @@
                :target
                (file+head "references/${citekey}.org" "#+title: ${title}\n")
                :unnarrowed t))
+(add-to-list 'org-roam-capture-templates
+             '("n" "research note" plain
+               (file "~/Dropbox/Notes/org-roam/research_notes/template.org")
+               :target
+               (file+head "research_notes/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+               :unnarrowed t))
+
+;; (setq org-roam-graph-viewer "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 
 ;; display of entities as UTF-8 characters
 (setq org-pretty-entities t)
