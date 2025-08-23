@@ -13,7 +13,8 @@
           (lambda()
             (add-to-list 'TeX-command-list '("PDFLaTeX" "%`pdflatex --shell-escape --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
             (add-to-list 'TeX-command-list '("XeTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))
-            (setq TeX-command-default "PDFLaTeX")))
+            (add-to-list 'TeX-command-list '("LaTeXMK" "%`latexmk -pdflatex='pdflatex -synctex=1 -interaction=nonstopmode' -pdf%' %s" TeX-run-TeX nil t))
+            (setq TeX-command-default "LaTeXMK")))
 
 (mapc (lambda (mode)
         (add-hook 'LaTeX-mode-hook mode))
