@@ -103,7 +103,7 @@
 (require-package 'org-roam-ui)
 (require-package 'org-roam-bibtex)
 
-(setq org-roam-directory (file-truename "~/Dropbox/Notes/org-roam"))
+(setq org-roam-directory (file-truename "~/Dropbox (Personal)/Notes/org-roam"))
 (org-roam-db-autosync-mode)
 
 (setq org-roam-ui-sync-theme t
@@ -117,16 +117,20 @@
 (setq orb-preformat-keywords '("entry-type" "citekey" "keywords" "author" "booktitle" "journal" "year" "doi" "url" "abstract"))
 (add-to-list 'org-roam-capture-templates
              '("r" "bibliography reference" plain
-               (file "~/Dropbox/Notes/org-roam/references/template.org")
+               (file "~/Dropbox (Personal)/Notes/org-roam/references/template.org")
                :target
                (file+head "references/${citekey}.org" "#+title: ${title}\n")
                :unnarrowed t))
 (add-to-list 'org-roam-capture-templates
              '("n" "research note" plain
-               (file "~/Dropbox/Notes/org-roam/research_notes/template.org")
+               (file "~/Dropbox (Personal)/Notes/org-roam/research_notes/template.org")
                :target
                (file+head "research_notes/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
                :unnarrowed t))
+
+;; (setq org-roam-node-display-template "${title:*} ${tags:20}")
+(setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:20}" 'face 'org-tag)))
+;; (setq org-roam-database-connector 'sqlite)
 
 ;; (setq org-roam-graph-viewer "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 
