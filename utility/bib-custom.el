@@ -7,3 +7,5 @@
 (setq bibtex-completion-library-path
       '("/path1/to/pdfs"
         "/path2/to/pdfs"))
+
+(setq bibtex-completion-notes-path "/path/to/notes")
