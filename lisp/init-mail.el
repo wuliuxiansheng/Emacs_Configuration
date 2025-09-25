@@ -164,11 +164,31 @@
        "Chao Liu\n"
        "https://chaoliu.tech"))
 
+
+;; (defun mbsync-work-after-send ()
+;;   "Runs mbsync for a channel of the 'work' account after sending an email."
+;;   (when (string= user-mail-address "work_email") ; Check if the 'work' context is active
+;;     (message "Running mbsync for work account...")
+;;     (start-process "mbsync-work" nil "mbsync" "channel-to-sync")
+;;     (message "Done")
+;;     ))
+
+(defun mbsync-work-after-send ()
+  "Runs mbsync for a channel of the 'work' account after sending an email."
+  (when (string= (mu4e-context-name mu4e--context-current) "work") ; Check if the 'work' context is active
+    (message "Running mbsync for work account...")
+    (start-process "mbsync-work" nil "mbsync" "channel-to-sync")
+    (message "Done")
+    ))
+
+;; Older version of mu might not support mu4e-compose-post-hook
+(add-hook 'mu4e-compose-post-hook 'mbsync-work-after-send)
+
+
 ;; mu4e cc & bcc
 (add-hook 'mu4e-compose-mode-hook
           (defun mail/add-cc-and-bcc ()
-            "My Function to automatically add Cc & Bcc: headers.
-    This is in the mu4e compose mode."
+            "My Function to automatically add Cc & Bcc: headers. This is in the mu4e compose mode."
             (save-excursion (message-add-header "Cc:\n"))
             (save-excursion (message-add-header "Bcc:\n"))))
 
