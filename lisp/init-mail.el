@@ -178,11 +178,14 @@
   (when (string= (mu4e-context-name mu4e--context-current) "work") ; Check if the 'work' context is active
     (message "Running mbsync for work account...")
     (start-process "mbsync-work" nil "mbsync" "channel-to-sync")
-    (message "Done")
+    (mu4e-update-index)
+    ;; (message "Sync done")
     ))
 
 ;; Older version of mu might not support mu4e-compose-post-hook
-(add-hook 'mu4e-compose-post-hook 'mbsync-work-after-send)
+;; (add-hook 'mu4e-compose-post-hook 'mbsync-work-after-send 90)
+;; message-sent-hook is a better option
+(add-hook 'message-sent-hook 'mbsync-work-after-send)
 
 
 ;; mu4e cc & bcc
