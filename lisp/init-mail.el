@@ -201,5 +201,10 @@
 ;; sending html email
 (require-package 'org-mime)
 
+;; load light theme when working on mails
+
+(add-hook 'mu4e-main-mode-hook 'light)
+;; require mu version >= 1.12.14
+(add-hook 'mu4e-quit-hook 'dark)
 
 (provide 'init-mail)
