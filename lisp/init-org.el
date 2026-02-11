@@ -291,20 +291,20 @@ typical word processor."
 
 ;;; Agenda views
 
-(setq org-agenda-files (list "~/Dropbox/OrgNotes/"))
+(setq org-agenda-files (list "~/Dropbox (Personal)/Notes/org-roam/todo.org"))
 
 (setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
 
 
 (let ((active-project-match "-INBOX/PROJECT"))
 
-  (setq org-stuck-projects
-        `(,active-project-match ("NEXT")))
+  ;; (setq org-stuck-projects
+  ;;       `(,active-project-match ("NEXT")))
 
   (setq org-agenda-compact-blocks t
         org-agenda-sticky t
-        org-agenda-start-on-weekday nil
-        org-agenda-span 'day
+        org-agenda-start-on-weekday 1
+        org-agenda-span 'week
         org-agenda-include-diary nil
         org-agenda-sorting-strategy
         '((agenda habit-down time-up user-defined-up effort-up category-keep)
