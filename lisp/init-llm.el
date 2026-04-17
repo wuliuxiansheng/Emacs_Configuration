@@ -6,12 +6,21 @@
 ;;   :stream t               ;Stream responses
 ;;   :models '("llama3:latest", "llama3:text"))          ;List of models
 
-(setq
- gptel-model "llama3.1:latest"
- gptel-backend (gptel-make-ollama "Ollama"
-                 :host "localhost:11434"
-                 :stream t
-                 :models '("llama3.1:latest" "llama3.1:text")))
+;; (setq
+;;  gptel-model "gemma4:26b"
+;;  gptel-backend (gptel-make-ollama "Ollama"
+;;                  :host "localhost:11434"
+;;                  :stream t
+;;                  :models '(gemma4:26b qwen3.5:35b)))
+
+(setq gptel-model "gemma-4-31b-it-8bit"
+      gptel-backend (gptel-make-openai "oMLX"
+                      :host "localhost:8000"
+                      :protocol "http"
+                      :key "6666"
+                      :endpoint "/v1/chat/completions"
+                      :stream t
+                      :models '(gemma-4-31b-it-8bit gemma-4-31b-it-4bit)))
 
 (setq gptel-default-mode 'org-mode)
 
